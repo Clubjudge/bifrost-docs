@@ -1,6 +1,7 @@
 ---
-exclude: ['README.markdown', 'node_modules']
+exclude: ['README.markdown']
 permalink: ':title'
 pygments: true
 safe: false
 title: 'Bifrost'
+markdown: kramdown
