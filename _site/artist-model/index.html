@@ -1,0 +1,26 @@
+<p>A Clubjudge Event.</p>
+
+<h3 id="properties">Properties</h3>
+<table><thead><tr><th>Name</th><th>Type</th><th>Description</th><th>Example</th></tr></thead><tbody><tr><td style="text-align: left;">id</td><td style="text-align: left;">Integer</td><td style="text-align: left;">The unique identifier for this artist</td><td style="text-align: left;"><code>56</code></td></tr>
+<tr><td style="text-align: left;">name</td><td style="text-align: left;">String</td><td style="text-align: left;">The name of this artist</td><td style="text-align: left;"><code>&quot;Awesome Artist&quot;</code></td></tr>
+<tr><td style="text-align: left;">description</td><td style="text-align: left;">String</td><td style="text-align: left;">The bio of this artist</td><td style="text-align: left;"><code>&quot;This artist is awesome&quot;</code></td></tr>
+<tr><td style="text-align: left;">follow</td><td style="text-align: left;">Boolean</td><td style="text-align: left;">Weather the logged user is going to this artist or not</td><td style="text-align: left;"><code>true</code></td></tr>
+<tr><td style="text-align: left;">followersCount</td><td style="text-align: left;">Integer</td><td style="text-align: left;">The number of people following this artist</td><td style="text-align: left;"><code>156</code></td></tr>
+<tr><td style="text-align: left;">commentsCount</td><td style="text-align: left;">Integer</td><td style="text-align: left;">The number of comments on this artist</td><td style="text-align: left;"><code>856</code></td></tr>
+<tr><td style="text-align: left;">friendsFollowingCount</td><td style="text-align: left;">Integer</td><td style="text-align: left;">The number of friends of the logged user going to this artist</td><td style="text-align: left;"><code>20</code></td></tr>
+<tr><td style="text-align: left;">socialLinks</td><td style="text-align: left;">[Hash]</td><td style="text-align: left;">Links to the artist in the web</td><td style="text-align: left;"><code>{ name: &#39;facebook&#39;, slug: &#39;facebook&#39;, href: &#39;http://facebook.com/artist&#39;}</code></td></tr>
+<tr><td style="text-align: left;">avatars</td><td style="text-align: left;">[Hash]</td><td style="text-align: left;">Links to avatars</td><td style="text-align: left;"><code>{ base: &#39;http://example.com&#39;, ext: &#39;jpg&#39;, id: 1981 }</code> }</td></tr>
+<tr><td style="text-align: left;">email</td><td style="text-align: left;">String</td><td style="text-align: left;">Contact email</td><td style="text-align: left;"><code>&quot;artist@email.com&quot;</code></td></tr>
+<tr><td style="text-align: left;">websiteUrl</td><td style="text-align: left;">String</td><td style="text-align: left;">Link to artist’s website</td><td style="text-align: left;"><code>&quot;http://artist.com&quot;</code></td></tr>
+<tr><td style="text-align: left;">upcomingEventsCount</td><td style="text-align: left;">Integer</td><td style="text-align: left;">Number of upcoming events for this artist</td><td style="text-align: left;"><code>24</code></td></tr>
+<tr><td style="text-align: left;">socialMentionsCount</td><td style="text-align: left;">Integer</td><td style="text-align: left;">Number of social mentions for this artist</td><td style="text-align: left;"><code>238</code></td></tr>
+<tr><td style="text-align: left;">address</td><td style="text-align: left;">Hash</td><td style="text-align: left;">Address for contact with the artist</td><td style="text-align: left;"><code>{ city: null, country:null, region:null composedName:null}</code></td></tr>
+<tr><td style="text-align: left;">background</td><td style="text-align: left;">Hash</td><td style="text-align: left;">Links to background images for this artist</td><td style="text-align: left;"><code>{ base: &#39;http://example.com&#39;, ext: 1981 }</code></td></tr>
+<tr><td style="text-align: left;"></td><td style="text-align: left;"></td><td style="text-align: left;"></td><td style="text-align: left;"></td></tr>
+</tbody></table>
+<h3 id="subresources">Subresources</h3>
+<table><thead><tr><th>Name</th><th>Model</th></tr></thead><tbody><tr><td style="text-align: left;">events</td><td style="text-align: left;"><a href="#event-model">Event</a></td></tr>
+<tr><td style="text-align: left;">comments</td><td style="text-align: left;"><a href="#comment-model">Comment</a></td></tr>
+<tr><td style="text-align: left;">followers</td><td style="text-align: left;"><a href="#user-model">User</a></td></tr>
+<tr><td style="text-align: left;">musicGenres</td><td style="text-align: left;"><a href="#music-genre-model">Music Genre</a></td></tr>
+</tbody></table>

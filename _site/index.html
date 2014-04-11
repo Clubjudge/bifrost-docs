@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<head>
+  <title>Bifrost</title>
+  <meta charset='utf-8'/>
+  <meta name='description' content='Documentation website'/>
+  <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'/>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+  <link href='assets.css' rel='stylesheet' type='text/css'>
+</head>
+<body>  
+  <nav id='sidebar'>
+	<h1>Bifrost</h1>
+<ul id='links'>
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+  <li><h2>using the api</h2>
+    <ul>
+    
+      <li class=''><a href='#/response-status-codes'>Response Status Codes</a></li>
+    
+    </ul>
+  </li>
+
+  <li><h2>models</h2>
+    <ul>
+    
+      <li class=''><a href='#/venue-model'>Venue</a></li>
+    
+      <li class=''><a href='#/ticket-model'>Ticket</a></li>
+    
+      <li class=''><a href='#/music-genre-model'>Music Genre</a></li>
+    
+      <li class=''><a href='#/comment-model'>Comment</a></li>
+    
+      <li class=''><a href='#/artist-model'>Artist</a></li>
+    
+      <li class=''><a href='#/event-model'>Event</a></li>
+    
+      <li class=''><a href='#/city-model'>City</a></li>
+    
+    </ul>
+  </li>
+
+  <li><h2>events</h2>
+    <ul>
+    
+      <li class='GET'><a href='#/get-event-venue'>Get</a></li>
+    
+      <li class='GET'><a href='#/get-event-tickets'>Get</a></li>
+    
+      <li class='GET'><a href='#/get-event-ratings'>Get</a></li>
+    
+      <li class='GET'><a href='#/get-event-music-genres'>Get</a></li>
+    
+      <li class='GET'><a href='#/get-event-invitations'>Get</a></li>
+    
+      <li class='GET'><a href='#/get-event-followers'>Get</a></li>
+    
+      <li class='GET'><a href='#/get-event-flyers'>Get</a></li>
+    
+      <li class='GET'><a href='#/get-event-comments'>Get</a></li>
+    
+      <li class='GET'><a href='#/get-event-artists'>Get</a></li>
+    
+      <li class='GET'><a href='#/get-events'>Get</a></li>
+    
+    </ul>
+  </li>
+
+  <li><h2>cities</h2>
+    <ul>
+    
+      <li class='GET'><a href='#/get-cities'>Get</a></li>
+    
+    </ul>
+  </li>
+
+  <li><h2>artists</h2>
+    <ul>
+    
+      <li class='GET'><a href='#/get-artists-music-genres'>Get</a></li>
+    
+      <li class='GET'><a href='#/get-artists-followers'>Get</a></li>
+    
+      <li class='GET'><a href='#/get-artists-events'>Get</a></li>
+    
+      <li class='GET'><a href='#/get-artists-comments'>Get</a></li>
+    
+      <li class='GET'><a href='#/get-artists'>Get</a></li>
+    
+    </ul>
+  </li>
+
+  <li><h2>users</h2>
+    <ul>
+    
+      <li class='GET'><a href='#/get-user'>Get</a></li>
+    
+    </ul>
+  </li>
+
+</ul>
+
+</nav>
+
+<section id='content'>
+
+  <div>
+    <h2>using the api</h2>
+    
+      <article class=''>
+        <a name='/response-status-codes' href='#/response-status-codes'>
+          <h2>
+            
+              Response Status Codes
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>The possible response status codes returned by the API are:</p>
+<table><thead><tr><th>HTTP Code</th><th>Description</th></tr></thead><tbody><tr><td style="text-align: left;">200 OK</td><td style="text-align: left;">The request has succeeded</td></tr>
+<tr><td style="text-align: left;">201 Created</td><td style="text-align: left;">The request has been fulfilled and resulted in a new resource being created</td></tr>
+<tr><td style="text-align: left;">400 Bad Request</td><td style="text-align: left;">Probably caused by a programming error.</td></tr>
+<tr><td style="text-align: left;">401 Unauthorized</td><td style="text-align: left;">Make sure you’re sending us a <code>token</code>.</td></tr>
+<tr><td style="text-align: left;">403 Forbidden</td><td style="text-align: left;">You don’t have access to whatever it is you’re asking for.</td></tr>
+<tr><td style="text-align: left;">404 Not Found</td><td style="text-align: left;">You’re asking for something that doesn’t exist.</td></tr>
+<tr><td style="text-align: left;">500 Internal Server Error</td><td style="text-align: left;">Uh-oh. Something went wrong on our side. We’re very sorry. We keep track of these and we’ll try to fix it!</td></tr>
+</tbody></table>
+        </section>
+      </article>
+    
+  </div>
+
+  <div>
+    <h2>models</h2>
+    
+      <article class=''>
+        <a name='/venue-model' href='#/venue-model'>
+          <h2>
+            
+              Venue
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A Clubjudge Venue.</p>
+<table><thead><tr><th>Name</th><th>Type</th><th>Description</th><th>Example</th></tr></thead><tbody><tr><td style="text-align: left;">id</td><td style="text-align: left;">Integer</td><td style="text-align: left;">Id of this venue</td><td style="text-align: left;"><code>233</code></td></tr>
+<tr><td style="text-align: left;">name</td><td style="text-align: left;">String</td><td style="text-align: left;">Name of this venue</td><td style="text-align: left;"><code>&quot;Awesome venue&quot;</code></td></tr>
+<tr><td style="text-align: left;">description</td><td style="text-align: left;">String</td><td style="text-align: left;">Description of this venue</td><td style="text-align: left;"><code>This venue is awesome</code></td></tr>
+<tr><td style="text-align: left;">email</td><td style="text-align: left;">String</td><td style="text-align: left;">Contact email for this venue</td><td style="text-align: left;"><code>&quot;venue@email.com&quot;</code></td></tr>
+<tr><td style="text-align: left;">websiteUrl</td><td style="text-align: left;">String</td><td style="text-align: left;">Link to venue website</td><td style="text-align: left;"><code>&quot;http://venue.com&quot;</code></td></tr>
+<tr><td style="text-align: left;">phoneNumber</td><td style="text-align: left;">String</td><td style="text-align: left;">Contact phone for this venue</td><td style="text-align: left;"><code>&quot;+55 5555-5555&quot;</code></td></tr>
+<tr><td style="text-align: left;">geolocation</td><td style="text-align: left;">Hash</td><td style="text-align: left;">Coordinates hash</td><td style="text-align: left;"><code>{ lat: 31.0234, lon: 3.1233}</code></td></tr>
+<tr><td style="text-align: left;">reviewCount</td><td style="text-align: left;">Integer</td><td style="text-align: left;">Number of reviews for this venue</td><td style="text-align: left;"><code>455</code></td></tr>
+<tr><td style="text-align: left;">commentsCount</td><td style="text-align: left;">Integer</td><td style="text-align: left;">Number of comments for this venue</td><td style="text-align: left;"><code>90</code></td></tr>
+<tr><td style="text-align: left;">socialMentionsCount</td><td style="text-align: left;">Integer</td><td style="text-align: left;">Number of social mentions for this venue</td><td style="text-align: left;"><code>593</code></td></tr>
+<tr><td style="text-align: left;">followersCount</td><td style="text-align: left;">Integer</td><td style="text-align: left;">Number of followers for this venue</td><td style="text-align: left;"><code>344</code></td></tr>
+<tr><td style="text-align: left;">updatedAt</td><td style="text-align: left;">String</td><td style="text-align: left;">Date and time when this venue was last modified</td><td style="text-align: left;"><code>2014-04-02T12:05:00</code></td></tr>
+<tr><td style="text-align: left;">ratings</td><td style="text-align: left;">[Hash]</td><td style="text-align: left;">Ratings for this venue</td><td style="text-align: left;"><code>{ global: 8.14 }</code></td></tr>
+<tr><td style="text-align: left;">logos</td><td style="text-align: left;">[Hash]</td><td style="text-align: left;">Links to venue logo</td><td style="text-align: left;"><code>[{ id: 3638, base: &#39;http://example.com&#39;, ext: &#39;.jpg&#39; }]</code></td></tr>
+<tr><td style="text-align: left;">background</td><td style="text-align: left;">Hash</td><td style="text-align: left;">Link to venue background image</td><td style="text-align: left;"><code>{ base: &#39;http://example.com&#39;, ext: &#39;.jpg&#39;}</code></td></tr>
+</tbody></table>
+        </section>
+      </article>
+    
+      <article class=''>
+        <a name='/ticket-model' href='#/ticket-model'>
+          <h2>
+            
+              Ticket
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A Clubjudge Ticket.</p>
+<table><thead><tr><th>Name</th><th>Type</th><th>Description</th><th>Example</th></tr></thead><tbody><tr><td style="text-align: left;">name</td><td style="text-align: left;">String</td><td style="text-align: left;">Name of the ticket</td><td style="text-align: left;"><code>&quot;Foobar&quot;</code></td></tr>
+<tr><td style="text-align: left;">cents</td><td style="text-align: left;">Integer</td><td style="text-align: left;">Price of tickets in cents</td><td style="text-align: left;"><code>1233</code></td></tr>
+<tr><td style="text-align: left;">currency</td><td style="text-align: left;">String</td><td style="text-align: left;">Currency of ticket price</td><td style="text-align: left;"><code>&quot;EUR&quot;</code></td></tr>
+<tr><td style="text-align: left;">kind</td><td style="text-align: left;">String</td><td style="text-align: left;">Kind of ticket</td><td style="text-align: left;"><code>door sale</code></td></tr>
+<tr><td style="text-align: left;">text</td><td style="text-align: left;">String</td><td style="text-align: left;">Formatted text of value</td><td style="text-align: left;"><code>EUR12,33</code></td></tr>
+</tbody></table>
+        </section>
+      </article>
+    
+      <article class=''>
+        <a name='/music-genre-model' href='#/music-genre-model'>
+          <h2>
+            
+              Music Genre
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A Clubjudge Music Genre.</p>
+<table><thead><tr><th>Name</th><th>Type</th><th>Description</th><th>Example</th></tr></thead><tbody><tr><td style="text-align: left;">id</td><td style="text-align: left;">Integer</td><td style="text-align: left;">Id of the music genre</td><td style="text-align: left;"><code>36002</code></td></tr>
+<tr><td style="text-align: left;">parentId</td><td style="text-align: left;">Integer</td><td style="text-align: left;">Reference to parent genre</td><td style="text-align: left;"><code>1233</code></td></tr>
+<tr><td style="text-align: left;">name</td><td style="text-align: left;">String</td><td style="text-align: left;">Name of the music genre</td><td style="text-align: left;"><code>&quot;House&quot;</code></td></tr>
+<tr><td style="text-align: left;">inferred</td><td style="text-align: left;">Boolean</td><td style="text-align: left;">Weather the music genre was inserted or infered</td><td style="text-align: left;"><code>true</code></td></tr>
+</tbody></table>
+        </section>
+      </article>
+    
+      <article class=''>
+        <a name='/comment-model' href='#/comment-model'>
+          <h2>
+            
+              Comment
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A Clubjudge City.</p>
+<table><thead><tr><th>Name</th><th>Type</th><th>Description</th><th>Example</th></tr></thead><tbody><tr><td style="text-align: left;">id</td><td style="text-align: left;">Integer</td><td style="text-align: left;">Id of the comment</td><td style="text-align: left;"><code>36002</code></td></tr>
+<tr><td style="text-align: left;">message</td><td style="text-align: left;">String</td><td style="text-align: left;">Comment message</td><td style="text-align: left;"><code>&quot;This is awesome&quot;</code></td></tr>
+<tr><td style="text-align: left;">timestamp</td><td style="text-align: left;">String</td><td style="text-align: left;">Date and time when the comment was published</td><td style="text-align: left;"><code>&quot;2014-02-03T19:00:00&quot;</code></td></tr>
+<tr><td style="text-align: left;">type</td><td style="text-align: left;">String</td><td style="text-align: left;">Type of comment</td><td style="text-align: left;"><code>(comment,activity)</code></td></tr>
+<tr><td style="text-align: left;">user</td><td style="text-align: left;">Hash</td><td style="text-align: left;">User representation</td><td style="text-align: left;">see <a href="#user-model">User</a></td></tr>
+</tbody></table>
+        </section>
+      </article>
+    
+      <article class=''>
+        <a name='/artist-model' href='#/artist-model'>
+          <h2>
+            
+              Artist
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A Clubjudge Event.</p>
+
+<h3 id="properties">Properties</h3>
+<table><thead><tr><th>Name</th><th>Type</th><th>Description</th><th>Example</th></tr></thead><tbody><tr><td style="text-align: left;">id</td><td style="text-align: left;">Integer</td><td style="text-align: left;">The unique identifier for this artist</td><td style="text-align: left;"><code>56</code></td></tr>
+<tr><td style="text-align: left;">name</td><td style="text-align: left;">String</td><td style="text-align: left;">The name of this artist</td><td style="text-align: left;"><code>&quot;Awesome Artist&quot;</code></td></tr>
+<tr><td style="text-align: left;">description</td><td style="text-align: left;">String</td><td style="text-align: left;">The bio of this artist</td><td style="text-align: left;"><code>&quot;This artist is awesome&quot;</code></td></tr>
+<tr><td style="text-align: left;">follow</td><td style="text-align: left;">Boolean</td><td style="text-align: left;">Weather the logged user is going to this artist or not</td><td style="text-align: left;"><code>true</code></td></tr>
+<tr><td style="text-align: left;">followersCount</td><td style="text-align: left;">Integer</td><td style="text-align: left;">The number of people following this artist</td><td style="text-align: left;"><code>156</code></td></tr>
+<tr><td style="text-align: left;">commentsCount</td><td style="text-align: left;">Integer</td><td style="text-align: left;">The number of comments on this artist</td><td style="text-align: left;"><code>856</code></td></tr>
+<tr><td style="text-align: left;">friendsFollowingCount</td><td style="text-align: left;">Integer</td><td style="text-align: left;">The number of friends of the logged user going to this artist</td><td style="text-align: left;"><code>20</code></td></tr>
+<tr><td style="text-align: left;">socialLinks</td><td style="text-align: left;">[Hash]</td><td style="text-align: left;">Links to the artist in the web</td><td style="text-align: left;"><code>{ name: &#39;facebook&#39;, slug: &#39;facebook&#39;, href: &#39;http://facebook.com/artist&#39;}</code></td></tr>
+<tr><td style="text-align: left;">avatars</td><td style="text-align: left;">[Hash]</td><td style="text-align: left;">Links to avatars</td><td style="text-align: left;"><code>{ base: &#39;http://example.com&#39;, ext: &#39;jpg&#39;, id: 1981 }</code> }</td></tr>
+<tr><td style="text-align: left;">email</td><td style="text-align: left;">String</td><td style="text-align: left;">Contact email</td><td style="text-align: left;"><code>&quot;artist@email.com&quot;</code></td></tr>
+<tr><td style="text-align: left;">websiteUrl</td><td style="text-align: left;">String</td><td style="text-align: left;">Link to artist’s website</td><td style="text-align: left;"><code>&quot;http://artist.com&quot;</code></td></tr>
+<tr><td style="text-align: left;">upcomingEventsCount</td><td style="text-align: left;">Integer</td><td style="text-align: left;">Number of upcoming events for this artist</td><td style="text-align: left;"><code>24</code></td></tr>
+<tr><td style="text-align: left;">socialMentionsCount</td><td style="text-align: left;">Integer</td><td style="text-align: left;">Number of social mentions for this artist</td><td style="text-align: left;"><code>238</code></td></tr>
+<tr><td style="text-align: left;">address</td><td style="text-align: left;">Hash</td><td style="text-align: left;">Address for contact with the artist</td><td style="text-align: left;"><code>{ city: null, country:null, region:null composedName:null}</code></td></tr>
+<tr><td style="text-align: left;">background</td><td style="text-align: left;">Hash</td><td style="text-align: left;">Links to background images for this artist</td><td style="text-align: left;"><code>{ base: &#39;http://example.com&#39;, ext: 1981 }</code></td></tr>
+<tr><td style="text-align: left;"></td><td style="text-align: left;"></td><td style="text-align: left;"></td><td style="text-align: left;"></td></tr>
+</tbody></table>
+<h3 id="subresources">Subresources</h3>
+<table><thead><tr><th>Name</th><th>Model</th></tr></thead><tbody><tr><td style="text-align: left;">events</td><td style="text-align: left;"><a href="#event-model">Event</a></td></tr>
+<tr><td style="text-align: left;">comments</td><td style="text-align: left;"><a href="#comment-model">Comment</a></td></tr>
+<tr><td style="text-align: left;">followers</td><td style="text-align: left;"><a href="#user-model">User</a></td></tr>
+<tr><td style="text-align: left;">musicGenres</td><td style="text-align: left;"><a href="#music-genre-model">Music Genre</a></td></tr>
+</tbody></table>
+        </section>
+      </article>
+    
+      <article class=''>
+        <a name='/event-model' href='#/event-model'>
+          <h2>
+            
+              Event
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A Clubjudge Event.</p>
+
+<h3 id="properties">Properties</h3>
+<table><thead><tr><th>Name</th><th>Type</th><th>Description</th><th>Example</th></tr></thead><tbody><tr><td style="text-align: left;">id</td><td style="text-align: left;">Integer</td><td style="text-align: left;">The unique identifier for this event</td><td style="text-align: left;"><code>56</code></td></tr>
+<tr><td style="text-align: left;">name</td><td style="text-align: left;">String</td><td style="text-align: left;">The name of this event</td><td style="text-align: left;"><code>&quot;Awesome Event&quot;</code></td></tr>
+<tr><td style="text-align: left;">description</td><td style="text-align: left;">String</td><td style="text-align: left;">The description of this event</td><td style="text-align: left;"><code>&quot;This event is awesome&quot;</code></td></tr>
+<tr><td style="text-align: left;">startsAt</td><td style="text-align: left;">String</td><td style="text-align: left;">Date and time when the event starts</td><td style="text-align: left;"><code>&quot;2014-01-16T21:00:00+01:00&quot;</code></td></tr>
+<tr><td style="text-align: left;">endsAt</td><td style="text-align: left;">String</td><td style="text-align: left;">Date and time when the event ends</td><td style="text-align: left;"><code>&quot;2014-01-17T03:00:00+01:00&quot;</code></td></tr>
+<tr><td style="text-align: left;">reviewEndsAt</td><td style="text-align: left;">String</td><td style="text-align: left;">Date and time until when reviews are accepted</td><td style="text-align: left;"><code>&quot;2014-01-18T21:00:00+01:00&quot;</code></td></tr>
+<tr><td style="text-align: left;">updatedAt</td><td style="text-align: left;">String</td><td style="text-align: left;">Date and time when the event was last modified</td><td style="text-align: left;"><code>&quot;2014-01-10T14:00:00+01:00&quot;</code></td></tr>
+<tr><td style="text-align: left;">featured</td><td style="text-align: left;">Boolean</td><td style="text-align: left;">Weather the event is featured or not</td><td style="text-align: left;"><code>true</code></td></tr>
+<tr><td style="text-align: left;">follow</td><td style="text-align: left;">Boolean</td><td style="text-align: left;">Weather the logged user is going to this event or not</td><td style="text-align: left;"><code>true</code></td></tr>
+<tr><td style="text-align: left;">lineUpToBeAnnounced</td><td style="text-align: left;">Boolean</td><td style="text-align: left;">Weather the lineup has being announced or not</td><td style="text-align: left;"><code>false</code></td></tr>
+<tr><td style="text-align: left;">reviewable</td><td style="text-align: left;">Boolean</td><td style="text-align: left;">Weather reviews are permited for this event</td><td style="text-align: left;"><code>false</code></td></tr>
+<tr><td style="text-align: left;">published</td><td style="text-align: left;">Boolean</td><td style="text-align: left;">Weather the event is published on the website or not</td><td style="text-align: left;"><code>true</code></td></tr>
+<tr><td style="text-align: left;">followersCount</td><td style="text-align: left;">Integer</td><td style="text-align: left;">The number of people going to this event</td><td style="text-align: left;"><code>156</code></td></tr>
+<tr><td style="text-align: left;">commentsCount</td><td style="text-align: left;">Integer</td><td style="text-align: left;">The number of comments on this event</td><td style="text-align: left;"><code>856</code></td></tr>
+<tr><td style="text-align: left;">friendsFollowingCount</td><td style="text-align: left;">Integer</td><td style="text-align: left;">The number of friends of the logged user going to this event</td><td style="text-align: left;"><code>20</code></td></tr>
+<tr><td style="text-align: left;">reviewCount</td><td style="text-align: left;">Integer</td><td style="text-align: left;">The number of reviews given for this event</td><td style="text-align: left;"><code>30</code></td></tr>
+<tr><td style="text-align: left;">userData</td><td style="text-align: left;">Hash</td><td style="text-align: left;">Logged user data regarding this event</td><td style="text-align: left;"><code>{ appliedForGuestlist: true, attended: true, cancelledByUser: false, confirmed: true, expertJudge: false, judged: false, liked: true, rejected: false }</code></td></tr>
+<tr><td style="text-align: left;">contest</td><td style="text-align: left;">Hash</td><td style="text-align: left;">Contest data</td><td style="text-align: left;"><code>{ startDate: &#39;2014-01-16T21:00:00+01:00&#39;, spots: 5, entriesDeadline: &#39;2014-01-16T21:00:00+01:00&#39;, organizerConfirmationDeadline: &#39;2014-01-16T21:00:00+01:00&#39;, guestlistCloseTime: &#39;2014-01-16T21:00:00+01:00&#39;, confirmationToken: &#39;acbd18db4cc&#39;, abortReason: null, entryCost: 50, organizerIds: [123,349] }</code></td></tr>
+<tr><td style="text-align: left;">expertReviewRatings</td><td style="text-align: left;">Hash</td><td style="text-align: left;">Expert review ratings</td><td style="text-align: left;"><code>{ crowd: 6, hygiene: 4, service: 9 }</code></td></tr>
+<tr><td style="text-align: left;">globalRating</td><td style="text-align: left;">Hash</td><td style="text-align: left;">Global rating</td><td style="text-align: left;"><code>{ global: 8.53 }</code></td></tr>
+</tbody></table>
+<h3 id="subresources">Subresources</h3>
+<table><thead><tr><th>Name</th><th>Model</th></tr></thead><tbody><tr><td style="text-align: left;">artists</td><td style="text-align: left;"><a href="#artist-model">Artist</a></td></tr>
+<tr><td style="text-align: left;">comments</td><td style="text-align: left;"><a href="#comment-model">Comment</a></td></tr>
+<tr><td style="text-align: left;">flyers</td><td style="text-align: left;"><a href="#flyer-model">Flyer</a></td></tr>
+<tr><td style="text-align: left;">invitations</td><td style="text-align: left;"><a href="#invitation-model">Invitation</a></td></tr>
+<tr><td style="text-align: left;">followers</td><td style="text-align: left;"><a href="#user-model">User</a></td></tr>
+<tr><td style="text-align: left;">musicGenres</td><td style="text-align: left;"><a href="#music-genre-model">Music Genre</a></td></tr>
+<tr><td style="text-align: left;">ratings</td><td style="text-align: left;"><a href="#rating-model">Rating</a></td></tr>
+<tr><td style="text-align: left;">tickets</td><td style="text-align: left;"><a href="#ticket-model">Ticket</a></td></tr>
+<tr><td style="text-align: left;">venue</td><td style="text-align: left;"><a href="#venue-model">Venue</a></td></tr>
+</tbody></table>
+        </section>
+      </article>
+    
+      <article class=''>
+        <a name='/city-model' href='#/city-model'>
+          <h2>
+            
+              City
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A Clubjudge City.</p>
+<table><thead><tr><th>Name</th><th>Type</th><th>Description</th><th>Example</th></tr></thead><tbody><tr><td style="text-align: left;">id</td><td style="text-align: left;">Integer</td><td style="text-align: left;">Id of the city</td><td style="text-align: left;"><code>36002</code></td></tr>
+<tr><td style="text-align: left;">name</td><td style="text-align: left;">String</td><td style="text-align: left;">Name of the city</td><td style="text-align: left;"><code>&quot;Aabenraa&quot;</code></td></tr>
+<tr><td style="text-align: left;">aliases</td><td style="text-align: left;">[String]</td><td style="text-align: left;">Other names by which the city is known</td><td style="text-align: left;"><code>[&quot;Apenrad&quot;]</code></td></tr>
+<tr><td style="text-align: left;">region</td><td style="text-align: left;">String</td><td style="text-align: left;">Region where the city belongs</td><td style="text-align: left;"><code>&quot;South Denmark&quot;</code></td></tr>
+<tr><td style="text-align: left;">geolocation</td><td style="text-align: left;">Hash</td><td style="text-align: left;">Lat &amp; long coordinates</td><td style="text-align: left;"><code>{ lat: 55.04434, lon: 9.41741}</code></td></tr>
+</tbody></table>
+        </section>
+      </article>
+    
+  </div>
+
+  <div>
+    <h2>events</h2>
+    
+      <article class='GET'>
+        <a name='/get-event-venue' href='#/get-event-venue'>
+          <h2>
+            
+              <code><b>GET</b> /events/:eventId/venue</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A list of ClubJudge <a href="#venue-model">Venue</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<pre><code>curl &quot;http://api.clubjduge.com/v1/events/123/venue.json&quot;</code></pre>
+
+<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-event-tickets' href='#/get-event-tickets'>
+          <h2>
+            
+              <code><b>GET</b> /events/:eventId/tickets</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A list of ClubJudge <a href="#ticket-model">Ticket</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<pre><code>curl &quot;http://api.clubjduge.com/v1/events/123/tickets.json&quot;</code></pre>
+
+<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-event-ratings' href='#/get-event-ratings'>
+          <h2>
+            
+              <code><b>GET</b> /events/:eventId/ratings</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A list of ClubJudge <a href="#rating-model">Rating</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<pre><code>curl &quot;http://api.clubjduge.com/v1/events/123/ratings.json&quot;</code></pre>
+
+<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-event-music-genres' href='#/get-event-music-genres'>
+          <h2>
+            
+              <code><b>GET</b> /events/:eventId/musicGenres</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A list of ClubJudge <a href="#music-genre-model">Music Genre</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<pre><code>curl &quot;http://api.clubjduge.com/v1/events/123/musicGenres.json&quot;</code></pre>
+
+<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-event-invitations' href='#/get-event-invitations'>
+          <h2>
+            
+              <code><b>GET</b> /events/:eventId/invitations</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A list of ClubJudge <a href="#invitation-model">Invitation</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<pre><code>curl &quot;http://api.clubjduge.com/v1/events/123/invitations.json&quot;</code></pre>
+
+<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-event-followers' href='#/get-event-followers'>
+          <h2>
+            
+              <code><b>GET</b> /events/:eventId/followers</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A list of ClubJudge <a href="#user-model">Users</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<pre><code>curl &quot;http://api.clubjduge.com/v1/events/123/followers.json&quot;</code></pre>
+
+<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-event-flyers' href='#/get-event-flyers'>
+          <h2>
+            
+              <code><b>GET</b> /events/:eventId/flyers</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <h3 id="example">Example</h3>
+
+<pre><code>curl &quot;http://api.clubjduge.com/v1/events/123/flyers.json&quot;</code></pre>
+
+<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-event-comments' href='#/get-event-comments'>
+          <h2>
+            
+              <code><b>GET</b> /events/:eventId/comments</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A list of ClubJudge <a href="#comment-model">Comments</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<pre><code>curl &quot;http://api.clubjduge.com/v1/events/123/comments.json&quot;</code></pre>
+
+<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-event-artists' href='#/get-event-artists'>
+          <h2>
+            
+              <code><b>GET</b> /events/:eventId/artists</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A list of ClubJudge <a href="#artist-model">Artists</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<pre><code>curl &quot;http://api.clubjduge.com/v1/events/123/artists.json&quot;</code></pre>
+
+<p><a href="#partial-responses">Partial responses</a> and <a href="#pagination">Pagination</a> are also supported.</p>
+
+<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-events' href='#/get-events'>
+          <h2>
+            
+              <code><b>GET</b> /events</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A list of ClubJudge <a href="#event-model">Events</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<pre><code>curl &quot;http://api.clubjduge.com/v1/events.json&quot;</code></pre>
+
+<p><a href="#partial-responses">Partial responses</a> and <a href="#pagination">Pagination</a> are also supported.</p>
+
+<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+
+<h3 id="filters">Filters</h3>
+
+<p>To use location filter you have to enter at least longitude and latitude.</p>
+<table><thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td style="text-align: left;">type</td><td style="text-align: left;">String</td><td style="text-align: left;">(upcoming, featured, nearby)</td></tr>
+<tr><td style="text-align: left;">lat</td><td style="text-align: left;">Decimal</td><td style="text-align: left;">latitude</td></tr>
+<tr><td style="text-align: left;">long</td><td style="text-align: left;">Decimal</td><td style="text-align: left;">longitude</td></tr>
+<tr><td style="text-align: left;">radius</td><td style="text-align: left;">Integer</td><td style="text-align: left;">radius</td></tr>
+<tr><td style="text-align: left;">start</td><td style="text-align: left;">Date</td><td style="text-align: left;">selects any event beginging after this date</td></tr>
+<tr><td style="text-align: left;">ends</td><td style="text-align: left;">Date</td><td style="text-align: left;">selects any events beginging until this date</td></tr>
+<tr><td style="text-align: left;">musicGenre</td><td style="text-align: left;">String</td><td style="text-align: left;">filter by music genre</td></tr>
+<tr><td style="text-align: left;">cityId</td><td style="text-align: left;">Integer</td><td style="text-align: left;">all events from this city</td></tr>
+<tr><td style="text-align: left;"></td><td style="text-align: left;"></td><td style="text-align: left;"></td></tr>
+</tbody></table>
+        </section>
+      </article>
+    
+  </div>
+
+  <div>
+    <h2>cities</h2>
+    
+      <article class='GET'>
+        <a name='/get-cities' href='#/get-cities'>
+          <h2>
+            
+              <code><b>GET</b> /cities</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A ClubJudge <a href="#event-model">City</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<pre><code>curl &quot;http://api.clubjduge.com/v1/cities.json&quot;</code></pre>
+
+<p><a href="#partial-responses">Partial responses</a>, <a href="#reference-embedding">Reference embedding</a> and <a href="#pagination">Pagination</a> are also supported.</p>
+
+<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+        </section>
+      </article>
+    
+  </div>
+
+  <div>
+    <h2>artists</h2>
+    
+      <article class='GET'>
+        <a name='/get-artists-music-genres' href='#/get-artists-music-genres'>
+          <h2>
+            
+              <code><b>GET</b> /artists/:artistId/musicGenres</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A list of ClubJudge <a href="#music-genre-model">Music Genres</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<pre><code>curl &quot;http://api.clubjduge.com/v1/artists/123/musicGenres.json&quot;</code></pre>
+
+<p><a href="#partial-responses">Partial responses</a> and <a href="#pagination">Pagination</a> are also supported.</p>
+
+<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-artists-followers' href='#/get-artists-followers'>
+          <h2>
+            
+              <code><b>GET</b> /artists/:artistId/followers</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A list of ClubJudge <a href="#user-model">Users</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<pre><code>curl &quot;http://api.clubjduge.com/v1/artists/123/followers.json&quot;</code></pre>
+
+<p><a href="#partial-responses">Partial responses</a> and <a href="#pagination">Pagination</a> are also supported.</p>
+
+<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-artists-events' href='#/get-artists-events'>
+          <h2>
+            
+              <code><b>GET</b> /artists/:artistId/events</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A list of ClubJudge <a href="#event-model">Events</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<pre><code>curl &quot;http://api.clubjduge.com/v1/artists/123/events.json&quot;</code></pre>
+
+<p><a href="#partial-responses">Partial responses</a> and <a href="#pagination">Pagination</a> are also supported.</p>
+
+<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-artists-comments' href='#/get-artists-comments'>
+          <h2>
+            
+              <code><b>GET</b> /artists/:artistId/comments</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A list of ClubJudge <a href="#comment-model">Comment</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<pre><code>curl &quot;http://api.clubjduge.com/v1/artists/123/comments.json&quot;</code></pre>
+
+<p><a href="#partial-responses">Partial responses</a> and <a href="#pagination">Pagination</a> are also supported.</p>
+
+<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-artists' href='#/get-artists'>
+          <h2>
+            
+              <code><b>GET</b> /artists</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A list of ClubJudge <a href="#artist-model">Artists</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<pre><code>curl &quot;http://api.clubjduge.com/v1/artists.json&quot;</code></pre>
+
+<p><a href="#partial-responses">Partial responses</a> and <a href="#pagination">Pagination</a> are also supported.</p>
+
+<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+        </section>
+      </article>
+    
+  </div>
+
+  <div>
+    <h2>users</h2>
+    
+      <article class='GET'>
+        <a name='/get-user' href='#/get-user'>
+          <h2>
+            
+              <code><b>GET</b> /me</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Data about logged <a href="#user-model">User</a></p>
+
+<h3 id="example">Example</h3>
+
+<pre><code>curl &quot;http://api.clubjduge.com/v1/me.json&quot;</code></pre>
+
+<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+        </section>
+      </article>
+    
+  </div>
+
+</section>
+
+  
+  <!--[if lt IE 9]><script src='http://html5shim.googlecode.com/svn/trunk/html5.js'></script><![endif]-->
+  <script src='assets.js' type='text/javascript'></script>
+  <script>require('boot');</script>
+</body>
+</html>

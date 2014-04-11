@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for All files</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="prettify.css">
+
+    <style>
+        body, html {
+            margin:0; padding: 0;
+        }
+        body {
+            font-family: Helvetica Neue, Helvetica,Arial;
+            font-size: 10pt;
+        }
+        div.header, div.footer {
+            background: #eee;
+            padding: 1em;
+        }
+        div.header {
+            z-index: 100;
+            position: fixed;
+            top: 0;
+            border-bottom: 1px solid #666;
+            width: 100%;
+        }
+        div.footer {
+            border-top: 1px solid #666;
+        }
+        div.body {
+            margin-top: 10em;
+        }
+        div.meta {
+            font-size: 90%;
+            text-align: center;
+        }
+        h1, h2, h3 {
+            font-weight: normal;
+        }
+        h1 {
+            font-size: 12pt;
+        }
+        h2 {
+            font-size: 10pt;
+        }
+        pre {
+            font-family: Consolas, Menlo, Monaco, monospace;
+            margin: 0;
+            padding: 0;
+            line-height: 14px;
+            font-size: 14px;
+            -moz-tab-size: 2;
+            -o-tab-size:  2;
+            tab-size: 2;
+        }
+
+        div.path { font-size: 110%; }
+        div.path a:link, div.path a:visited { color: #000; }
+        table.coverage { border-collapse: collapse; margin:0; padding: 0 }
+
+        table.coverage td {
+            margin: 0;
+            padding: 0;
+            color: #111;
+            vertical-align: top;
+        }
+        table.coverage td.line-count {
+            width: 50px;
+            text-align: right;
+            padding-right: 5px;
+        }
+        table.coverage td.line-coverage {
+            color: #777 !important;
+            text-align: right;
+            border-left: 1px solid #666;
+            border-right: 1px solid #666;
+        }
+
+        table.coverage td.text {
+        }
+
+        table.coverage td span.cline-any {
+            display: inline-block;
+            padding: 0 5px;
+            width: 40px;
+        }
+        table.coverage td span.cline-neutral {
+            background: #eee;
+        }
+        table.coverage td span.cline-yes {
+            background: #b5d592;
+            color: #999;
+        }
+        table.coverage td span.cline-no {
+            background: #fc8c84;
+        }
+
+        .cstat-yes { color: #111; }
+        .cstat-no { background: #fc8c84; color: #111; }
+        .fstat-no { background: #ffc520; color: #111 !important; }
+        .cbranch-no { background:  yellow !important; color: #111; }
+
+        .cstat-skip { background: #ddd; color: #111; }
+        .fstat-skip { background: #ddd; color: #111 !important; }
+        .cbranch-skip { background: #ddd !important; color: #111; }
+
+        .missing-if-branch {
+            display: inline-block;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: black;
+            color: yellow;
+        }
+
+        .skip-if-branch {
+            display: none;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: #ccc;
+            color: white;
+        }
+
+        .missing-if-branch .typ, .skip-if-branch .typ {
+            color: inherit !important;
+        }
+
+        .entity, .metric { font-weight: bold; }
+        .metric { display: inline-block; border: 1px solid #333; padding: 0.3em; background: white; }
+        .metric small { font-size: 80%; font-weight: normal; color: #666; }
+
+        div.coverage-summary table { border-collapse: collapse; margin: 3em; font-size: 110%; }
+        div.coverage-summary td, div.coverage-summary table  th { margin: 0; padding: 0.25em 1em; border-top: 1px solid #666; border-bottom: 1px solid #666; }
+        div.coverage-summary th { text-align: left; border: 1px solid #666; background: #eee; font-weight: normal; }
+        div.coverage-summary th.file { border-right: none !important; }
+        div.coverage-summary th.pic { border-left: none !important; text-align: right; }
+        div.coverage-summary th.pct { border-right: none !important; }
+        div.coverage-summary th.abs { border-left: none !important; text-align: right; }
+        div.coverage-summary td.pct { text-align: right; border-left: 1px solid #666; }
+        div.coverage-summary td.abs { text-align: right; font-size: 90%; color: #444; border-right: 1px solid #666; }
+        div.coverage-summary td.file { text-align: right; border-left: 1px solid #666; white-space: nowrap;  }
+        div.coverage-summary td.pic { min-width: 120px !important;  }
+        div.coverage-summary a:link { text-decoration: none; color: #000; }
+        div.coverage-summary a:visited { text-decoration: none; color: #333; }
+        div.coverage-summary a:hover { text-decoration: underline; }
+        div.coverage-summary tfoot td { border-top: 1px solid #666; }
+
+        div.coverage-summary .yui3-datatable-sort-indicator, div.coverage-summary .dummy-sort-indicator {
+            height: 10px;
+            width: 7px;
+            display: inline-block;
+            margin-left: 0.5em;
+        }
+        div.coverage-summary .yui3-datatable-sort-indicator {
+            background: url("http://yui.yahooapis.com/3.6.0/build/datatable-sort/assets/skins/sam/sort-arrow-sprite.png") no-repeat scroll 0 0 transparent;
+        }
+        div.coverage-summary .yui3-datatable-sorted .yui3-datatable-sort-indicator {
+            background-position: 0 -20px;
+        }
+        div.coverage-summary .yui3-datatable-sorted-desc .yui3-datatable-sort-indicator {
+            background-position: 0 -10px;
+        }
+
+        .high { background: #b5d592 !important; }
+        .medium { background: #ffe87c !important; }
+        .low { background: #fc8c84 !important; }
+
+        span.cover-fill, span.cover-empty {
+            display:inline-block;
+            border:1px solid #444;
+            background: white;
+            height: 12px;
+        }
+        span.cover-fill {
+            background: #ccc;
+            border-right: 1px solid #444;
+        }
+        span.cover-empty {
+            background: white;
+            border-left: none;
+        }
+        span.cover-full {
+            border-right: none !important;
+        }
+        pre.prettyprint {
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .com { color: #999 !important; }
+        .ignore-none { color: #999; font-weight: normal; }
+
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">All files</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">98.43% <small>(3515 / 3571)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">97.87% <small>(321 / 328)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">97.13% <small>(948 / 976)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">98.41% <small>(3466 / 3522)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"></div>
+</div>
+<div class="body">
+<div class="coverage-summary">
+<table>
+<thead>
+<tr>
+   <th data-col="file" data-fmt="html" data-html="true" class="file">File</th>
+   <th data-col="pic" data-type="number" data-fmt="html" data-html="true" class="pic"></th>
+   <th data-col="statements" data-type="number" data-fmt="pct" class="pct">Statements</th>
+   <th data-col="statements_raw" data-type="number" data-fmt="html" class="abs"></th>
+   <th data-col="branches" data-type="number" data-fmt="pct" class="pct">Branches</th>
+   <th data-col="branches_raw" data-type="number" data-fmt="html" class="abs"></th>
+   <th data-col="functions" data-type="number" data-fmt="pct" class="pct">Functions</th>
+   <th data-col="functions_raw" data-type="number" data-fmt="html" class="abs"></th>
+   <th data-col="lines" data-type="number" data-fmt="pct" class="pct">Lines</th>
+   <th data-col="lines_raw" data-type="number" data-fmt="html" class="abs"></th>
+</tr>
+</thead>
+<tbody><tr>
+	<td class="file high" data-value="bifrost/"><a href="bifrost/index.html">bifrost/</a></td>
+	<td data-value="100" class="pic high"><span class="cover-fill cover-full" style="width: 100px;"></span><span class="cover-empty" style="width:0px;"></span></td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="19" class="abs high">(19&nbsp;/&nbsp;19)</td>
+	<td data-value="75" class="pct medium">75%</td>
+	<td data-value="4" class="abs medium">(3&nbsp;/&nbsp;4)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="2" class="abs high">(2&nbsp;/&nbsp;2)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="19" class="abs high">(19&nbsp;/&nbsp;19)</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="bifrost/lib/"><a href="bifrost/lib/index.html">bifrost/lib/</a></td>
+	<td data-value="100" class="pic high"><span class="cover-fill cover-full" style="width: 100px;"></span><span class="cover-empty" style="width:0px;"></span></td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="313" class="abs high">(313&nbsp;/&nbsp;313)</td>
+	<td data-value="98.98" class="pct high">98.98%</td>
+	<td data-value="98" class="abs high">(97&nbsp;/&nbsp;98)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="78" class="abs high">(78&nbsp;/&nbsp;78)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="313" class="abs high">(313&nbsp;/&nbsp;313)</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="bifrost/lib/middleware/"><a href="bifrost/lib/middleware/index.html">bifrost/lib/middleware/</a></td>
+	<td data-value="94.35" class="pic high"><span class="cover-fill" style="width: 94px;"></span><span class="cover-empty" style="width:6px;"></span></td>
+	<td data-value="94.35" class="pct high">94.35%</td>
+	<td data-value="124" class="abs high">(117&nbsp;/&nbsp;124)</td>
+	<td data-value="95.24" class="pct high">95.24%</td>
+	<td data-value="21" class="abs high">(20&nbsp;/&nbsp;21)</td>
+	<td data-value="89.19" class="pct high">89.19%</td>
+	<td data-value="37" class="abs high">(33&nbsp;/&nbsp;37)</td>
+	<td data-value="94.35" class="pct high">94.35%</td>
+	<td data-value="124" class="abs high">(117&nbsp;/&nbsp;124)</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="bifrost/lib/plugins/"><a href="bifrost/lib/plugins/index.html">bifrost/lib/plugins/</a></td>
+	<td data-value="100" class="pic high"><span class="cover-fill cover-full" style="width: 100px;"></span><span class="cover-empty" style="width:0px;"></span></td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="151" class="abs high">(151&nbsp;/&nbsp;151)</td>
+	<td data-value="98.28" class="pct high">98.28%</td>
+	<td data-value="58" class="abs high">(57&nbsp;/&nbsp;58)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="42" class="abs high">(42&nbsp;/&nbsp;42)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="150" class="abs high">(150&nbsp;/&nbsp;150)</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="bifrost/lib/strategies/"><a href="bifrost/lib/strategies/index.html">bifrost/lib/strategies/</a></td>
+	<td data-value="100" class="pic high"><span class="cover-fill cover-full" style="width: 100px;"></span><span class="cover-empty" style="width:0px;"></span></td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="186" class="abs high">(186&nbsp;/&nbsp;186)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="111" class="abs high">(111&nbsp;/&nbsp;111)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="13" class="abs high">(13&nbsp;/&nbsp;13)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="139" class="abs high">(139&nbsp;/&nbsp;139)</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="bifrost/spec/integration/v1/"><a href="bifrost/spec/integration/v1/index.html">bifrost/spec/integration/v1/</a></td>
+	<td data-value="100" class="pic high"><span class="cover-fill cover-full" style="width: 100px;"></span><span class="cover-empty" style="width:0px;"></span></td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="491" class="abs high">(491&nbsp;/&nbsp;491)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">(0&nbsp;/&nbsp;0)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="136" class="abs high">(136&nbsp;/&nbsp;136)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="491" class="abs high">(491&nbsp;/&nbsp;491)</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="bifrost/spec/unit/lib/"><a href="bifrost/spec/unit/lib/index.html">bifrost/spec/unit/lib/</a></td>
+	<td data-value="98.93" class="pic high"><span class="cover-fill" style="width: 98px;"></span><span class="cover-empty" style="width:2px;"></span></td>
+	<td data-value="98.93" class="pct high">98.93%</td>
+	<td data-value="466" class="abs high">(461&nbsp;/&nbsp;466)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">(0&nbsp;/&nbsp;0)</td>
+	<td data-value="94.24" class="pct high">94.24%</td>
+	<td data-value="139" class="abs high">(131&nbsp;/&nbsp;139)</td>
+	<td data-value="98.92" class="pct high">98.92%</td>
+	<td data-value="465" class="abs high">(460&nbsp;/&nbsp;465)</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="bifrost/spec/unit/lib/middleware/"><a href="bifrost/spec/unit/lib/middleware/index.html">bifrost/spec/unit/lib/middleware/</a></td>
+	<td data-value="99.16" class="pic high"><span class="cover-fill" style="width: 99px;"></span><span class="cover-empty" style="width:1px;"></span></td>
+	<td data-value="99.16" class="pct high">99.16%</td>
+	<td data-value="119" class="abs high">(118&nbsp;/&nbsp;119)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="2" class="abs high">(2&nbsp;/&nbsp;2)</td>
+	<td data-value="97.73" class="pct high">97.73%</td>
+	<td data-value="44" class="abs high">(43&nbsp;/&nbsp;44)</td>
+	<td data-value="99.16" class="pct high">99.16%</td>
+	<td data-value="119" class="abs high">(118&nbsp;/&nbsp;119)</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="bifrost/spec/unit/lib/plugins/"><a href="bifrost/spec/unit/lib/plugins/index.html">bifrost/spec/unit/lib/plugins/</a></td>
+	<td data-value="99.52" class="pic high"><span class="cover-fill" style="width: 99px;"></span><span class="cover-empty" style="width:1px;"></span></td>
+	<td data-value="99.52" class="pct high">99.52%</td>
+	<td data-value="207" class="abs high">(206&nbsp;/&nbsp;207)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">(0&nbsp;/&nbsp;0)</td>
+	<td data-value="98.46" class="pct high">98.46%</td>
+	<td data-value="65" class="abs high">(64&nbsp;/&nbsp;65)</td>
+	<td data-value="99.52" class="pct high">99.52%</td>
+	<td data-value="207" class="abs high">(206&nbsp;/&nbsp;207)</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="bifrost/spec/unit/lib/strategies/"><a href="bifrost/spec/unit/lib/strategies/index.html">bifrost/spec/unit/lib/strategies/</a></td>
+	<td data-value="100" class="pic high"><span class="cover-fill cover-full" style="width: 100px;"></span><span class="cover-empty" style="width:0px;"></span></td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="269" class="abs high">(269&nbsp;/&nbsp;269)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">(0&nbsp;/&nbsp;0)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="111" class="abs high">(111&nbsp;/&nbsp;111)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="269" class="abs high">(269&nbsp;/&nbsp;269)</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="bifrost/spec/unit/repositories/"><a href="bifrost/spec/unit/repositories/index.html">bifrost/spec/unit/repositories/</a></td>
+	<td data-value="100" class="pic high"><span class="cover-fill cover-full" style="width: 100px;"></span><span class="cover-empty" style="width:0px;"></span></td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="446" class="abs high">(446&nbsp;/&nbsp;446)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">(0&nbsp;/&nbsp;0)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="127" class="abs high">(127&nbsp;/&nbsp;127)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="446" class="abs high">(446&nbsp;/&nbsp;446)</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="bifrost/spec/unit/services/event/"><a href="bifrost/spec/unit/services/event/index.html">bifrost/spec/unit/services/event/</a></td>
+	<td data-value="100" class="pic high"><span class="cover-fill cover-full" style="width: 100px;"></span><span class="cover-empty" style="width:0px;"></span></td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="4" class="abs high">(4&nbsp;/&nbsp;4)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">(0&nbsp;/&nbsp;0)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="2" class="abs high">(2&nbsp;/&nbsp;2)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="4" class="abs high">(4&nbsp;/&nbsp;4)</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="bifrost/spec/unit/services/user/"><a href="bifrost/spec/unit/services/user/index.html">bifrost/spec/unit/services/user/</a></td>
+	<td data-value="100" class="pic high"><span class="cover-fill cover-full" style="width: 100px;"></span><span class="cover-empty" style="width:0px;"></span></td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="4" class="abs high">(4&nbsp;/&nbsp;4)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">(0&nbsp;/&nbsp;0)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="2" class="abs high">(2&nbsp;/&nbsp;2)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="4" class="abs high">(4&nbsp;/&nbsp;4)</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="bifrost/v1/"><a href="bifrost/v1/index.html">bifrost/v1/</a></td>
+	<td data-value="100" class="pic high"><span class="cover-fill cover-full" style="width: 100px;"></span><span class="cover-empty" style="width:0px;"></span></td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="8" class="abs high">(8&nbsp;/&nbsp;8)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">(0&nbsp;/&nbsp;0)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="2" class="abs high">(2&nbsp;/&nbsp;2)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="8" class="abs high">(8&nbsp;/&nbsp;8)</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="bifrost/v1/models/"><a href="bifrost/v1/models/index.html">bifrost/v1/models/</a></td>
+	<td data-value="100" class="pic high"><span class="cover-fill cover-full" style="width: 100px;"></span><span class="cover-empty" style="width:0px;"></span></td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="38" class="abs high">(38&nbsp;/&nbsp;38)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">(0&nbsp;/&nbsp;0)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">(0&nbsp;/&nbsp;0)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="38" class="abs high">(38&nbsp;/&nbsp;38)</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="bifrost/v1/repositories/"><a href="bifrost/v1/repositories/index.html">bifrost/v1/repositories/</a></td>
+	<td data-value="91.21" class="pic high"><span class="cover-fill" style="width: 91px;"></span><span class="cover-empty" style="width:9px;"></span></td>
+	<td data-value="91.21" class="pct high">91.21%</td>
+	<td data-value="478" class="abs high">(436&nbsp;/&nbsp;478)</td>
+	<td data-value="90.63" class="pct high">90.63%</td>
+	<td data-value="32" class="abs high">(29&nbsp;/&nbsp;32)</td>
+	<td data-value="90.73" class="pct high">90.73%</td>
+	<td data-value="151" class="abs high">(137&nbsp;/&nbsp;151)</td>
+	<td data-value="91.21" class="pct high">91.21%</td>
+	<td data-value="478" class="abs high">(436&nbsp;/&nbsp;478)</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="bifrost/v1/services/ads/"><a href="bifrost/v1/services/ads/index.html">bifrost/v1/services/ads/</a></td>
+	<td data-value="100" class="pic high"><span class="cover-fill cover-full" style="width: 100px;"></span><span class="cover-empty" style="width:0px;"></span></td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="12" class="abs high">(12&nbsp;/&nbsp;12)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">(0&nbsp;/&nbsp;0)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="2" class="abs high">(2&nbsp;/&nbsp;2)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="12" class="abs high">(12&nbsp;/&nbsp;12)</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="bifrost/v1/services/artist/"><a href="bifrost/v1/services/artist/index.html">bifrost/v1/services/artist/</a></td>
+	<td data-value="100" class="pic high"><span class="cover-fill cover-full" style="width: 100px;"></span><span class="cover-empty" style="width:0px;"></span></td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="26" class="abs high">(26&nbsp;/&nbsp;26)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">(0&nbsp;/&nbsp;0)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="1" class="abs high">(1&nbsp;/&nbsp;1)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="26" class="abs high">(26&nbsp;/&nbsp;26)</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="bifrost/v1/services/cities/"><a href="bifrost/v1/services/cities/index.html">bifrost/v1/services/cities/</a></td>
+	<td data-value="100" class="pic high"><span class="cover-fill cover-full" style="width: 100px;"></span><span class="cover-empty" style="width:0px;"></span></td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="8" class="abs high">(8&nbsp;/&nbsp;8)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">(0&nbsp;/&nbsp;0)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="1" class="abs high">(1&nbsp;/&nbsp;1)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="8" class="abs high">(8&nbsp;/&nbsp;8)</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="bifrost/v1/services/countries/"><a href="bifrost/v1/services/countries/index.html">bifrost/v1/services/countries/</a></td>
+	<td data-value="100" class="pic high"><span class="cover-fill cover-full" style="width: 100px;"></span><span class="cover-empty" style="width:0px;"></span></td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="8" class="abs high">(8&nbsp;/&nbsp;8)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">(0&nbsp;/&nbsp;0)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="1" class="abs high">(1&nbsp;/&nbsp;1)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="8" class="abs high">(8&nbsp;/&nbsp;8)</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="bifrost/v1/services/error/"><a href="bifrost/v1/services/error/index.html">bifrost/v1/services/error/</a></td>
+	<td data-value="100" class="pic high"><span class="cover-fill cover-full" style="width: 100px;"></span><span class="cover-empty" style="width:0px;"></span></td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="21" class="abs high">(21&nbsp;/&nbsp;21)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">(0&nbsp;/&nbsp;0)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="7" class="abs high">(7&nbsp;/&nbsp;7)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="21" class="abs high">(21&nbsp;/&nbsp;21)</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="bifrost/v1/services/event/"><a href="bifrost/v1/services/event/index.html">bifrost/v1/services/event/</a></td>
+	<td data-value="100" class="pic high"><span class="cover-fill cover-full" style="width: 100px;"></span><span class="cover-empty" style="width:0px;"></span></td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="58" class="abs high">(58&nbsp;/&nbsp;58)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">(0&nbsp;/&nbsp;0)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="1" class="abs high">(1&nbsp;/&nbsp;1)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="58" class="abs high">(58&nbsp;/&nbsp;58)</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="bifrost/v1/services/feedback/"><a href="bifrost/v1/services/feedback/index.html">bifrost/v1/services/feedback/</a></td>
+	<td data-value="100" class="pic high"><span class="cover-fill cover-full" style="width: 100px;"></span><span class="cover-empty" style="width:0px;"></span></td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="6" class="abs high">(6&nbsp;/&nbsp;6)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">(0&nbsp;/&nbsp;0)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="1" class="abs high">(1&nbsp;/&nbsp;1)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="6" class="abs high">(6&nbsp;/&nbsp;6)</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="bifrost/v1/services/music_genre/"><a href="bifrost/v1/services/music_genre/index.html">bifrost/v1/services/music_genre/</a></td>
+	<td data-value="100" class="pic high"><span class="cover-fill cover-full" style="width: 100px;"></span><span class="cover-empty" style="width:0px;"></span></td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="12" class="abs high">(12&nbsp;/&nbsp;12)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">(0&nbsp;/&nbsp;0)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="1" class="abs high">(1&nbsp;/&nbsp;1)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="12" class="abs high">(12&nbsp;/&nbsp;12)</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="bifrost/v1/services/stats/"><a href="bifrost/v1/services/stats/index.html">bifrost/v1/services/stats/</a></td>
+	<td data-value="100" class="pic high"><span class="cover-fill cover-full" style="width: 100px;"></span><span class="cover-empty" style="width:0px;"></span></td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="6" class="abs high">(6&nbsp;/&nbsp;6)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">(0&nbsp;/&nbsp;0)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="1" class="abs high">(1&nbsp;/&nbsp;1)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="6" class="abs high">(6&nbsp;/&nbsp;6)</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="bifrost/v1/services/user/"><a href="bifrost/v1/services/user/index.html">bifrost/v1/services/user/</a></td>
+	<td data-value="100" class="pic high"><span class="cover-fill cover-full" style="width: 100px;"></span><span class="cover-empty" style="width:0px;"></span></td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="19" class="abs high">(19&nbsp;/&nbsp;19)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">(0&nbsp;/&nbsp;0)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="1" class="abs high">(1&nbsp;/&nbsp;1)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="19" class="abs high">(19&nbsp;/&nbsp;19)</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="bifrost/v1/services/venue/"><a href="bifrost/v1/services/venue/index.html">bifrost/v1/services/venue/</a></td>
+	<td data-value="100" class="pic high"><span class="cover-fill cover-full" style="width: 100px;"></span><span class="cover-empty" style="width:0px;"></span></td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="41" class="abs high">(41&nbsp;/&nbsp;41)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="0" class="abs high">(0&nbsp;/&nbsp;0)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="1" class="abs high">(1&nbsp;/&nbsp;1)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="41" class="abs high">(41&nbsp;/&nbsp;41)</td>
+	</tr>
+
+<tr>
+	<td class="file high" data-value="bifrost/v1/transformers/"><a href="bifrost/v1/transformers/index.html">bifrost/v1/transformers/</a></td>
+	<td data-value="100" class="pic high"><span class="cover-fill cover-full" style="width: 100px;"></span><span class="cover-empty" style="width:0px;"></span></td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="31" class="abs high">(31&nbsp;/&nbsp;31)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="2" class="abs high">(2&nbsp;/&nbsp;2)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="7" class="abs high">(7&nbsp;/&nbsp;7)</td>
+	<td data-value="100" class="pct high">100%</td>
+	<td data-value="31" class="abs high">(31&nbsp;/&nbsp;31)</td>
+	</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Apr 10 2014 17:08:08 GMT+0100 (WEST)</div>
+</div>
+
+<script src="prettify.js"></script>
+
+<script src="http://yui.yahooapis.com/3.6.0/build/yui/yui-min.js"></script>
+<script>
+
+    YUI().use('datatable', function (Y) {
+
+        var formatters = {
+          pct: function (o) {
+              o.className += o.record.get('classes')[o.column.key];
+              try {
+                  return o.value.toFixed(2) + '%';
+              } catch (ex) { return o.value + '%'; }
+          },
+          html: function (o) {
+              o.className += o.record.get('classes')[o.column.key];
+              return o.record.get(o.column.key + '_html');
+          }
+        },
+          defaultFormatter = function (o) {
+              o.className += o.record.get('classes')[o.column.key];
+              return o.value;
+          };
+
+        function getColumns(theadNode) {
+            var colNodes = theadNode.all('tr th'),
+                cols = [],
+                col;
+            colNodes.each(function (colNode) {
+                col = {
+                    key: colNode.getAttribute('data-col'),
+                    label: colNode.get('innerHTML') || ' ',
+                    sortable: !colNode.getAttribute('data-nosort'),
+                    className: colNode.getAttribute('class'),
+                    type: colNode.getAttribute('data-type'),
+                    allowHTML: colNode.getAttribute('data-html') === 'true' || colNode.getAttribute('data-fmt') === 'html'
+                };
+                col.formatter = formatters[colNode.getAttribute('data-fmt')] || defaultFormatter;
+                cols.push(col);
+            });
+            return cols;
+        }
+
+        function getRowData(trNode, cols) {
+            var tdNodes = trNode.all('td'),
+                    i,
+                    row = { classes: {} },
+                    node,
+                    name;
+            for (i = 0; i < cols.length; i += 1) {
+                name = cols[i].key;
+                node = tdNodes.item(i);
+                row[name] = node.getAttribute('data-value') || node.get('innerHTML');
+                row[name + '_html'] = node.get('innerHTML');
+                row.classes[name] = node.getAttribute('class');
+                //Y.log('Name: ' + name + '; Value: ' + row[name]);
+                if (cols[i].type === 'number') { row[name] = row[name] * 1; }
+            }
+            //Y.log(row);
+            return row;
+        }
+
+        function getData(tbodyNode, cols) {
+            var data = [];
+            tbodyNode.all('tr').each(function (trNode) {
+                data.push(getRowData(trNode, cols));
+            });
+            return data;
+        }
+
+        function replaceTable(node) {
+            if (!node) { return; }
+            var cols = getColumns(node.one('thead')),
+                data = getData(node.one('tbody'), cols),
+                table,
+                parent = node.get('parentNode');
+
+            table = new Y.DataTable({
+                columns: cols,
+                data: data,
+                sortBy: 'file'
+            });
+            parent.set('innerHTML', '');
+            table.render(parent);
+        }
+
+        Y.on('domready', function () {
+            replaceTable(Y.one('div.coverage-summary table'));
+            if (typeof prettyPrint === 'function') {
+                prettyPrint();
+            }
+        });
+    });
+</script>
+</body>
+</html>

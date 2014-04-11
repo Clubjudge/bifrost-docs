@@ -1,0 +1,31 @@
+---
+layout: default
+---
+
+<nav id='sidebar'>
+	{% include nav.html %}
+</nav>
+
+<section id='content'>
+{% for category in site.categories %}
+  <div>
+    <h2>{{ category | first }}</h2>
+    {% for post in category.last %}
+      <article class='{{ post.type }}'>
+        <a name='{{ post.url }}' href='#{{ post.url }}'>
+          <h2>
+            {% if post.type %}
+              <code><b>{{ post.type }}</b> {{ post.path }}</code>
+            {% else %}
+              {{post.title}}
+            {% endif %}
+          </h2>
+        </a>
+        <section class='body'>
+          {{ post.content }}
+        </section>
+      </article>
+    {% endfor %}
+  </div>
+{% endfor %}
+</section>
