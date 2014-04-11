@@ -1,7 +1,7 @@
 ---
 category: Artists
 path: '/artists'
-title: 'Get'
+title: 'GET /artists'
 type: 'GET'
 
 layout: nil

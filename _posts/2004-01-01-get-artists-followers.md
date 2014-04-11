@@ -1,7 +1,7 @@
 ---
 category: Artists
-path: '/artists/:artistId/followers'
-title: 'Get'
+path: '/artists/:id/followers'
+title: 'GET /artists/:id/followers'
 type: 'GET'
 
 layout: nil

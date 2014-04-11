@@ -1,7 +1,7 @@
 ---
 category: Artists
-path: '/artists/:artistId/comments'
-title: 'Get'
+path: '/artists/:id/comments'
+title: 'GET /artists/:id/comments'
 type: 'GET'
 
 layout: nil

@@ -62,6 +62,10 @@
   
     
   
+    
+  
+    
+  
   
   <li><h2>using the api</h2>
     <ul>
@@ -126,15 +130,15 @@
   <li><h2>artists</h2>
     <ul>
     
-      <li class='GET'><a href='#/get-artists'>Get</a></li>
+      <li class='GET'><a href='#/get-artists'>GET /artists</a></li>
     
-      <li class='GET'><a href='#/get-artists-comments'>Get</a></li>
+      <li class='GET'><a href='#/get-artists-comments'>GET /artists/:id/comments</a></li>
     
-      <li class='GET'><a href='#/get-artists-events'>Get</a></li>
+      <li class='GET'><a href='#/get-artists-events'>GET /artists/:id/events</a></li>
     
-      <li class='GET'><a href='#/get-artists-followers'>Get</a></li>
+      <li class='GET'><a href='#/get-artists-followers'>GET /artists/:id/followers</a></li>
     
-      <li class='GET'><a href='#/get-artists-music-genres'>Get</a></li>
+      <li class='GET'><a href='#/get-artists-music-genres'>GET /artists/:id/musicGenres</a></li>
     
     </ul>
   </li>
@@ -142,7 +146,17 @@
   <li><h2>users</h2>
     <ul>
     
-      <li class='GET'><a href='#/get-user'>Get</a></li>
+      <li class='GET'><a href='#/get-me'>GET /me</a></li>
+    
+      <li class='GET'><a href='#/get-user'>GET /users/:id</a></li>
+    
+    </ul>
+  </li>
+
+  <li><h2>user</h2>
+    <ul>
+    
+      <li class='GET'><a href='#/get-user-events'>GET /users/:id/events</a></li>
     
     </ul>
   </li>
@@ -150,7 +164,7 @@
   <li><h2>stats</h2>
     <ul>
     
-      <li class='GET'><a href='#/get-stats'>Get</a></li>
+      <li class='GET'><a href='#/get-stats'>GET /stats</a></li>
     
     </ul>
   </li>
@@ -1234,7 +1248,7 @@ and <a href="#pagination">Pagination</a> are also supported.</p>
         <a name='/get-artists-music-genres' href='#/get-artists-music-genres'>
           <h2>
             
-              <code><b>GET</b> /artists/:artistId/musicGenres</code>
+              <code><b>GET</b> /artists/:id/musicGenres</code>
             
           </h2>
         </a>
@@ -1258,7 +1272,7 @@ curl "http://api.clubjduge.com/v1/artists/123/musicGenres.json"
         <a name='/get-artists-followers' href='#/get-artists-followers'>
           <h2>
             
-              <code><b>GET</b> /artists/:artistId/followers</code>
+              <code><b>GET</b> /artists/:id/followers</code>
             
           </h2>
         </a>
@@ -1282,7 +1296,7 @@ curl "http://api.clubjduge.com/v1/artists/123/followers.json"
         <a name='/get-artists-events' href='#/get-artists-events'>
           <h2>
             
-              <code><b>GET</b> /artists/:artistId/events</code>
+              <code><b>GET</b> /artists/:id/events</code>
             
           </h2>
         </a>
@@ -1306,7 +1320,7 @@ curl "http://api.clubjduge.com/v1/artists/123/events.json"
         <a name='/get-artists-comments' href='#/get-artists-comments'>
           <h2>
             
-              <code><b>GET</b> /artists/:artistId/comments</code>
+              <code><b>GET</b> /artists/:id/comments</code>
             
           </h2>
         </a>
@@ -1359,6 +1373,28 @@ curl "http://api.clubjduge.com/v1/artists.json"
         <a name='/get-user' href='#/get-user'>
           <h2>
             
+              <code><b>GET</b> /users/:id</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Data for a ClubJudge <a href="#user-model">User</a></p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl "http://api.clubjduge.com/v1/users/443.json"
+</code></p>
+
+<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-me' href='#/get-me'>
+          <h2>
+            
               <code><b>GET</b> /me</code>
             
           </h2>
@@ -1380,6 +1416,33 @@ curl "http://api.clubjduge.com/v1/me.json"
   </div>
 
   <div>
+    <h2>user</h2>
+    
+      <article class='GET'>
+        <a name='/get-user-events' href='#/get-user-events'>
+          <h2>
+            
+              <code><b>GET</b> /users/:id/events</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Lists the upcoming <a href="#event-model">Events</a> for a <a href="#user-model">User</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl "http://api.clubjduge.com/v1/users/443/events.json"
+</code></p>
+
+<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+
+        </section>
+      </article>
+    
+  </div>
+
+  <div>
     <h2>stats</h2>
     
       <article class='GET'>
@@ -1391,7 +1454,7 @@ curl "http://api.clubjduge.com/v1/me.json"
           </h2>
         </a>
         <section class='body'>
-          <p>Counters for numbers of <a href="#event-model">Events</a>, <a href="#city-model">Cities</a> and 
+          <p>Counters for numbers of <a href="#event-model">Events</a>, <a href="#city-model">Cities</a> and
 <a href="#venue-model">Venues</a></p>
 
 <h3 id="example">Example</h3>
