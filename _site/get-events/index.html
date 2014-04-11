@@ -2,7 +2,9 @@
 
 <h3 id="example">Example</h3>
 
-<pre><code>curl &quot;http://api.clubjduge.com/v1/events.json&quot;</code></pre>
+<p><code>
+curl "http://api.clubjduge.com/v1/events.json"
+</code></p>
 
 <p><a href="#partial-responses">Partial responses</a> and <a href="#pagination">Pagination</a> are also supported.</p>
 
@@ -11,13 +13,60 @@
 <h3 id="filters">Filters</h3>
 
 <p>To use location filter you have to enter at least longitude and latitude.</p>
-<table><thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td style="text-align: left;">type</td><td style="text-align: left;">String</td><td style="text-align: left;">(upcoming, featured, nearby)</td></tr>
-<tr><td style="text-align: left;">lat</td><td style="text-align: left;">Decimal</td><td style="text-align: left;">latitude</td></tr>
-<tr><td style="text-align: left;">long</td><td style="text-align: left;">Decimal</td><td style="text-align: left;">longitude</td></tr>
-<tr><td style="text-align: left;">radius</td><td style="text-align: left;">Integer</td><td style="text-align: left;">radius</td></tr>
-<tr><td style="text-align: left;">start</td><td style="text-align: left;">Date</td><td style="text-align: left;">selects any event beginging after this date</td></tr>
-<tr><td style="text-align: left;">ends</td><td style="text-align: left;">Date</td><td style="text-align: left;">selects any events beginging until this date</td></tr>
-<tr><td style="text-align: left;">musicGenre</td><td style="text-align: left;">String</td><td style="text-align: left;">filter by music genre</td></tr>
-<tr><td style="text-align: left;">cityId</td><td style="text-align: left;">Integer</td><td style="text-align: left;">all events from this city</td></tr>
-<tr><td style="text-align: left;"></td><td style="text-align: left;"></td><td style="text-align: left;"></td></tr>
-</tbody></table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">type</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">(upcoming, featured, nearby)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lat</td>
+      <td style="text-align: left">Decimal</td>
+      <td style="text-align: left">latitude</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">long</td>
+      <td style="text-align: left">Decimal</td>
+      <td style="text-align: left">longitude</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">radius</td>
+      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">radius</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">start</td>
+      <td style="text-align: left">Date</td>
+      <td style="text-align: left">selects any event beginging after this date</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ends</td>
+      <td style="text-align: left">Date</td>
+      <td style="text-align: left">selects any events beginging until this date</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">musicGenre</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">filter by music genre</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">cityId</td>
+      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">all events from this city</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">&#160;</td>
+      <td style="text-align: left">&#160;</td>
+      <td style="text-align: left">&#160;</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,13 +1,15 @@
 ---
 category: Events
-path: '/events/:eventId/followers'
-title: 'Get'
+path: '/events/:id/followers'
+title: 'GET /events/:id/followers'
 type: 'GET'
 
 layout: nil
 ---
 
 A list of ClubJudge [Users](#user-model).
+
+This resource is embeddable.
 
 ### Example
 

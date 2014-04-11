@@ -1,17 +1,104 @@
 <p>A Clubjudge Venue.</p>
-<table><thead><tr><th>Name</th><th>Type</th><th>Description</th><th>Example</th></tr></thead><tbody><tr><td style="text-align: left;">id</td><td style="text-align: left;">Integer</td><td style="text-align: left;">Id of this venue</td><td style="text-align: left;"><code>233</code></td></tr>
-<tr><td style="text-align: left;">name</td><td style="text-align: left;">String</td><td style="text-align: left;">Name of this venue</td><td style="text-align: left;"><code>&quot;Awesome venue&quot;</code></td></tr>
-<tr><td style="text-align: left;">description</td><td style="text-align: left;">String</td><td style="text-align: left;">Description of this venue</td><td style="text-align: left;"><code>This venue is awesome</code></td></tr>
-<tr><td style="text-align: left;">email</td><td style="text-align: left;">String</td><td style="text-align: left;">Contact email for this venue</td><td style="text-align: left;"><code>&quot;venue@email.com&quot;</code></td></tr>
-<tr><td style="text-align: left;">websiteUrl</td><td style="text-align: left;">String</td><td style="text-align: left;">Link to venue website</td><td style="text-align: left;"><code>&quot;http://venue.com&quot;</code></td></tr>
-<tr><td style="text-align: left;">phoneNumber</td><td style="text-align: left;">String</td><td style="text-align: left;">Contact phone for this venue</td><td style="text-align: left;"><code>&quot;+55 5555-5555&quot;</code></td></tr>
-<tr><td style="text-align: left;">geolocation</td><td style="text-align: left;">Hash</td><td style="text-align: left;">Coordinates hash</td><td style="text-align: left;"><code>{ lat: 31.0234, lon: 3.1233}</code></td></tr>
-<tr><td style="text-align: left;">reviewCount</td><td style="text-align: left;">Integer</td><td style="text-align: left;">Number of reviews for this venue</td><td style="text-align: left;"><code>455</code></td></tr>
-<tr><td style="text-align: left;">commentsCount</td><td style="text-align: left;">Integer</td><td style="text-align: left;">Number of comments for this venue</td><td style="text-align: left;"><code>90</code></td></tr>
-<tr><td style="text-align: left;">socialMentionsCount</td><td style="text-align: left;">Integer</td><td style="text-align: left;">Number of social mentions for this venue</td><td style="text-align: left;"><code>593</code></td></tr>
-<tr><td style="text-align: left;">followersCount</td><td style="text-align: left;">Integer</td><td style="text-align: left;">Number of followers for this venue</td><td style="text-align: left;"><code>344</code></td></tr>
-<tr><td style="text-align: left;">updatedAt</td><td style="text-align: left;">String</td><td style="text-align: left;">Date and time when this venue was last modified</td><td style="text-align: left;"><code>2014-04-02T12:05:00</code></td></tr>
-<tr><td style="text-align: left;">ratings</td><td style="text-align: left;">[Hash]</td><td style="text-align: left;">Ratings for this venue</td><td style="text-align: left;"><code>{ global: 8.14 }</code></td></tr>
-<tr><td style="text-align: left;">logos</td><td style="text-align: left;">[Hash]</td><td style="text-align: left;">Links to venue logo</td><td style="text-align: left;"><code>[{ id: 3638, base: &#39;http://example.com&#39;, ext: &#39;.jpg&#39; }]</code></td></tr>
-<tr><td style="text-align: left;">background</td><td style="text-align: left;">Hash</td><td style="text-align: left;">Link to venue background image</td><td style="text-align: left;"><code>{ base: &#39;http://example.com&#39;, ext: &#39;.jpg&#39;}</code></td></tr>
-</tbody></table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>Integer</td>
+      <td>Id of this venue</td>
+      <td><code>233</code></td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>String</td>
+      <td>Name of this venue</td>
+      <td><code>"Awesome venue"</code></td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td>String</td>
+      <td>Description of this venue</td>
+      <td><code>This venue is awesome</code></td>
+    </tr>
+    <tr>
+      <td>email</td>
+      <td>String</td>
+      <td>Contact email for this venue</td>
+      <td><code>"venue@email.com"</code></td>
+    </tr>
+    <tr>
+      <td>websiteUrl</td>
+      <td>String</td>
+      <td>Link to venue website</td>
+      <td><code>"http://venue.com"</code></td>
+    </tr>
+    <tr>
+      <td>phoneNumber</td>
+      <td>String</td>
+      <td>Contact phone for this venue</td>
+      <td><code>"+55 5555-5555"</code></td>
+    </tr>
+    <tr>
+      <td>geolocation</td>
+      <td>Hash</td>
+      <td>Coordinates hash</td>
+      <td><code>{ lat: 31.0234, lon: 3.1233}</code></td>
+    </tr>
+    <tr>
+      <td>reviewCount</td>
+      <td>Integer</td>
+      <td>Number of reviews for this venue</td>
+      <td><code>455</code></td>
+    </tr>
+    <tr>
+      <td>commentsCount</td>
+      <td>Integer</td>
+      <td>Number of comments for this venue</td>
+      <td><code>90</code></td>
+    </tr>
+    <tr>
+      <td>socialMentionsCount</td>
+      <td>Integer</td>
+      <td>Number of social mentions for this venue</td>
+      <td><code>593</code></td>
+    </tr>
+    <tr>
+      <td>followersCount</td>
+      <td>Integer</td>
+      <td>Number of followers for this venue</td>
+      <td><code>344</code></td>
+    </tr>
+    <tr>
+      <td>updatedAt</td>
+      <td>String</td>
+      <td>Date and time when this venue was last modified</td>
+      <td><code>2014-04-02T12:05:00</code></td>
+    </tr>
+    <tr>
+      <td>ratings</td>
+      <td>[Hash]</td>
+      <td>Ratings for this venue</td>
+      <td><code>{ global: 8.14 }</code></td>
+    </tr>
+    <tr>
+      <td>logos</td>
+      <td>[Hash]</td>
+      <td>Links to venue logo</td>
+      <td><code>[{ id: 3638, base: 'http://example.com', ext: '.jpg' }]</code></td>
+    </tr>
+    <tr>
+      <td>background</td>
+      <td>Hash</td>
+      <td>Link to venue background image</td>
+      <td><code>{ base: 'http://example.com', ext: '.jpg'}</code></td>
+    </tr>
+  </tbody>
+</table>

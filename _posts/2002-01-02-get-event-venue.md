@@ -1,13 +1,15 @@
 ---
 category: Events
-path: '/events/:eventId/venue'
-title: 'Get'
+path: '/events/:id/venue'
+title: 'GET /events/:id/venue'
 type: 'GET'
 
 layout: nil
 ---
 
-A list of ClubJudge [Venue](#venue-model).
+The ClubJudge [Venue](#venue-model) for this event.
+
+This resource is embeddable.
 
 ### Example
 

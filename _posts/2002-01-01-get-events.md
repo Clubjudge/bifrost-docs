@@ -1,7 +1,7 @@
 ---
 category: Events
 path: '/events'
-title: 'Get'
+title: 'GET /events'
 type: 'GET'
 
 layout: nil

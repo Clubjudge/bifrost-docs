@@ -1,13 +1,15 @@
 ---
 category: Events
-path: '/events/:eventId/artists'
-title: 'Get'
+path: '/events/:id/artists'
+title: 'GET /events/:id/artists'
 type: 'GET'
 
 layout: nil
 ---
 
 A list of ClubJudge [Artists](#artist-model).
+
+This resource is embeddable.
 
 ### Example
 

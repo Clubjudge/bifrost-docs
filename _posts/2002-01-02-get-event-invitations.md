@@ -1,7 +1,7 @@
 ---
 category: Events
-path: '/events/:eventId/invitations'
-title: 'Get'
+path: '/events/:id/invitations'
+title: 'GET /events/:id/invitations'
 type: 'GET'
 
 layout: nil
