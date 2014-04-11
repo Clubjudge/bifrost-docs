@@ -94,6 +94,8 @@
   
     
   
+    
+  
   
   <li><h2>using the api</h2>
     <ul>
@@ -227,6 +229,8 @@
       <li class='GET'><a href='#/get-venue-followers'>GET /venues/:id/followers</a></li>
     
       <li class='GET'><a href='#/get-venue-ratings'>GET /venues/:id/ratings</a></li>
+    
+      <li class='POST'><a href='#/post-venue-ratings'>POST /venues/:id/ratings</a></li>
     
     </ul>
   </li>
@@ -1929,6 +1933,28 @@ curl "http://api.clubjduge.com/v1/stats.json"
 
   <div>
     <h2>venues</h2>
+    
+      <article class='POST'>
+        <a name='/post-venue-ratings' href='#/post-venue-ratings'>
+          <h2>
+            
+              <code><b>POST</b> /venues/:id/ratings</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Reviews a ClubJudge <a href="#/venue-model">Venue</a></p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl -X POST "http://api.clubjduge.com/v1/venues/123/ratings.json"
+</code></p>
+
+<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
+
+        </section>
+      </article>
     
       <article class='GET'>
         <a name='/get-venue-ratings' href='#/get-venue-ratings'>
