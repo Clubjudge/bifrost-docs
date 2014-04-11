@@ -70,6 +70,22 @@
   
     
   
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
   
   <li><h2>using the api</h2>
     <ul>
@@ -83,6 +99,8 @@
     <ul>
     
       <li class=''><a href='#/city-model'>City</a></li>
+    
+      <li class=''><a href='#/rating-model'>Rating</a></li>
     
       <li class=''><a href='#/event-model'>Event</a></li>
     
@@ -107,6 +125,8 @@
     <ul>
     
       <li class='GET'><a href='#/get-events'>GET /events</a></li>
+    
+      <li class='GET'><a href='#/get-event'>GET /events/:id</a></li>
     
       <li class='GET'><a href='#/get-event-artists'>GET /events/:id/artists</a></li>
     
@@ -173,6 +193,24 @@
     <ul>
     
       <li class='GET'><a href='#/get-stats'>GET /stats</a></li>
+    
+    </ul>
+  </li>
+
+  <li><h2>venues</h2>
+    <ul>
+    
+      <li class='GET'><a href='#/get-venue'>GET /venues/:id</a></li>
+    
+      <li class='GET'><a href='#/get-venues'>GET /venues</a></li>
+    
+      <li class='GET'><a href='#/get-venue-comments'>GET /venues/:id/comments</a></li>
+    
+      <li class='GET'><a href='#/get-venue-events'>GET /venues/:id/events</a></li>
+    
+      <li class='GET'><a href='#/get-venue-followers'>GET /venues/:id/followers</a></li>
+    
+      <li class='GET'><a href='#/get-venue-ratings'>GET /venues/:id/ratings</a></li>
     
     </ul>
   </li>
@@ -814,7 +852,7 @@
       <td>user</td>
       <td>Hash</td>
       <td>User representation</td>
-      <td>see <a href="#user-model">User</a></td>
+      <td>see <a href="#/user-model">User</a></td>
     </tr>
   </tbody>
 </table>
@@ -956,19 +994,19 @@
   <tbody>
     <tr>
       <td>events</td>
-      <td><a href="#event-model">Event</a></td>
+      <td><a href="#/event-model">Event</a></td>
     </tr>
     <tr>
       <td>comments</td>
-      <td><a href="#comment-model">Comment</a></td>
+      <td><a href="#/comment-model">Comment</a></td>
     </tr>
     <tr>
       <td>followers</td>
-      <td><a href="#user-model">User</a></td>
+      <td><a href="#/user-model">User</a></td>
     </tr>
     <tr>
       <td>musicGenres</td>
-      <td><a href="#music-genre-model">Music Genre</a></td>
+      <td><a href="#/music-genre-model">Music Genre</a></td>
     </tr>
   </tbody>
 </table>
@@ -1134,39 +1172,78 @@
   <tbody>
     <tr>
       <td>artists</td>
-      <td><a href="#artist-model">Artist</a></td>
+      <td><a href="#/artist-model">Artist</a></td>
     </tr>
     <tr>
       <td>comments</td>
-      <td><a href="#comment-model">Comment</a></td>
+      <td><a href="#/comment-model">Comment</a></td>
     </tr>
     <tr>
       <td>flyers</td>
-      <td><a href="#flyer-model">Flyer</a></td>
+      <td><a href="#/flyer-model">Flyer</a></td>
     </tr>
     <tr>
       <td>invitations</td>
-      <td><a href="#invitation-model">Invitation</a></td>
+      <td><a href="#/invitation-model">Invitation</a></td>
     </tr>
     <tr>
       <td>followers</td>
-      <td><a href="#user-model">User</a></td>
+      <td><a href="#/user-model">User</a></td>
     </tr>
     <tr>
       <td>musicGenres</td>
-      <td><a href="#music-genre-model">Music Genre</a></td>
+      <td><a href="#/music-genre-model">Music Genre</a></td>
     </tr>
     <tr>
       <td>ratings</td>
-      <td><a href="#rating-model">Rating</a></td>
+      <td><a href="#/rating-model">Rating</a></td>
     </tr>
     <tr>
       <td>tickets</td>
-      <td><a href="#ticket-model">Ticket</a></td>
+      <td><a href="#/ticket-model">Ticket</a></td>
     </tr>
     <tr>
       <td>venue</td>
-      <td><a href="#venue-model">Venue</a></td>
+      <td><a href="#/venue-model">Venue</a></td>
+    </tr>
+  </tbody>
+</table>
+
+        </section>
+      </article>
+    
+      <article class=''>
+        <a name='/rating-model' href='#/rating-model'>
+          <h2>
+            
+              Rating
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A ClubJudge Rating.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>String</td>
+      <td>The unique rating category</td>
+      <td><code>crowd</code></td>
+    </tr>
+    <tr>
+      <td>score</td>
+      <td>Float</td>
+      <td>The value of the rating in a scale of 1 to 10</td>
+      <td><code>7.6</code></td>
     </tr>
   </tbody>
 </table>
@@ -1245,7 +1322,7 @@
           </h2>
         </a>
         <section class='body'>
-          <p>The ClubJudge <a href="#venue-model">Venue</a> for this event.</p>
+          <p>The ClubJudge <a href="#/venue-model">Venue</a> for this event.</p>
 
 <p>This resource is embeddable.</p>
 
@@ -1255,7 +1332,7 @@
 curl "http://api.clubjduge.com/v1/events/123/venue.json"
 </code></p>
 
-<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1269,7 +1346,7 @@ curl "http://api.clubjduge.com/v1/events/123/venue.json"
           </h2>
         </a>
         <section class='body'>
-          <p>A list of ClubJudge <a href="#ticket-model">Ticket</a>.</p>
+          <p>A list of ClubJudge <a href="#/ticket-model">Ticket</a>.</p>
 
 <h3 id="example">Example</h3>
 
@@ -1277,7 +1354,7 @@ curl "http://api.clubjduge.com/v1/events/123/venue.json"
 curl "http://api.clubjduge.com/v1/events/123/tickets.json"
 </code></p>
 
-<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1291,7 +1368,7 @@ curl "http://api.clubjduge.com/v1/events/123/tickets.json"
           </h2>
         </a>
         <section class='body'>
-          <p>A list of ClubJudge <a href="#music-genre-model">Music Genre</a>.</p>
+          <p>A list of ClubJudge <a href="#/music-genre-model">Music Genre</a>.</p>
 
 <p>This resource is embeddable.</p>
 
@@ -1301,7 +1378,7 @@ curl "http://api.clubjduge.com/v1/events/123/tickets.json"
 curl "http://api.clubjduge.com/v1/events/123/musicGenres.json"
 </code></p>
 
-<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1315,7 +1392,7 @@ curl "http://api.clubjduge.com/v1/events/123/musicGenres.json"
           </h2>
         </a>
         <section class='body'>
-          <p>A list of ClubJudge <a href="#invitation-model">Invitation</a>.</p>
+          <p>A list of ClubJudge <a href="#/invitation-model">Invitation</a>.</p>
 
 <h3 id="example">Example</h3>
 
@@ -1323,7 +1400,7 @@ curl "http://api.clubjduge.com/v1/events/123/musicGenres.json"
 curl "http://api.clubjduge.com/v1/events/123/invitations.json"
 </code></p>
 
-<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1337,7 +1414,7 @@ curl "http://api.clubjduge.com/v1/events/123/invitations.json"
           </h2>
         </a>
         <section class='body'>
-          <p>A list of ClubJudge <a href="#user-model">Users</a>.</p>
+          <p>A list of ClubJudge <a href="#/user-model">Users</a>.</p>
 
 <p>This resource is embeddable.</p>
 
@@ -1347,7 +1424,7 @@ curl "http://api.clubjduge.com/v1/events/123/invitations.json"
 curl "http://api.clubjduge.com/v1/events/123/followers.json"
 </code></p>
 
-<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1367,7 +1444,7 @@ curl "http://api.clubjduge.com/v1/events/123/followers.json"
 curl "http://api.clubjduge.com/v1/events/123/flyers.json"
 </code></p>
 
-<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1381,7 +1458,7 @@ curl "http://api.clubjduge.com/v1/events/123/flyers.json"
           </h2>
         </a>
         <section class='body'>
-          <p>A list of ClubJudge <a href="#comment-model">Comments</a>.</p>
+          <p>A list of ClubJudge <a href="#/comment-model">Comments</a>.</p>
 
 <h3 id="example">Example</h3>
 
@@ -1389,7 +1466,7 @@ curl "http://api.clubjduge.com/v1/events/123/flyers.json"
 curl "http://api.clubjduge.com/v1/events/123/comments.json"
 </code></p>
 
-<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1403,7 +1480,7 @@ curl "http://api.clubjduge.com/v1/events/123/comments.json"
           </h2>
         </a>
         <section class='body'>
-          <p>A list of ClubJudge <a href="#artist-model">Artists</a>.</p>
+          <p>A list of ClubJudge <a href="#/artist-model">Artists</a>.</p>
 
 <p>This resource is embeddable.</p>
 
@@ -1413,9 +1490,33 @@ curl "http://api.clubjduge.com/v1/events/123/comments.json"
 curl "http://api.clubjduge.com/v1/events/123/artists.json"
 </code></p>
 
-<p><a href="#partial-responses">Partial responses</a> and <a href="#pagination">Pagination</a> are also supported.</p>
+<p><a href="#/partial-responses">Partial responses</a> and <a href="#/pagination">Pagination</a> are also supported.</p>
 
-<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
+
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-event' href='#/get-event'>
+          <h2>
+            
+              <code><b>GET</b> /events/:id</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>An instance of a ClubJudge <a href="#/event-model">Event</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl "http://api.clubjduge.com/v1/events/3923.json"
+</code></p>
+
+<p><a href="#/partial-responses">Partial response</a> is also supported.</p>
+
+<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1429,7 +1530,7 @@ curl "http://api.clubjduge.com/v1/events/123/artists.json"
           </h2>
         </a>
         <section class='body'>
-          <p>A list of ClubJudge <a href="#event-model">Events</a>.</p>
+          <p>A list of ClubJudge <a href="#/event-model">Events</a>.</p>
 
 <h3 id="example">Example</h3>
 
@@ -1437,9 +1538,9 @@ curl "http://api.clubjduge.com/v1/events/123/artists.json"
 curl "http://api.clubjduge.com/v1/events.json"
 </code></p>
 
-<p><a href="#partial-responses">Partial responses</a> and <a href="#pagination">Pagination</a> are also supported.</p>
+<p><a href="#/partial-responses">Partial responses</a> and <a href="#/pagination">Pagination</a> are also supported.</p>
 
-<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
 <h3 id="filters">Filters</h3>
 
@@ -1519,7 +1620,7 @@ curl "http://api.clubjduge.com/v1/events.json"
           </h2>
         </a>
         <section class='body'>
-          <p>A ClubJudge <a href="#event-model">City</a>.</p>
+          <p>A ClubJudge <a href="#/event-model">City</a>.</p>
 
 <h3 id="example">Example</h3>
 
@@ -1527,10 +1628,10 @@ curl "http://api.clubjduge.com/v1/events.json"
 curl "http://api.clubjduge.com/v1/cities.json"
 </code></p>
 
-<p><a href="#partial-responses">Partial responses</a>, <a href="#reference-embedding">Reference embedding</a>
-and <a href="#pagination">Pagination</a> are also supported.</p>
+<p><a href="#/partial-responses">Partial responses</a>, <a href="#/reference-embedding">Reference embedding</a>
+and <a href="#/pagination">Pagination</a> are also supported.</p>
 
-<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1549,7 +1650,7 @@ and <a href="#pagination">Pagination</a> are also supported.</p>
           </h2>
         </a>
         <section class='body'>
-          <p>A list of ClubJudge <a href="#music-genre-model">Music Genres</a>.</p>
+          <p>A list of ClubJudge <a href="#/music-genre-model">Music Genres</a>.</p>
 
 <h3 id="example">Example</h3>
 
@@ -1557,9 +1658,9 @@ and <a href="#pagination">Pagination</a> are also supported.</p>
 curl "http://api.clubjduge.com/v1/artists/123/musicGenres.json"
 </code></p>
 
-<p><a href="#partial-responses">Partial responses</a> and <a href="#pagination">Pagination</a> are also supported.</p>
+<p><a href="#/partial-responses">Partial responses</a> and <a href="#/pagination">Pagination</a> are also supported.</p>
 
-<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1573,7 +1674,7 @@ curl "http://api.clubjduge.com/v1/artists/123/musicGenres.json"
           </h2>
         </a>
         <section class='body'>
-          <p>A list of ClubJudge <a href="#user-model">Users</a>.</p>
+          <p>A list of ClubJudge <a href="#/user-model">Users</a>.</p>
 
 <h3 id="example">Example</h3>
 
@@ -1581,9 +1682,9 @@ curl "http://api.clubjduge.com/v1/artists/123/musicGenres.json"
 curl "http://api.clubjduge.com/v1/artists/123/followers.json"
 </code></p>
 
-<p><a href="#partial-responses">Partial responses</a> and <a href="#pagination">Pagination</a> are also supported.</p>
+<p><a href="#/partial-responses">Partial responses</a> and <a href="#/pagination">Pagination</a> are also supported.</p>
 
-<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1597,7 +1698,7 @@ curl "http://api.clubjduge.com/v1/artists/123/followers.json"
           </h2>
         </a>
         <section class='body'>
-          <p>A list of ClubJudge <a href="#event-model">Events</a>.</p>
+          <p>A list of ClubJudge <a href="#/event-model">Events</a>.</p>
 
 <h3 id="example">Example</h3>
 
@@ -1605,9 +1706,9 @@ curl "http://api.clubjduge.com/v1/artists/123/followers.json"
 curl "http://api.clubjduge.com/v1/artists/123/events.json"
 </code></p>
 
-<p><a href="#partial-responses">Partial responses</a> and <a href="#pagination">Pagination</a> are also supported.</p>
+<p><a href="#/partial-responses">Partial responses</a> and <a href="#/pagination">Pagination</a> are also supported.</p>
 
-<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1621,7 +1722,7 @@ curl "http://api.clubjduge.com/v1/artists/123/events.json"
           </h2>
         </a>
         <section class='body'>
-          <p>A list of ClubJudge <a href="#comment-model">Comment</a>.</p>
+          <p>A list of ClubJudge <a href="#/comment-model">Comment</a>.</p>
 
 <h3 id="example">Example</h3>
 
@@ -1629,9 +1730,9 @@ curl "http://api.clubjduge.com/v1/artists/123/events.json"
 curl "http://api.clubjduge.com/v1/artists/123/comments.json"
 </code></p>
 
-<p><a href="#partial-responses">Partial responses</a> and <a href="#pagination">Pagination</a> are also supported.</p>
+<p><a href="#/partial-responses">Partial responses</a> and <a href="#/pagination">Pagination</a> are also supported.</p>
 
-<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1645,7 +1746,7 @@ curl "http://api.clubjduge.com/v1/artists/123/comments.json"
           </h2>
         </a>
         <section class='body'>
-          <p>A list of ClubJudge <a href="#artist-model">Artists</a>.</p>
+          <p>A list of ClubJudge <a href="#/artist-model">Artists</a>.</p>
 
 <h3 id="example">Example</h3>
 
@@ -1653,9 +1754,9 @@ curl "http://api.clubjduge.com/v1/artists/123/comments.json"
 curl "http://api.clubjduge.com/v1/artists.json"
 </code></p>
 
-<p><a href="#partial-responses">Partial responses</a> and <a href="#pagination">Pagination</a> are also supported.</p>
+<p><a href="#/partial-responses">Partial responses</a> and <a href="#/pagination">Pagination</a> are also supported.</p>
 
-<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1674,7 +1775,7 @@ curl "http://api.clubjduge.com/v1/artists.json"
           </h2>
         </a>
         <section class='body'>
-          <p>Data for a ClubJudge <a href="#user-model">User</a></p>
+          <p>Data for a ClubJudge <a href="#/user-model">User</a></p>
 
 <h3 id="example">Example</h3>
 
@@ -1682,7 +1783,7 @@ curl "http://api.clubjduge.com/v1/artists.json"
 curl "http://api.clubjduge.com/v1/users/443.json"
 </code></p>
 
-<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1696,7 +1797,7 @@ curl "http://api.clubjduge.com/v1/users/443.json"
           </h2>
         </a>
         <section class='body'>
-          <p>Data about the logged in ClubJudge <a href="#me-model">User</a></p>
+          <p>Data about the logged in ClubJudge <a href="#/me-model">User</a></p>
 
 <h3 id="example">Example</h3>
 
@@ -1704,7 +1805,7 @@ curl "http://api.clubjduge.com/v1/users/443.json"
 curl "http://api.clubjduge.com/v1/me.json"
 </code></p>
 
-<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1723,7 +1824,7 @@ curl "http://api.clubjduge.com/v1/me.json"
           </h2>
         </a>
         <section class='body'>
-          <p>Lists the upcoming <a href="#event-model">Events</a> for a <a href="#user-model">User</a>.</p>
+          <p>Lists the upcoming <a href="#/event-model">Events</a> for a <a href="#/user-model">User</a>.</p>
 
 <h3 id="example">Example</h3>
 
@@ -1731,7 +1832,7 @@ curl "http://api.clubjduge.com/v1/me.json"
 curl "http://api.clubjduge.com/v1/users/443/events.json"
 </code></p>
 
-<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1750,8 +1851,8 @@ curl "http://api.clubjduge.com/v1/users/443/events.json"
           </h2>
         </a>
         <section class='body'>
-          <p>Counters for numbers of <a href="#event-model">Events</a>, <a href="#city-model">Cities</a> and
-<a href="#venue-model">Venues</a></p>
+          <p>Counters for numbers of <a href="#/event-model">Events</a>, <a href="#/city-model">Cities</a> and
+<a href="#/venue-model">Venues</a></p>
 
 <h3 id="example">Example</h3>
 
@@ -1759,7 +1860,207 @@ curl "http://api.clubjduge.com/v1/users/443/events.json"
 curl "http://api.clubjduge.com/v1/stats.json"
 </code></p>
 
-<p>For errors responses, see the <a href="#response-status-codes">response status codes documentation</a>.</p>
+<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
+
+        </section>
+      </article>
+    
+  </div>
+
+  <div>
+    <h2>venues</h2>
+    
+      <article class='GET'>
+        <a name='/get-venue-ratings' href='#/get-venue-ratings'>
+          <h2>
+            
+              <code><b>GET</b> /venues/:id/ratings</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A list of ClubJudge <a href="#/rating-model">Ratings</a> for this venue.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl "http://api.clubjduge.com/v1/venues/123/ratings.json"
+</code></p>
+
+<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
+
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-venue-followers' href='#/get-venue-followers'>
+          <h2>
+            
+              <code><b>GET</b> /venues/:id/followers</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A list of ClubJudge <a href="#/user-model">Users</a> who follow this venue.</p>
+
+<p>This resource is embeddable.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl "http://api.clubjduge.com/v1/venues/123/followers.json"
+</code></p>
+
+<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
+
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-venue-events' href='#/get-venue-events'>
+          <h2>
+            
+              <code><b>GET</b> /venues/:id/events</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A list of ClubJudge <a href="#/event-model">Events</a> for this venue.</p>
+
+<p>This resource is embeddable.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl "http://api.clubjduge.com/v1/venues/123/events.json"
+</code></p>
+
+<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
+
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-venue-comments' href='#/get-venue-comments'>
+          <h2>
+            
+              <code><b>GET</b> /venues/:id/comments</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A list of ClubJudge <a href="#/comment-model">Comments</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl "http://api.clubjduge.com/v1/venues/123/comments.json"
+</code></p>
+
+<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
+
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-venues' href='#/get-venues'>
+          <h2>
+            
+              <code><b>GET</b> /venues</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A list of ClubJudge <a href="#/venue-model">Venues</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl "http://api.clubjduge.com/v1/venues.json"
+</code></p>
+
+<p><a href="#/partial-responses">Partial responses</a> and <a href="#/pagination">Pagination</a> are also supported.</p>
+
+<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
+
+<h3 id="filters">Filters</h3>
+
+<p>To use the location filter you have to enter at least longitude and latitude.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">type</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">(nearby)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lat</td>
+      <td style="text-align: left">Decimal</td>
+      <td style="text-align: left">latitude</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">long</td>
+      <td style="text-align: left">Decimal</td>
+      <td style="text-align: left">longitude</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">radius</td>
+      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">radius</td>
+    </tr>
+  </tbody>
+</table>
+
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-venue' href='#/get-venue'>
+          <h2>
+            
+              <code><b>GET</b> /venues/:id</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>An instance of a ClubJudge <a href="#/venue-model">Venue</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl "http://api.clubjduge.com/v1/venues/3923.json"
+</code></p>
+
+<p><a href="#/partial-responses">Partial response</a> is also supported.</p>
+
+<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
+
+<h3 id="filters">Filters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">type</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">(upcoming, recent)</td>
+    </tr>
+  </tbody>
+</table>
 
         </section>
       </article>

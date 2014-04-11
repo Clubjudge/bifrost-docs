@@ -1,0 +1,47 @@
+<p>A list of ClubJudge <a href="#/venue-model">Venues</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl "http://api.clubjduge.com/v1/venues.json"
+</code></p>
+
+<p><a href="#/partial-responses">Partial responses</a> and <a href="#/pagination">Pagination</a> are also supported.</p>
+
+<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
+
+<h3 id="filters">Filters</h3>
+
+<p>To use the location filter you have to enter at least longitude and latitude.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">type</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">(nearby)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lat</td>
+      <td style="text-align: left">Decimal</td>
+      <td style="text-align: left">latitude</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">long</td>
+      <td style="text-align: left">Decimal</td>
+      <td style="text-align: left">longitude</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">radius</td>
+      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">radius</td>
+    </tr>
+  </tbody>
+</table>

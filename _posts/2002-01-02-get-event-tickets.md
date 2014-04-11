@@ -7,7 +7,7 @@ type: 'GET'
 layout: nil
 ---
 
-A list of ClubJudge [Ticket](#ticket-model).
+A list of ClubJudge [Ticket](#/ticket-model).
 
 ### Example
 
@@ -15,4 +15,4 @@ A list of ClubJudge [Ticket](#ticket-model).
 curl "http://api.clubjduge.com/v1/events/123/tickets.json"
 ```
 
-For errors responses, see the [response status codes documentation](#response-status-codes).
+For errors responses, see the [response status codes documentation](#/response-status-codes).

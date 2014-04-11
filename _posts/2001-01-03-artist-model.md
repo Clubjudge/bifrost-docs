@@ -31,7 +31,7 @@ A Clubjudge Event.
 
 |     Name    |               Model               |
 | ----------- | --------------------------------- |
-| events      | [Event](#event-model)           |
-| comments    | [Comment](#comment-model)         |
-| followers   | [User](#user-model)               |
-| musicGenres | [Music Genre](#music-genre-model) |
+| events      | [Event](#/event-model)           |
+| comments    | [Comment](#/comment-model)         |
+| followers   | [User](#/user-model)               |
+| musicGenres | [Music Genre](#/music-genre-model) |

@@ -35,12 +35,12 @@ A Clubjudge Event.
 
 |     Name    |               Model               |
 | ----------- | --------------------------------- |
-| artists     | [Artist](#artist-model)           |
-| comments    | [Comment](#comment-model)         |
-| flyers      | [Flyer](#flyer-model)             |
-| invitations | [Invitation](#invitation-model)   |
-| followers   | [User](#user-model)               |
-| musicGenres | [Music Genre](#music-genre-model) |
-| ratings     | [Rating](#rating-model)           |
-| tickets     | [Ticket](#ticket-model)           |
-| venue       | [Venue](#venue-model)             |
+| artists     | [Artist](#/artist-model)           |
+| comments    | [Comment](#/comment-model)         |
+| flyers      | [Flyer](#/flyer-model)             |
+| invitations | [Invitation](#/invitation-model)   |
+| followers   | [User](#/user-model)               |
+| musicGenres | [Music Genre](#/music-genre-model) |
+| ratings     | [Rating](#/rating-model)           |
+| tickets     | [Ticket](#/ticket-model)           |
+| venue       | [Venue](#/venue-model)             |

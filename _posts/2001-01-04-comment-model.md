@@ -12,4 +12,4 @@ A Clubjudge City.
 | message   | String  | Comment message                              | ```"This is awesome"```     |
 | timestamp | String  | Date and time when the comment was published | ```"2014-02-03T19:00:00"``` |
 | type      | String  | Type of comment                              | ```(comment,activity)```    |
-| user      | Hash    | User representation                          | see [User](#user-model)     |
+| user      | Hash    | User representation                          | see [User](#/user-model)     |

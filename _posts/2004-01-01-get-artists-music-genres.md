@@ -7,7 +7,7 @@ type: 'GET'
 layout: nil
 ---
 
-A list of ClubJudge [Music Genres](#music-genre-model).
+A list of ClubJudge [Music Genres](#/music-genre-model).
 
 ### Example
 
@@ -15,6 +15,6 @@ A list of ClubJudge [Music Genres](#music-genre-model).
 curl "http://api.clubjduge.com/v1/artists/123/musicGenres.json"
 ```
 
-[Partial responses](#partial-responses) and [Pagination](#pagination) are also supported.
+[Partial responses](#/partial-responses) and [Pagination](#/pagination) are also supported.
 
-For errors responses, see the [response status codes documentation](#response-status-codes).
+For errors responses, see the [response status codes documentation](#/response-status-codes).
