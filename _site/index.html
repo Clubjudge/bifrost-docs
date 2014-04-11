@@ -66,6 +66,10 @@
   
     
   
+    
+  
+    
+  
   
   <li><h2>using the api</h2>
     <ul>
@@ -89,6 +93,10 @@
       <li class=''><a href='#/music-genre-model'>Music Genre</a></li>
     
       <li class=''><a href='#/ticket-model'>Ticket</a></li>
+    
+      <li class=''><a href='#/me-model'>Me</a></li>
+    
+      <li class=''><a href='#/user-model'>User</a></li>
     
       <li class=''><a href='#/venue-model'>Venue</a></li>
     
@@ -354,6 +362,294 @@
       <td>Hash</td>
       <td>Link to venue background image</td>
       <td><code>{ base: 'http://example.com', ext: '.jpg'}</code></td>
+    </tr>
+  </tbody>
+</table>
+
+        </section>
+      </article>
+    
+      <article class=''>
+        <a name='/user-model' href='#/user-model'>
+          <h2>
+            
+              User
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A ClubJudge User.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>Integer</td>
+      <td>Id of this user</td>
+      <td><code>233</code></td>
+    </tr>
+    <tr>
+      <td>email</td>
+      <td>String</td>
+      <td>Email address of this user</td>
+      <td><code>"user@clubjudge.com"</code></td>
+    </tr>
+    <tr>
+      <td>address</td>
+      <td>Hash</td>
+      <td>Address for this user</td>
+      <td><code>{ address: { city: { id: "891", name: "Lisbon", lonLat: [-9.13333, 38.71667], venuesCount: 10}, country: { id: 49, name: "Portugal", isocode: "PT"}, region: { id: 2646, name: "Lisbon", isocode: null}, composedName: "Lisbon,Portugal"}}</code></td>
+    </tr>
+    <tr>
+      <td>firstName</td>
+      <td>String</td>
+      <td>First name of this user</td>
+      <td><code>"John"</code></td>
+    </tr>
+    <tr>
+      <td>lastName</td>
+      <td>String</td>
+      <td>Last name of this user</td>
+      <td><code>"Snow"</code></td>
+    </tr>
+    <tr>
+      <td>fullName</td>
+      <td>String</td>
+      <td>Full name of this user</td>
+      <td><code>"John Snow"</code></td>
+    </tr>
+    <tr>
+      <td>avatarUrl</td>
+      <td>String</td>
+      <td>Link to this user&#8217;s profile picture</td>
+      <td><code>"http://example.com/john_snow.jpg"</code></td>
+    </tr>
+    <tr>
+      <td>createdAt</td>
+      <td>String</td>
+      <td>When this user first signed up</td>
+      <td><code>2014-01-16T21:00:00+01:00</code></td>
+    </tr>
+    <tr>
+      <td>reviewsCount</td>
+      <td>Integer</td>
+      <td>Number of reviews performed by this user</td>
+      <td><code>90</code></td>
+    </tr>
+    <tr>
+      <td>expertReviewsCount</td>
+      <td>Integer</td>
+      <td>Number of expert reviews performed by this user</td>
+      <td><code>20</code></td>
+    </tr>
+    <tr>
+      <td>friendsCount</td>
+      <td>Integer</td>
+      <td>Number of friends this user has</td>
+      <td><code>344</code></td>
+    </tr>
+    <tr>
+      <td>mutualFriendsCount</td>
+      <td>Integer</td>
+      <td>Number of mutual friends between this user and the logged in user</td>
+      <td><code>100</code></td>
+    </tr>
+    <tr>
+      <td>isFriend</td>
+      <td>Boolean</td>
+      <td>Is this user a friend of the logged in user</td>
+      <td><code>true</code></td>
+    </tr>
+    <tr>
+      <td>isPendingFriend</td>
+      <td>Boolean</td>
+      <td>Is there an outstanding friend request from the logged in user</td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td>upcomingEventsCount</td>
+      <td>Integer</td>
+      <td>The number of upcoming events for this user</td>
+      <td><code>10</code></td>
+    </tr>
+    <tr>
+      <td>pastEventsCount</td>
+      <td>Integer</td>
+      <td>The number of events this user went to</td>
+      <td><code>20</code></td>
+    </tr>
+    <tr>
+      <td>score</td>
+      <td>Hash</td>
+      <td>This user&#8217;s score</td>
+      <td><code>{ totalPoints: 290, usedPoints: 0, availablePoints: 200, availableTickets: 5}</code></td>
+    </tr>
+    <tr>
+      <td>gender</td>
+      <td>String</td>
+      <td>This user&#8217;s genre</td>
+      <td><code>"Male"</code></td>
+    </tr>
+    <tr>
+      <td>bornOn</td>
+      <td>String</td>
+      <td>This user&#8217;s birthdate</td>
+      <td><code>"1986-10-13T00:00:00.000Z"</code></td>
+    </tr>
+  </tbody>
+</table>
+
+        </section>
+      </article>
+    
+      <article class=''>
+        <a name='/me-model' href='#/me-model'>
+          <h2>
+            
+              Me
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A logged in ClubJudge User.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>Integer</td>
+      <td>Id of this user</td>
+      <td><code>233</code></td>
+    </tr>
+    <tr>
+      <td>email</td>
+      <td>String</td>
+      <td>Email address of this user</td>
+      <td><code>"user@clubjudge.com"</code></td>
+    </tr>
+    <tr>
+      <td>address</td>
+      <td>Hash</td>
+      <td>Address for this user</td>
+      <td><code>{ address: { city: { id: "891", name: "Lisbon", lonLat: [-9.13333, 38.71667], venuesCount: 10}, country: { id: 49, name: "Portugal", isocode: "PT"}, region: { id: 2646, name: "Lisbon", isocode: null}, composedName: "Lisbon,Portugal"}}</code></td>
+    </tr>
+    <tr>
+      <td>firstName</td>
+      <td>String</td>
+      <td>First name of this user</td>
+      <td><code>"John"</code></td>
+    </tr>
+    <tr>
+      <td>lastName</td>
+      <td>String</td>
+      <td>Last name of this user</td>
+      <td><code>"Snow"</code></td>
+    </tr>
+    <tr>
+      <td>fullName</td>
+      <td>String</td>
+      <td>Full name of this user</td>
+      <td><code>"John Snow"</code></td>
+    </tr>
+    <tr>
+      <td>avatarUrl</td>
+      <td>String</td>
+      <td>Link to this user&#8217;s profile picture</td>
+      <td><code>"http://example.com/john_snow.jpg"</code></td>
+    </tr>
+    <tr>
+      <td>createdAt</td>
+      <td>String</td>
+      <td>When this user first signed up</td>
+      <td><code>2014-01-16T21:00:00+01:00</code></td>
+    </tr>
+    <tr>
+      <td>reviewsCount</td>
+      <td>Integer</td>
+      <td>Number of reviews performed by this user</td>
+      <td><code>90</code></td>
+    </tr>
+    <tr>
+      <td>expertReviewsCount</td>
+      <td>Integer</td>
+      <td>Number of expert reviews performed by this user</td>
+      <td><code>20</code></td>
+    </tr>
+    <tr>
+      <td>friendsCount</td>
+      <td>Integer</td>
+      <td>Number of friends this user has</td>
+      <td><code>344</code></td>
+    </tr>
+    <tr>
+      <td>mutualFriendsCount</td>
+      <td>Integer</td>
+      <td>Number of mutual friends between this user and the logged in user</td>
+      <td><code>100</code></td>
+    </tr>
+    <tr>
+      <td>isFriend</td>
+      <td>Boolean</td>
+      <td>Is this user a friend of the logged in user</td>
+      <td><code>true</code></td>
+    </tr>
+    <tr>
+      <td>isPendingFriend</td>
+      <td>Boolean</td>
+      <td>Is there an outstanding friend request from the logged in user</td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td>upcomingEventsCount</td>
+      <td>Integer</td>
+      <td>The number of upcoming events for this user</td>
+      <td><code>10</code></td>
+    </tr>
+    <tr>
+      <td>pastEventsCount</td>
+      <td>Integer</td>
+      <td>The number of events this user went to</td>
+      <td><code>20</code></td>
+    </tr>
+    <tr>
+      <td>score</td>
+      <td>Hash</td>
+      <td>This user&#8217;s score</td>
+      <td><code>{ totalPoints: 290, usedPoints: 0, availablePoints: 200, availableTickets: 5}</code></td>
+    </tr>
+    <tr>
+      <td>gender</td>
+      <td>String</td>
+      <td>This user&#8217;s genre</td>
+      <td><code>"Male"</code></td>
+    </tr>
+    <tr>
+      <td>bornOn</td>
+      <td>String</td>
+      <td>This user&#8217;s birthdate</td>
+      <td><code>"1986-10-13T00:00:00.000Z"</code></td>
+    </tr>
+    <tr>
+      <td>preferences</td>
+      <td>Hash</td>
+      <td>This user&#8217;s preferences</td>
+      <td><code>{ preferences: { musicGenres: ["62", "1"], city: { id: "891", name: "Lisbon", lonLat: [-9.13333, 38.71667], venuesCount: 10 }, birthdatePreferences: { showOnProfile: false, hideYear: false } }</code></td>
     </tr>
   </tbody>
 </table>
@@ -1400,7 +1696,7 @@ curl "http://api.clubjduge.com/v1/users/443.json"
           </h2>
         </a>
         <section class='body'>
-          <p>Data about logged <a href="#user-model">User</a></p>
+          <p>Data about the logged in ClubJudge <a href="#me-model">User</a></p>
 
 <h3 id="example">Example</h3>
 
