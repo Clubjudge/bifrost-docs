@@ -86,6 +86,14 @@
   
     
   
+    
+  
+    
+  
+    
+  
+    
+  
   
   <li><h2>using the api</h2>
     <ul>
@@ -134,8 +142,6 @@
     
       <li class='GET'><a href='#/get-event-flyers'>GET /events/:id/flyers</a></li>
     
-      <li class='GET'><a href='#/get-event-followers'>GET /events/:id/followers</a></li>
-    
       <li class='GET'><a href='#/get-event-invitations'>GET /events/:id/invitations</a></li>
     
       <li class='GET'><a href='#/get-event-music-genres'>GET /events/:id/musicGenres</a></li>
@@ -143,6 +149,12 @@
       <li class='GET'><a href='#/get-event-tickets'>GET /events/:id/tickets</a></li>
     
       <li class='GET'><a href='#/get-event-venue'>GET /events/:id/venue</a></li>
+    
+      <li class='GET'><a href='#/get-event-followers'>GET /events/:id/followers</a></li>
+    
+      <li class='POST'><a href='#/post-event-followers'>POST /events/:id/followers</a></li>
+    
+      <li class='DELETE'><a href='#/delete-event-followers'>DELETE /events/:id/followers</a></li>
     
     </ul>
   </li>
@@ -207,6 +219,10 @@
       <li class='GET'><a href='#/get-venue-comments'>GET /venues/:id/comments</a></li>
     
       <li class='GET'><a href='#/get-venue-events'>GET /venues/:id/events</a></li>
+    
+      <li class='DELETE'><a href='#/delete-venue-followers'>DELETE /venues/:id/followers</a></li>
+    
+      <li class='POST'><a href='#/post-venue-followers'>POST /venues/:id/followers</a></li>
     
       <li class='GET'><a href='#/get-venue-followers'>GET /venues/:id/followers</a></li>
     
@@ -1313,6 +1329,74 @@
   <div>
     <h2>events</h2>
     
+      <article class='DELETE'>
+        <a name='/delete-event-followers' href='#/delete-event-followers'>
+          <h2>
+            
+              <code><b>DELETE</b> /events/:id/followers</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>The logged in ClubJudge <a href="#/user-model">User</a> stops following the ClubJudge <a href="#/event-model">Event</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl -X DELETE "http://api.clubjduge.com/v1/events/123/followers.json?token=userToken"
+</code></p>
+
+<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
+
+        </section>
+      </article>
+    
+      <article class='POST'>
+        <a name='/post-event-followers' href='#/post-event-followers'>
+          <h2>
+            
+              <code><b>POST</b> /events/:id/followers</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>The logged in ClubJudge <a href="#/user-model">User</a> begins following the ClubJudge <a href="#/event-model">Event</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl -X POST "http://api.clubjduge.com/v1/events/123/followers.json?token=userToken"
+</code></p>
+
+<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
+
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-event-followers' href='#/get-event-followers'>
+          <h2>
+            
+              <code><b>GET</b> /events/:id/followers</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A list of ClubJudge <a href="#/user-model">Users</a>.</p>
+
+<p>This resource is embeddable.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl "http://api.clubjduge.com/v1/events/123/followers.json"
+</code></p>
+
+<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
+
+        </section>
+      </article>
+    
       <article class='GET'>
         <a name='/get-event-venue' href='#/get-event-venue'>
           <h2>
@@ -1398,30 +1482,6 @@ curl "http://api.clubjduge.com/v1/events/123/musicGenres.json"
 
 <p><code>
 curl "http://api.clubjduge.com/v1/events/123/invitations.json"
-</code></p>
-
-<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
-
-        </section>
-      </article>
-    
-      <article class='GET'>
-        <a name='/get-event-followers' href='#/get-event-followers'>
-          <h2>
-            
-              <code><b>GET</b> /events/:id/followers</code>
-            
-          </h2>
-        </a>
-        <section class='body'>
-          <p>A list of ClubJudge <a href="#/user-model">Users</a>.</p>
-
-<p>This resource is embeddable.</p>
-
-<h3 id="example">Example</h3>
-
-<p><code>
-curl "http://api.clubjduge.com/v1/events/123/followers.json"
 </code></p>
 
 <p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
@@ -1909,6 +1969,50 @@ curl "http://api.clubjduge.com/v1/venues/123/ratings.json"
 
 <p><code>
 curl "http://api.clubjduge.com/v1/venues/123/followers.json"
+</code></p>
+
+<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
+
+        </section>
+      </article>
+    
+      <article class='POST'>
+        <a name='/post-venue-followers' href='#/post-venue-followers'>
+          <h2>
+            
+              <code><b>POST</b> /venues/:id/followers</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>The logged in ClubJudge <a href="#/user-model">User</a> begins following the ClubJudge <a href="#/venue-model">Venue</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl -X POST "http://api.clubjduge.com/v1/venues/123/followers.json?token=userToken"
+</code></p>
+
+<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
+
+        </section>
+      </article>
+    
+      <article class='DELETE'>
+        <a name='/delete-venue-followers' href='#/delete-venue-followers'>
+          <h2>
+            
+              <code><b>DELETE</b> /venues/:id/followers</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>The logged in ClubJudge <a href="#/user-model">User</a> stops following the ClubJudge <a href="#/venue-model">Venue</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl -X DELETE "http://api.clubjduge.com/v1/venues/123/followers.json?token=userToken"
 </code></p>
 
 <p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
