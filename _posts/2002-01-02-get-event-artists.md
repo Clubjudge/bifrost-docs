@@ -17,6 +17,6 @@ This resource is embeddable.
 curl "http://api.clubjduge.com/v1/events/123/artists.json"
 ```
 
-[Partial responses](#/partial-responses) and [Pagination](#/pagination) are also supported.
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+
+

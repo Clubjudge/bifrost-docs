@@ -15,13 +15,13 @@ A list of ClubJudge [Events](#/event-model).
 curl "http://api.clubjduge.com/v1/events.json"
 ```
 
-[Partial responses](#/partial-responses) and [Pagination](#/pagination) are also supported.
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+
+
 
 ### Filters
 
-To use location filter you have to enter at least longitude and latitude.
+To use the location filter you have to enter at least longitude and latitude.
 
 | Parameter  |   Type  |                 Description                  |
 | :--------- | :------ | :------------------------------------------- |

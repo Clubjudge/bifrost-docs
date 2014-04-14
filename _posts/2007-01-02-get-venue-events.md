@@ -17,4 +17,4 @@ This resource is embeddable.
 curl "http://api.clubjduge.com/v1/venues/123/events.json"
 ```
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+

@@ -1,0 +1,34 @@
+<p>The API supports partial responses, meaning that you can select which fields you want the response to contain.
+It works by passing a <code>fields</code> property in the querystring, using comma-separated values:</p>
+
+<p><code>
+http://api.clubjudge.com/v1/artists/1981.json?fields=id,name,address.city
+</code></p>
+
+<p>This yields:</p>
+
+<p><code>
+{
+  "artist": {
+    "id": 1981,
+    "name": "Tiesto",
+    "_links": {
+      "events": "http://api.clubjudge.com/v1/artists/1981/events.json",
+      "followers": "http://api.clubjudge.com/v1/artists/1981/followers.json",
+      "comments": "http://api.clubjudge.com/v1/artists/1981/comments.json",
+      "musicGenres": "http://api.clubjudge.com/v1/artists/1981/musicGenres.json"
+    }
+  }
+}
+</code></p>
+
+<p>Metadata attributes such as <em>links</em> are not removable, they are always included in the response.</p>
+
+<h4 id="deep-nested-fields">Deep nested fields</h4>
+<p>You can select deep nested fields in a response by using a <strong>dot-separated</strong> syntax, as such:</p>
+
+<p><code>
+?fields=address.city
+</code></p>
+
+<p>In this case, only the <em>city</em> key in the <em>address</em> key will be included.</p>

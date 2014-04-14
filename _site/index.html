@@ -96,11 +96,15 @@
   
     
   
+    
+  
   
   <li><h2>using the api</h2>
     <ul>
     
       <li class=''><a href='#/response-status-codes'>Response Status Codes</a></li>
+    
+      <li class=''><a href='#/partial-responses'>Partial Responses</a></li>
     
     </ul>
   </li>
@@ -243,6 +247,53 @@
 
   <div>
     <h2>using the api</h2>
+    
+      <article class=''>
+        <a name='/partial-responses' href='#/partial-responses'>
+          <h2>
+            
+              Partial Responses
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>The API supports partial responses, meaning that you can select which fields you want the response to contain.
+It works by passing a <code>fields</code> property in the querystring, using comma-separated values:</p>
+
+<p><code>
+http://api.clubjudge.com/v1/artists/1981.json?fields=id,name,address.city
+</code></p>
+
+<p>This yields:</p>
+
+<p><code>
+{
+  "artist": {
+    "id": 1981,
+    "name": "Tiesto",
+    "_links": {
+      "events": "http://api.clubjudge.com/v1/artists/1981/events.json",
+      "followers": "http://api.clubjudge.com/v1/artists/1981/followers.json",
+      "comments": "http://api.clubjudge.com/v1/artists/1981/comments.json",
+      "musicGenres": "http://api.clubjudge.com/v1/artists/1981/musicGenres.json"
+    }
+  }
+}
+</code></p>
+
+<p>Metadata attributes such as <em>links</em> are not removable, they are always included in the response.</p>
+
+<h4 id="deep-nested-fields">Deep nested fields</h4>
+<p>You can select deep nested fields in a response by using a <strong>dot-separated</strong> syntax, as such:</p>
+
+<p><code>
+?fields=address.city
+</code></p>
+
+<p>In this case, only the <em>city</em> key in the <em>address</em> key will be included.</p>
+
+        </section>
+      </article>
     
       <article class=''>
         <a name='/response-status-codes' href='#/response-status-codes'>
@@ -1350,7 +1401,6 @@
 curl -X DELETE "http://api.clubjduge.com/v1/events/123/followers.json?token=userToken"
 </code></p>
 
-<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1372,7 +1422,6 @@ curl -X DELETE "http://api.clubjduge.com/v1/events/123/followers.json?token=user
 curl -X POST "http://api.clubjduge.com/v1/events/123/followers.json?token=userToken"
 </code></p>
 
-<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1396,7 +1445,6 @@ curl -X POST "http://api.clubjduge.com/v1/events/123/followers.json?token=userTo
 curl "http://api.clubjduge.com/v1/events/123/followers.json"
 </code></p>
 
-<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1420,7 +1468,6 @@ curl "http://api.clubjduge.com/v1/events/123/followers.json"
 curl "http://api.clubjduge.com/v1/events/123/venue.json"
 </code></p>
 
-<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1442,7 +1489,6 @@ curl "http://api.clubjduge.com/v1/events/123/venue.json"
 curl "http://api.clubjduge.com/v1/events/123/tickets.json"
 </code></p>
 
-<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1466,7 +1512,6 @@ curl "http://api.clubjduge.com/v1/events/123/tickets.json"
 curl "http://api.clubjduge.com/v1/events/123/musicGenres.json"
 </code></p>
 
-<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1488,7 +1533,6 @@ curl "http://api.clubjduge.com/v1/events/123/musicGenres.json"
 curl "http://api.clubjduge.com/v1/events/123/invitations.json"
 </code></p>
 
-<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1508,7 +1552,6 @@ curl "http://api.clubjduge.com/v1/events/123/invitations.json"
 curl "http://api.clubjduge.com/v1/events/123/flyers.json"
 </code></p>
 
-<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1530,7 +1573,6 @@ curl "http://api.clubjduge.com/v1/events/123/flyers.json"
 curl "http://api.clubjduge.com/v1/events/123/comments.json"
 </code></p>
 
-<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1554,9 +1596,6 @@ curl "http://api.clubjduge.com/v1/events/123/comments.json"
 curl "http://api.clubjduge.com/v1/events/123/artists.json"
 </code></p>
 
-<p><a href="#/partial-responses">Partial responses</a> and <a href="#/pagination">Pagination</a> are also supported.</p>
-
-<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1580,7 +1619,6 @@ curl "http://api.clubjduge.com/v1/events/3923.json"
 
 <p><a href="#/partial-responses">Partial response</a> is also supported.</p>
 
-<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1602,13 +1640,9 @@ curl "http://api.clubjduge.com/v1/events/3923.json"
 curl "http://api.clubjduge.com/v1/events.json"
 </code></p>
 
-<p><a href="#/partial-responses">Partial responses</a> and <a href="#/pagination">Pagination</a> are also supported.</p>
-
-<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
-
 <h3 id="filters">Filters</h3>
 
-<p>To use location filter you have to enter at least longitude and latitude.</p>
+<p>To use the location filter you have to enter at least longitude and latitude.</p>
 
 <table>
   <thead>
@@ -1695,7 +1729,6 @@ curl "http://api.clubjduge.com/v1/cities.json"
 <p><a href="#/partial-responses">Partial responses</a>, <a href="#/reference-embedding">Reference embedding</a>
 and <a href="#/pagination">Pagination</a> are also supported.</p>
 
-<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1722,9 +1755,6 @@ and <a href="#/pagination">Pagination</a> are also supported.</p>
 curl "http://api.clubjduge.com/v1/artists/123/musicGenres.json"
 </code></p>
 
-<p><a href="#/partial-responses">Partial responses</a> and <a href="#/pagination">Pagination</a> are also supported.</p>
-
-<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1746,9 +1776,6 @@ curl "http://api.clubjduge.com/v1/artists/123/musicGenres.json"
 curl "http://api.clubjduge.com/v1/artists/123/followers.json"
 </code></p>
 
-<p><a href="#/partial-responses">Partial responses</a> and <a href="#/pagination">Pagination</a> are also supported.</p>
-
-<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1770,9 +1797,6 @@ curl "http://api.clubjduge.com/v1/artists/123/followers.json"
 curl "http://api.clubjduge.com/v1/artists/123/events.json"
 </code></p>
 
-<p><a href="#/partial-responses">Partial responses</a> and <a href="#/pagination">Pagination</a> are also supported.</p>
-
-<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1794,9 +1818,6 @@ curl "http://api.clubjduge.com/v1/artists/123/events.json"
 curl "http://api.clubjduge.com/v1/artists/123/comments.json"
 </code></p>
 
-<p><a href="#/partial-responses">Partial responses</a> and <a href="#/pagination">Pagination</a> are also supported.</p>
-
-<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1818,9 +1839,6 @@ curl "http://api.clubjduge.com/v1/artists/123/comments.json"
 curl "http://api.clubjduge.com/v1/artists.json"
 </code></p>
 
-<p><a href="#/partial-responses">Partial responses</a> and <a href="#/pagination">Pagination</a> are also supported.</p>
-
-<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1847,7 +1865,6 @@ curl "http://api.clubjduge.com/v1/artists.json"
 curl "http://api.clubjduge.com/v1/users/443.json"
 </code></p>
 
-<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1869,7 +1886,6 @@ curl "http://api.clubjduge.com/v1/users/443.json"
 curl "http://api.clubjduge.com/v1/me.json"
 </code></p>
 
-<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1896,7 +1912,6 @@ curl "http://api.clubjduge.com/v1/me.json"
 curl "http://api.clubjduge.com/v1/users/443/events.json"
 </code></p>
 
-<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1924,7 +1939,6 @@ curl "http://api.clubjduge.com/v1/users/443/events.json"
 curl "http://api.clubjduge.com/v1/stats.json"
 </code></p>
 
-<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1951,7 +1965,6 @@ curl "http://api.clubjduge.com/v1/stats.json"
 curl -X POST "http://api.clubjduge.com/v1/venues/123/ratings.json"
 </code></p>
 
-<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1973,7 +1986,6 @@ curl -X POST "http://api.clubjduge.com/v1/venues/123/ratings.json"
 curl "http://api.clubjduge.com/v1/venues/123/ratings.json"
 </code></p>
 
-<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -1997,7 +2009,6 @@ curl "http://api.clubjduge.com/v1/venues/123/ratings.json"
 curl "http://api.clubjduge.com/v1/venues/123/followers.json"
 </code></p>
 
-<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -2019,7 +2030,6 @@ curl "http://api.clubjduge.com/v1/venues/123/followers.json"
 curl -X POST "http://api.clubjduge.com/v1/venues/123/followers.json?token=userToken"
 </code></p>
 
-<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -2041,7 +2051,6 @@ curl -X POST "http://api.clubjduge.com/v1/venues/123/followers.json?token=userTo
 curl -X DELETE "http://api.clubjduge.com/v1/venues/123/followers.json?token=userToken"
 </code></p>
 
-<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -2065,7 +2074,6 @@ curl -X DELETE "http://api.clubjduge.com/v1/venues/123/followers.json?token=user
 curl "http://api.clubjduge.com/v1/venues/123/events.json"
 </code></p>
 
-<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -2087,7 +2095,6 @@ curl "http://api.clubjduge.com/v1/venues/123/events.json"
 curl "http://api.clubjduge.com/v1/venues/123/comments.json"
 </code></p>
 
-<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
         </section>
       </article>
@@ -2108,10 +2115,6 @@ curl "http://api.clubjduge.com/v1/venues/123/comments.json"
 <p><code>
 curl "http://api.clubjduge.com/v1/venues.json"
 </code></p>
-
-<p><a href="#/partial-responses">Partial responses</a> and <a href="#/pagination">Pagination</a> are also supported.</p>
-
-<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
 <h3 id="filters">Filters</h3>
 
@@ -2170,8 +2173,6 @@ curl "http://api.clubjduge.com/v1/venues/3923.json"
 </code></p>
 
 <p><a href="#/partial-responses">Partial response</a> is also supported.</p>
-
-<p>For errors responses, see the <a href="#/response-status-codes">response status codes documentation</a>.</p>
 
 <h3 id="filters">Filters</h3>
 

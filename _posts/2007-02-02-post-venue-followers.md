@@ -15,4 +15,4 @@ The logged in ClubJudge [User](#/user-model) begins following the ClubJudge [Ven
 curl -X POST "http://api.clubjduge.com/v1/venues/123/followers.json?token=userToken"
 ```
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+

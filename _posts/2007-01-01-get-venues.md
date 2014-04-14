@@ -15,9 +15,9 @@ A list of ClubJudge [Venues](#/venue-model).
 curl "http://api.clubjduge.com/v1/venues.json"
 ```
 
-[Partial responses](#/partial-responses) and [Pagination](#/pagination) are also supported.
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+
+
 
 ### Filters
 

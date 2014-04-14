@@ -15,4 +15,4 @@ The logged in ClubJudge [User](#/user-model) begins following the ClubJudge [Eve
 curl -X POST "http://api.clubjduge.com/v1/events/123/followers.json?token=userToken"
 ```
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+

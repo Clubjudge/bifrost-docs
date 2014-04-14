@@ -15,4 +15,4 @@ Lists the upcoming [Events](#/event-model) for a [User](#/user-model).
 curl "http://api.clubjduge.com/v1/users/443/events.json"
 ```
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+

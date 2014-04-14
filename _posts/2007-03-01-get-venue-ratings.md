@@ -15,4 +15,4 @@ A list of ClubJudge [Ratings](#/rating-model) for this venue.
 curl "http://api.clubjduge.com/v1/venues/123/ratings.json"
 ```
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+

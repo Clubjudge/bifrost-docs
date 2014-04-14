@@ -15,4 +15,4 @@ A list of ClubJudge [Comments](#/comment-model).
 curl "http://api.clubjduge.com/v1/events/123/comments.json"
 ```
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+

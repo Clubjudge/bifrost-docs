@@ -15,4 +15,4 @@ Reviews a ClubJudge [Venue](#/venue-model)
 curl -X POST "http://api.clubjduge.com/v1/venues/123/ratings.json"
 ```
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+
