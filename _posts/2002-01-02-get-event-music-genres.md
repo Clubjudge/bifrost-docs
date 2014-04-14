@@ -9,12 +9,10 @@ layout: nil
 
 A list of ClubJudge [Music Genre](#/music-genre-model).
 
-This resource is embeddable.
+This resource is [embeddable](#/resource-embedding).
 
 ### Example
 
 ```
 curl "http://api.clubjduge.com/v1/events/123/musicGenres.json"
 ```
-
-
