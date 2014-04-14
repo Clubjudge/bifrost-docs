@@ -106,6 +106,8 @@
     
       <li class=''><a href='#/partial-responses'>Partial Responses</a></li>
     
+      <li class=''><a href='#/resource-embedding'>Resource Embedding</a></li>
+    
     </ul>
   </li>
 
@@ -145,8 +147,6 @@
       <li class='GET'><a href='#/get-event-artists'>GET /events/:id/artists</a></li>
     
       <li class='GET'><a href='#/get-event-comments'>GET /events/:id/comments</a></li>
-    
-      <li class='GET'><a href='#/get-event-flyers'>GET /events/:id/flyers</a></li>
     
       <li class='GET'><a href='#/get-event-invitations'>GET /events/:id/invitations</a></li>
     
@@ -247,6 +247,56 @@
 
   <div>
     <h2>using the api</h2>
+    
+      <article class=''>
+        <a name='/resource-embedding' href='#/resource-embedding'>
+          <h2>
+            
+              Resource Embedding
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Some resources include a <em>links</em> property, which contains pointers to its various subresources (so an <strong>Artist</strong> has an <strong>Events</strong> subresource, among others). Some of these subresources are <strong>embeddable</strong>, which means that you can include them in the response when requesting the main resource. These are annotated throughout the documentation as <strong>embeddable</strong> resources.</p>
+
+<p>Example:</p>
+
+<p><code>
+http://api.clubjudge.com/v1/artists/1981.json?embeds=events
+</code></p>
+
+<p>This yields:</p>
+
+<p><code>
+{
+  "artist": {
+    "id": 1981,
+    "name": "Tiesto",
+    ...
+    "events": {
+      "_pagination": {
+        "currentPage": 1,
+        "perPage": 10,
+        "totalPages": 3,
+        "totalItems": 22
+      },
+      "_links": {
+        "first": "http://api.clubjudge.com/v1/artists/1981/events.json?page=1",
+        "previous": null,
+        "self": "http://api.clubjudge.com/v1/artists/1981/events.json?page=1",
+        "next": "http://api.clubjudge.com/v1/artists/1981/events.json?page=2",
+        "last": "http://api.clubjudge.com/v1/artists/1981/events.json?page=3"
+      },
+      "source": [...]
+    }
+  }
+}
+</code></p>
+
+<p>When embedding a subresource, its assorted metadata (such as <em>_links</em> and <em>_pagination</em>) will be under a key with the subresources name (<strong>events</strong> in this case). The actual response will be under a special <strong>source</strong> attribute (in this case, it contains an array of <a href="#/event-model">Events</a>).</p>
+
+        </section>
+      </article>
     
       <article class=''>
         <a name='/partial-responses' href='#/partial-responses'>
@@ -1121,6 +1171,12 @@ http://api.clubjudge.com/v1/artists/1981.json?fields=id,name,address.city
       <td><code>"Awesome Event"</code></td>
     </tr>
     <tr>
+      <td>flyers</td>
+      <td>[Hash]</td>
+      <td>The flyers for this event in various sizes</td>
+      <td><code>[{"square_32": "http://http://local.clubjudge.com:3000/baws/api///flyers/80379/square_32.jpg", "square_60": "http://http://local.clubjudge.com:3000/baws/api///flyers/80379/square_60.jpg", "square_90": "http://http://local.clubjudge.com:3000/baws/api///flyers/80379/square_90.jpg", "square_120": "http://http://local.clubjudge.com:3000/baws/api///flyers/80379/square_120.jpg", "square_160": "http://http://local.clubjudge.com:3000/baws/api///flyers/80379/square_160.jpg", "square_180": "http://http://local.clubjudge.com:3000/baws/api///flyers/80379/square_180.jpg", "square_250": "http://http://local.clubjudge.com:3000/baws/api///flyers/80379/square_250.jpg", "portrait_600": "http://http://local.clubjudge.com:3000/baws/api///flyers/80379/portrait_600.jpg"}]</code></td>
+    </tr>
+    <tr>
       <td>description</td>
       <td>String</td>
       <td>The description of this event</td>
@@ -1538,25 +1594,6 @@ curl "http://api.clubjduge.com/v1/events/123/invitations.json"
       </article>
     
       <article class='GET'>
-        <a name='/get-event-flyers' href='#/get-event-flyers'>
-          <h2>
-            
-              <code><b>GET</b> /events/:id/flyers</code>
-            
-          </h2>
-        </a>
-        <section class='body'>
-          <h3 id="example">Example</h3>
-
-<p><code>
-curl "http://api.clubjduge.com/v1/events/123/flyers.json"
-</code></p>
-
-
-        </section>
-      </article>
-    
-      <article class='GET'>
         <a name='/get-event-comments' href='#/get-event-comments'>
           <h2>
             
@@ -1588,14 +1625,13 @@ curl "http://api.clubjduge.com/v1/events/123/comments.json"
         <section class='body'>
           <p>A list of ClubJudge <a href="#/artist-model">Artists</a>.</p>
 
-<p>This resource is embeddable.</p>
+<p>This resource is <a href="#/resource-embedding">embeddable</a>.</p>
 
 <h3 id="example">Example</h3>
 
 <p><code>
 curl "http://api.clubjduge.com/v1/events/123/artists.json"
 </code></p>
-
 
         </section>
       </article>

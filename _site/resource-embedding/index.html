@@ -1,0 +1,37 @@
+<p>Some resources include a <em>links</em> property, which contains pointers to its various subresources (so an <strong>Artist</strong> has an <strong>Events</strong> subresource, among others). Some of these subresources are <strong>embeddable</strong>, which means that you can include them in the response when requesting the main resource. These are annotated throughout the documentation as <strong>embeddable</strong> resources.</p>
+
+<p>Example:</p>
+
+<p><code>
+http://api.clubjudge.com/v1/artists/1981.json?embeds=events
+</code></p>
+
+<p>This yields:</p>
+
+<p><code>
+{
+  "artist": {
+    "id": 1981,
+    "name": "Tiesto",
+    ...
+    "events": {
+      "_pagination": {
+        "currentPage": 1,
+        "perPage": 10,
+        "totalPages": 3,
+        "totalItems": 22
+      },
+      "_links": {
+        "first": "http://api.clubjudge.com/v1/artists/1981/events.json?page=1",
+        "previous": null,
+        "self": "http://api.clubjudge.com/v1/artists/1981/events.json?page=1",
+        "next": "http://api.clubjudge.com/v1/artists/1981/events.json?page=2",
+        "last": "http://api.clubjudge.com/v1/artists/1981/events.json?page=3"
+      },
+      "source": [...]
+    }
+  }
+}
+</code></p>
+
+<p>When embedding a subresource, its assorted metadata (such as <em>_links</em> and <em>_pagination</em>) will be under a key with the subresources name (<strong>events</strong> in this case). The actual response will be under a special <strong>source</strong> attribute (in this case, it contains an array of <a href="#/event-model">Events</a>).</p>

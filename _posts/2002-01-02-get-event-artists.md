@@ -9,14 +9,10 @@ layout: nil
 
 A list of ClubJudge [Artists](#/artist-model).
 
-This resource is embeddable.
+This resource is [embeddable](#/resource-embedding).
 
 ### Example
 
 ```
 curl "http://api.clubjduge.com/v1/events/123/artists.json"
 ```
-
-
-
-
