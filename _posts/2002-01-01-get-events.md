@@ -23,14 +23,14 @@ curl "http://api.clubjduge.com/v1/events.json"
 
 To use the location filter you have to enter at least longitude and latitude.
 
-| Parameter  |   Type  |                 Description                  |
-| :--------- | :------ | :------------------------------------------- |
-| type       | String  | (upcoming, featured, nearby)                 |
-| lat        | Decimal | latitude                                     |
-| long       | Decimal | longitude                                    |
-| radius     | Integer | radius                                       |
-| start      | Date    | selects any event beginging after this date  |
-| ends       | Date    | selects any events beginging until this date |
-| musicGenre | String  | filter by music genre                        |
-| cityId     | Integer | all events from this city                    |
-|            |         |                                              |
+| Parameter   |   Type  |                 Description                  |
+| :---------  | :------ | :------------------------------------------- |
+| type        | String  | (upcoming, featured, nearby)                 |
+| lat         | Decimal | latitude                                     |
+| long        | Decimal | longitude                                    |
+| radius      | Integer | radius                                       |
+| start       | Date    | selects any event beginging after this date  |
+| ends        | Date    | selects any events beginging until this date |
+| musicGenres | String  | filter by music genre                        |
+| cityId      | Integer | all events from this city                    |
+|             |         |                                              |
