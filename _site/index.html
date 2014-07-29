@@ -98,6 +98,10 @@
   
     
   
+    
+  
+    
+  
   
   <li><h2>using the api</h2>
     <ul>
@@ -170,6 +174,8 @@
     
       <li class='GET'><a href='#/get-cities'>GET /cities</a></li>
     
+      <li class='GET'><a href='#/get-cities-search'>GET /cities/search</a></li>
+    
     </ul>
   </li>
 
@@ -225,6 +231,8 @@
       <li class='GET'><a href='#/get-venue-comments'>GET /venues/:id/comments</a></li>
     
       <li class='GET'><a href='#/get-venue-events'>GET /venues/:id/events</a></li>
+    
+      <li class='GET'><a href='#/get-venues-search'>GET /venues/search</a></li>
     
       <li class='DELETE'><a href='#/delete-venue-followers'>DELETE /venues/:id/followers</a></li>
     
@@ -378,15 +386,15 @@ http://api.clubjudge.com/v1/artists/1981.json?fields=id,name,address.city
     </tr>
     <tr>
       <td style="text-align: left">401 Unauthorized</td>
-      <td style="text-align: left">Make sure you&#8217;re sending us a <code>token</code>.</td>
+      <td style="text-align: left">Make sure you’re sending us a <code>token</code>.</td>
     </tr>
     <tr>
       <td style="text-align: left">403 Forbidden</td>
-      <td style="text-align: left">You don&#8217;t have access to whatever it is you&#8217;re asking for.</td>
+      <td style="text-align: left">You don’t have access to whatever it is you’re asking for.</td>
     </tr>
     <tr>
       <td style="text-align: left">404 Not Found</td>
-      <td style="text-align: left">You&#8217;re asking for something that doesn&#8217;t exist.</td>
+      <td style="text-align: left">You’re asking for something that doesn’t exist.</td>
     </tr>
     <tr>
       <td style="text-align: left">429 Too Many Requests</td>
@@ -394,7 +402,7 @@ http://api.clubjudge.com/v1/artists/1981.json?fields=id,name,address.city
     </tr>
     <tr>
       <td style="text-align: left">500 Internal Server Error</td>
-      <td style="text-align: left">Uh-oh. Something went wrong on our side. We&#8217;re very sorry.</td>
+      <td style="text-align: left">Uh-oh. Something went wrong on our side. We’re very sorry.</td>
     </tr>
     <tr>
       <td style="text-align: left">599 Connection Timeout</td>
@@ -588,7 +596,7 @@ http://api.clubjudge.com/v1/artists/1981.json?fields=id,name,address.city
     <tr>
       <td>avatarUrl</td>
       <td>String</td>
-      <td>Link to this user&#8217;s profile picture</td>
+      <td>Link to this user’s profile picture</td>
       <td><code>"http://example.com/john_snow.jpg"</code></td>
     </tr>
     <tr>
@@ -648,19 +656,19 @@ http://api.clubjudge.com/v1/artists/1981.json?fields=id,name,address.city
     <tr>
       <td>score</td>
       <td>Hash</td>
-      <td>This user&#8217;s score</td>
+      <td>This user’s score</td>
       <td><code>{ totalPoints: 290, usedPoints: 0, availablePoints: 200, availableTickets: 5}</code></td>
     </tr>
     <tr>
       <td>gender</td>
       <td>String</td>
-      <td>This user&#8217;s genre</td>
+      <td>This user’s genre</td>
       <td><code>"Male"</code></td>
     </tr>
     <tr>
       <td>bornOn</td>
       <td>String</td>
-      <td>This user&#8217;s birthdate</td>
+      <td>This user’s birthdate</td>
       <td><code>"1986-10-13T00:00:00.000Z"</code></td>
     </tr>
   </tbody>
@@ -729,7 +737,7 @@ http://api.clubjudge.com/v1/artists/1981.json?fields=id,name,address.city
     <tr>
       <td>avatarUrl</td>
       <td>String</td>
-      <td>Link to this user&#8217;s profile picture</td>
+      <td>Link to this user’s profile picture</td>
       <td><code>"http://example.com/john_snow.jpg"</code></td>
     </tr>
     <tr>
@@ -789,25 +797,25 @@ http://api.clubjudge.com/v1/artists/1981.json?fields=id,name,address.city
     <tr>
       <td>score</td>
       <td>Hash</td>
-      <td>This user&#8217;s score</td>
+      <td>This user’s score</td>
       <td><code>{ totalPoints: 290, usedPoints: 0, availablePoints: 200, availableTickets: 5}</code></td>
     </tr>
     <tr>
       <td>gender</td>
       <td>String</td>
-      <td>This user&#8217;s genre</td>
+      <td>This user’s genre</td>
       <td><code>"Male"</code></td>
     </tr>
     <tr>
       <td>bornOn</td>
       <td>String</td>
-      <td>This user&#8217;s birthdate</td>
+      <td>This user’s birthdate</td>
       <td><code>"1986-10-13T00:00:00.000Z"</code></td>
     </tr>
     <tr>
       <td>preferences</td>
       <td>Hash</td>
-      <td>This user&#8217;s preferences</td>
+      <td>This user’s preferences</td>
       <td><code>{ preferences: { musicGenres: ["62", "1"], city: { id: "891", name: "Lisbon", lonLat: [-9.13333, 38.71667], venuesCount: 10 }, birthdatePreferences: { showOnProfile: false, hideYear: false } }</code></td>
     </tr>
   </tbody>
@@ -841,7 +849,7 @@ http://api.clubjudge.com/v1/artists/1981.json?fields=id,name,address.city
       <td>name</td>
       <td>String</td>
       <td>Name of the ticket</td>
-      <td><code>"Foobar"</code></td>
+      <td><code>"door sale"</code></td>
     </tr>
     <tr>
       <td>cents</td>
@@ -856,16 +864,10 @@ http://api.clubjudge.com/v1/artists/1981.json?fields=id,name,address.city
       <td><code>"EUR"</code></td>
     </tr>
     <tr>
-      <td>kind</td>
-      <td>String</td>
-      <td>Kind of ticket</td>
-      <td><code>door sale</code></td>
-    </tr>
-    <tr>
       <td>text</td>
       <td>String</td>
       <td>Formatted text of value</td>
-      <td><code>EUR12,33</code></td>
+      <td><code>€12,33</code></td>
     </tr>
   </tbody>
 </table>
@@ -1067,7 +1069,7 @@ http://api.clubjudge.com/v1/artists/1981.json?fields=id,name,address.city
     <tr>
       <td>websiteUrl</td>
       <td>String</td>
-      <td>Link to artist&#8217;s website</td>
+      <td>Link to artist’s website</td>
       <td><code>"http://artist.com"</code></td>
     </tr>
     <tr>
@@ -1095,10 +1097,10 @@ http://api.clubjudge.com/v1/artists/1981.json?fields=id,name,address.city
       <td><code>{ base: 'http://example.com', ext: 1981 }</code></td>
     </tr>
     <tr>
-      <td>&#160;</td>
-      <td>&#160;</td>
-      <td>&#160;</td>
-      <td>&#160;</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -1717,7 +1719,7 @@ curl "http://api.clubjduge.com/v1/events.json"
       <td style="text-align: left">selects any events beginging until this date</td>
     </tr>
     <tr>
-      <td style="text-align: left">musicGenre</td>
+      <td style="text-align: left">musicGenres</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">filter by music genre</td>
     </tr>
@@ -1727,9 +1729,9 @@ curl "http://api.clubjduge.com/v1/events.json"
       <td style="text-align: left">all events from this city</td>
     </tr>
     <tr>
-      <td style="text-align: left">&#160;</td>
-      <td style="text-align: left">&#160;</td>
-      <td style="text-align: left">&#160;</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
     </tr>
   </tbody>
 </table>
@@ -1743,6 +1745,60 @@ curl "http://api.clubjduge.com/v1/events.json"
     <h2>cities</h2>
     
       <article class='GET'>
+        <a name='/get-cities-search' href='#/get-cities-search'>
+          <h2>
+            
+              <code><b>GET</b> /cities/search</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A collection of ClubJudge <a href="#/city-model">City</a> models.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl "http://api.clubjduge.com/v1/cities/search.json?term=berlin"
+</code></p>
+
+<p><a href="#/partial-responses">Partial responses</a>
+and <a href="#/pagination">Pagination</a> are also supported.</p>
+
+<h3 id="filters">Filters</h3>
+
+<p>To use the location filter you have to enter at least longitude and latitude.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">term</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">the term to perform the search against</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lat</td>
+      <td style="text-align: left">Decimal</td>
+      <td style="text-align: left">latitude</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lon</td>
+      <td style="text-align: left">Decimal</td>
+      <td style="text-align: left">longitude</td>
+    </tr>
+  </tbody>
+</table>
+
+        </section>
+      </article>
+    
+      <article class='GET'>
         <a name='/get-cities' href='#/get-cities'>
           <h2>
             
@@ -1751,7 +1807,7 @@ curl "http://api.clubjduge.com/v1/events.json"
           </h2>
         </a>
         <section class='body'>
-          <p>A ClubJudge <a href="#/event-model">City</a>.</p>
+          <p>A ClubJudge <a href="#/city-model">City</a>.</p>
 
 <h3 id="example">Example</h3>
 
@@ -1761,7 +1817,6 @@ curl "http://api.clubjduge.com/v1/cities.json"
 
 <p><a href="#/partial-responses">Partial responses</a>, <a href="#/reference-embedding">Reference embedding</a>
 and <a href="#/pagination">Pagination</a> are also supported.</p>
-
 
         </section>
       </article>
@@ -2087,6 +2142,60 @@ curl -X POST "http://api.clubjduge.com/v1/venues/123/followers.json?token=userTo
 curl -X DELETE "http://api.clubjduge.com/v1/venues/123/followers.json?token=userToken"
 </code></p>
 
+
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-venues-search' href='#/get-venues-search'>
+          <h2>
+            
+              <code><b>GET</b> /venues/search</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A collection of ClubJudge <a href="#/venue-model">Venue</a> models.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl "http://api.clubjduge.com/v1/venues/search.json?term=paradiso"
+</code></p>
+
+<p><a href="#/partial-responses">Partial responses</a>
+and <a href="#/pagination">Pagination</a> are also supported.</p>
+
+<h3 id="filters">Filters</h3>
+
+<p>To use the location filter you have to enter at least longitude and latitude.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">term</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">the term to perform the search against</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lat</td>
+      <td style="text-align: left">Decimal</td>
+      <td style="text-align: left">latitude</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lon</td>
+      <td style="text-align: left">Decimal</td>
+      <td style="text-align: left">longitude</td>
+    </tr>
+  </tbody>
+</table>
 
         </section>
       </article>
