@@ -1,4 +1,11 @@
-<h1>{{ site.title }}</h1>
+<h1 class="api-title" style="text-align: middle;">
+  <img src="http://assets.clubjudge.com/a/1/assets/navigation/cj.png" alt="clubjudge logo" class="logo" width="35px" style="vertical-align: middle;" />
+  <span style="vertical-align: middle; padding-left: 5px;">{{ site.title }}</span>
+</h1>
+<div style="padding-left:20px;font-size:85%;">
+  <span>Powered by</span>
+  <a href="https://clubjudge.com" style="color:#b8e30d">clubjudge.com</a>
+</div>
 <ul id='links'>
   {% for post in site.posts %}
     {% if post.category == null %}
