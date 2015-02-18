@@ -12,7 +12,7 @@ A collection of ClubJudge [City](#/city-model) models.
 ### Example
 
 ```
-curl "http://api.clubjduge.com/v1/cities/search.json?term=berlin"
+curl "https://bifrost.clubjudge.com/v1/cities/search.json?term=berlin"
 ```
 
 [Partial responses](#/partial-responses)

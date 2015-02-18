@@ -12,7 +12,7 @@ A list of ClubJudge [Comments](#/comment-model).
 ### Example
 
 ```
-curl "http://api.clubjduge.com/v1/events/123/comments.json"
+curl "https://bifrost.clubjudge.com/v1/events/123/comments.json"
 ```
 
 

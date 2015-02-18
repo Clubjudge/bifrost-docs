@@ -12,7 +12,7 @@ A list of ClubJudge [Events](#/event-model).
 ### Example
 
 ```
-curl "http://api.clubjduge.com/v1/events.json"
+curl "https://bifrost.clubjudge.com/v1/events.json"
 ```
 
 

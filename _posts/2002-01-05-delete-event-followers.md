@@ -12,7 +12,7 @@ The logged in ClubJudge [User](#/user-model) stops following the ClubJudge [Even
 ### Example
 
 ```
-curl -X DELETE "http://api.clubjduge.com/v1/events/123/followers.json?token=userToken"
+curl -X DELETE "https://bifrost.clubjudge.com/v1/events/123/followers.json?token=userToken"
 ```
 
 

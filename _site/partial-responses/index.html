@@ -2,7 +2,7 @@
 It works by passing a <code>fields</code> property in the querystring, using comma-separated values:</p>
 
 <p><code>
-http://api.clubjudge.com/v1/artists/1981.json?fields=id,name,address.city
+https://bifrost.clubjudge.com/v1/artists/1981.json?fields=id,name,address.city
 </code></p>
 
 <p>This yields:</p>
@@ -13,10 +13,10 @@ http://api.clubjudge.com/v1/artists/1981.json?fields=id,name,address.city
     "id": 1981,
     "name": "Tiesto",
     "_links": {
-      "events": "http://api.clubjudge.com/v1/artists/1981/events.json",
-      "followers": "http://api.clubjudge.com/v1/artists/1981/followers.json",
-      "comments": "http://api.clubjudge.com/v1/artists/1981/comments.json",
-      "musicGenres": "http://api.clubjudge.com/v1/artists/1981/musicGenres.json"
+      "events": "https://bifrost.clubjudge.com/v1/artists/1981/events.json",
+      "followers": "https://bifrost.clubjudge.com/v1/artists/1981/followers.json",
+      "comments": "https://bifrost.clubjudge.com/v1/artists/1981/comments.json",
+      "musicGenres": "https://bifrost.clubjudge.com/v1/artists/1981/musicGenres.json"
     }
   }
 }

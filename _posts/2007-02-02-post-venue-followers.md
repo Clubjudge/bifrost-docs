@@ -12,7 +12,7 @@ The logged in ClubJudge [User](#/user-model) begins following the ClubJudge [Ven
 ### Example
 
 ```
-curl -X POST "http://api.clubjduge.com/v1/venues/123/followers.json?token=userToken"
+curl -X POST "https://bifrost.clubjudge.com/v1/venues/123/followers.json?token=userToken"
 ```
 
 

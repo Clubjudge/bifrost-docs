@@ -12,7 +12,7 @@ A list of ClubJudge [Ratings](#/rating-model) for this venue.
 ### Example
 
 ```
-curl "http://api.clubjduge.com/v1/venues/123/ratings.json"
+curl "https://bifrost.clubjudge.com/v1/venues/123/ratings.json"
 ```
 
 

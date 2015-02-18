@@ -12,7 +12,7 @@ A list of ClubJudge [Venues](#/venue-model).
 ### Example
 
 ```
-curl "http://api.clubjduge.com/v1/venues.json"
+curl "https://bifrost.clubjudge.com/v1/venues.json"
 ```
 
 

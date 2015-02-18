@@ -12,7 +12,7 @@ A collection of ClubJudge [Venue](#/venue-model) models.
 ### Example
 
 ```
-curl "http://api.clubjduge.com/v1/venues/search.json?term=paradiso"
+curl "https://bifrost.clubjudge.com/v1/venues/search.json?term=paradiso"
 ```
 
 [Partial responses](#/partial-responses)

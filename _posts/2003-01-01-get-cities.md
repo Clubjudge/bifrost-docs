@@ -12,7 +12,7 @@ A ClubJudge [City](#/city-model).
 ### Example
 
 ```
-curl "http://api.clubjduge.com/v1/cities.json"
+curl "https://bifrost.clubjudge.com/v1/cities.json"
 ```
 
 [Partial responses](#/partial-responses), [Reference embedding](#/reference-embedding)
