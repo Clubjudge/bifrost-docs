@@ -111,6 +111,10 @@
   
     
   
+    
+  
+    
+  
   
   <li><h2>using the api</h2>
     <ul>
@@ -148,6 +152,8 @@
       <li class=''><a href='#/user-model'>User</a></li>
     
       <li class=''><a href='#/venue-model'>Venue</a></li>
+    
+      <li class=''><a href='#/tag-model'>Tag</a></li>
     
     </ul>
   </li>
@@ -254,6 +260,14 @@
       <li class='GET'><a href='#/get-venue-ratings'>GET /venues/:id/ratings</a></li>
     
       <li class='POST'><a href='#/post-venue-ratings'>POST /venues/:id/ratings</a></li>
+    
+    </ul>
+  </li>
+
+  <li><h2>tags</h2>
+    <ul>
+    
+      <li class='GET'><a href='#/get-tags'>GET /tags</a></li>
     
     </ul>
   </li>
@@ -449,6 +463,45 @@ https://bifrost.clubjudge.com/v1/artists/1981.json?fields=id,name,address.city
 
   <div>
     <h2>models</h2>
+    
+      <article class=''>
+        <a name='/tag-model' href='#/tag-model'>
+          <h2>
+            
+              Tag
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A Clubjudge Tag.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>String</td>
+      <td>Name of the tag</td>
+      <td><code>"Trendy"</code></td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>String</td>
+      <td>Type of the city</td>
+      <td><code>"venue"</code></td>
+    </tr>
+  </tbody>
+</table>
+
+        </section>
+      </article>
     
       <article class=''>
         <a name='/venue-model' href='#/venue-model'>
@@ -2368,6 +2421,54 @@ curl "https://bifrost.clubjudge.com/v1/venues/3923.json"
       <td style="text-align: left">type</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">(upcoming, recent)</td>
+    </tr>
+  </tbody>
+</table>
+
+        </section>
+      </article>
+    
+  </div>
+
+  <div>
+    <h2>tags</h2>
+    
+      <article class='GET'>
+        <a name='/get-tags' href='#/get-tags'>
+          <h2>
+            
+              <code><b>GET</b> /tags</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A ClubJudge <a href="#/tag-model">Tag</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl "https://bifrost.clubjudge.com/v1/tags.json?type=venue"
+</code></p>
+
+<p><a href="#/pagination">Pagination</a> is also supported.</p>
+
+<h3 id="filters">Filters</h3>
+
+<p>type filter is mandatory.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">type</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">A tag type (e.g. “venue”). Returns tags of given type</td>
     </tr>
   </tbody>
 </table>

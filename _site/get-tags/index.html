@@ -1,0 +1,30 @@
+<p>A ClubJudge <a href="#/tag-model">Tag</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl "https://bifrost.clubjudge.com/v1/tags.json?type=venue"
+</code></p>
+
+<p><a href="#/pagination">Pagination</a> is also supported.</p>
+
+<h3 id="filters">Filters</h3>
+
+<p>type filter is mandatory.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">type</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">A tag type (e.g. “venue”). Returns tags of given type</td>
+    </tr>
+  </tbody>
+</table>
