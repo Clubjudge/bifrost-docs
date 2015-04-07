@@ -3,8 +3,11 @@
 <h3 id="example">Example</h3>
 
 <p><code>
-curl "https://bifrost.clubjudge.com/v1/venues.json"
+curl "https://bifrost.clubjudge.com/v2/venues.json"
 </code></p>
+
+<p><a href="#/partial-responses">Partial responses</a>
+and <a href="#/pagination">Pagination</a> are also supported.</p>
 
 <h3 id="filters">Filters</h3>
 
@@ -20,24 +23,9 @@ curl "https://bifrost.clubjudge.com/v1/venues.json"
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">type</td>
-      <td style="text-align: left">String</td>
-      <td style="text-align: left">(nearby)</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">lat</td>
-      <td style="text-align: left">Decimal</td>
-      <td style="text-align: left">latitude</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">long</td>
-      <td style="text-align: left">Decimal</td>
-      <td style="text-align: left">longitude</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">radius</td>
+      <td style="text-align: left">city</td>
       <td style="text-align: left">Integer</td>
-      <td style="text-align: left">radius</td>
+      <td style="text-align: left">city id</td>
     </tr>
     <tr>
       <td style="text-align: left">country</td>

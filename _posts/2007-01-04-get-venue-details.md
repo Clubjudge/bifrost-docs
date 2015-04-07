@@ -16,3 +16,5 @@ This resource is [embeddable](#/resource-embedding) on venue.
 ```
 curl "https://bifrost.clubjudge.com/v2/venues/123/details.json"
 ```
+
+[Partial response](#/partial-responses) is also supported.

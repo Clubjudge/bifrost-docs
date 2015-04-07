@@ -105,6 +105,12 @@
   
     
   
+    
+  
+    
+  
+    
+  
   
   <li><h2>using the api</h2>
     <ul>
@@ -240,6 +246,12 @@
       <li class='GET'><a href='#/get-venue'>GET /venues/:id</a></li>
     
       <li class='GET'><a href='#/get-venue-details'>GET /venues/:id/details</a></li>
+    
+      <li class='POST'><a href='#/post-venue'>POST /venues</a></li>
+    
+      <li class='PUT'><a href='#/put-venue-details'>PUT /venues/:id/details</a></li>
+    
+      <li class='PUT'><a href='#/put-venue0'>PUT /venues/:id</a></li>
     
     </ul>
   </li>
@@ -2251,6 +2263,66 @@ curl "https://bifrost.clubjudge.com/v1/stats.json"
   <div>
     <h2>venues</h2>
     
+      <article class='PUT'>
+        <a name='/put-venue0' href='#/put-venue0'>
+          <h2>
+            
+              <code><b>PUT</b> /venues/:id</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Update the ClubJudge <a href="#/venue-model">Venue</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl -X PUT "https://bifrost.clubjudge.com/v2/venues/221.json?token=userToken"
+</code></p>
+
+        </section>
+      </article>
+    
+      <article class='PUT'>
+        <a name='/put-venue-details' href='#/put-venue-details'>
+          <h2>
+            
+              <code><b>PUT</b> /venues/:id/details</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Update the ClubJudge <a href="#/venue-details-model">VenueDetails</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl -X PUT "https://bifrost.clubjudge.com/v2/venues/221/details.json?token=userToken"
+</code></p>
+
+        </section>
+      </article>
+    
+      <article class='POST'>
+        <a name='/post-venue' href='#/post-venue'>
+          <h2>
+            
+              <code><b>POST</b> /venues</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Create a new ClubJudge <a href="#/venue-model">Venue</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl -X POST "https://bifrost.clubjudge.com/v2/venues.json?token=userToken"
+</code></p>
+
+        </section>
+      </article>
+    
       <article class='GET'>
         <a name='/get-venue-details' href='#/get-venue-details'>
           <h2>
@@ -2270,6 +2342,8 @@ curl "https://bifrost.clubjudge.com/v1/stats.json"
 curl "https://bifrost.clubjudge.com/v2/venues/123/details.json"
 </code></p>
 
+<p><a href="#/partial-responses">Partial response</a> is also supported.</p>
+
         </section>
       </article>
     
@@ -2287,29 +2361,10 @@ curl "https://bifrost.clubjudge.com/v2/venues/123/details.json"
 <h3 id="example">Example</h3>
 
 <p><code>
-curl "https://bifrost.clubjudge.com/v1/venues/3923.json"
+curl "https://bifrost.clubjudge.com/v2/venues/3923.json"
 </code></p>
 
 <p><a href="#/partial-responses">Partial response</a> is also supported.</p>
-
-<h3 id="filters">Filters</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Parameter</th>
-      <th style="text-align: left">Type</th>
-      <th style="text-align: left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">type</td>
-      <td style="text-align: left">String</td>
-      <td style="text-align: left">(upcoming, recent)</td>
-    </tr>
-  </tbody>
-</table>
 
         </section>
       </article>
@@ -2382,8 +2437,11 @@ and <a href="#/pagination">Pagination</a> are also supported.</p>
 <h3 id="example">Example</h3>
 
 <p><code>
-curl "https://bifrost.clubjudge.com/v1/venues.json"
+curl "https://bifrost.clubjudge.com/v2/venues.json"
 </code></p>
+
+<p><a href="#/partial-responses">Partial responses</a>
+and <a href="#/pagination">Pagination</a> are also supported.</p>
 
 <h3 id="filters">Filters</h3>
 
@@ -2399,24 +2457,9 @@ curl "https://bifrost.clubjudge.com/v1/venues.json"
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">type</td>
-      <td style="text-align: left">String</td>
-      <td style="text-align: left">(nearby)</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">lat</td>
-      <td style="text-align: left">Decimal</td>
-      <td style="text-align: left">latitude</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">long</td>
-      <td style="text-align: left">Decimal</td>
-      <td style="text-align: left">longitude</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">radius</td>
+      <td style="text-align: left">city</td>
       <td style="text-align: left">Integer</td>
-      <td style="text-align: left">radius</td>
+      <td style="text-align: left">city id</td>
     </tr>
     <tr>
       <td style="text-align: left">country</td>
