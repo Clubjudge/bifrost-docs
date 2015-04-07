@@ -1,0 +1,127 @@
+<p>A Clubjudge Venue details information.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Example</th>
+      <th>Defaults</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>email</td>
+      <td>String</td>
+      <td>Contact email</td>
+      <td><code>"venue@email.com"</code></td>
+      <td><code>null</code></td>
+    </tr>
+    <tr>
+      <td>hideEmail</td>
+      <td>Boolean</td>
+      <td>Contact email should be private</td>
+      <td><code>false</code></td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td>websiteUrl</td>
+      <td>String</td>
+      <td>website url</td>
+      <td><code>"http://venue.com"</code></td>
+      <td><code>null</code></td>
+    </tr>
+    <tr>
+      <td>phoneNumber</td>
+      <td>String</td>
+      <td>Contact phone for this venue</td>
+      <td><code>"+55 5555-5555"</code></td>
+      <td><code>null</code></td>
+    </tr>
+    <tr>
+      <td>hidePhoneNumber</td>
+      <td>Boolean</td>
+      <td>Contact phone should be private</td>
+      <td><code>false</code></td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td>String</td>
+      <td>Description of this venue</td>
+      <td><code>This venue is awesome &lt;br&gt;</code></td>
+      <td><code>null</code></td>
+    </tr>
+    <tr>
+      <td>openSince</td>
+      <td>String</td>
+      <td>Opening date</td>
+      <td><code>"2015-01-25"</code></td>
+      <td><code>null</code></td>
+    </tr>
+    <tr>
+      <td>capacity</td>
+      <td>Integer</td>
+      <td>The venue overall capacity</td>
+      <td><code>1000</code> (default: <code>null</code>)</td>
+      <td><code>null</code></td>
+    </tr>
+    <tr>
+      <td>minimumAge</td>
+      <td>Integer</td>
+      <td>The venue entrance minimum age</td>
+      <td><code>16</code> (default: <code>null</code>)</td>
+      <td><code>null</code></td>
+    </tr>
+    <tr>
+      <td>vipAccess</td>
+      <td>Boolean</td>
+      <td>VIP entrance</td>
+      <td><code>true</code> (default: <code>null</code>)</td>
+      <td><code>null</code></td>
+    </tr>
+    <tr>
+      <td>vipPrivateArea</td>
+      <td>Boolean</td>
+      <td>The venue have a VIP private area</td>
+      <td><code>true</code> (default: <code>null</code>)</td>
+      <td><code>null</code></td>
+    </tr>
+    <tr>
+      <td>parking</td>
+      <td>[Hash]</td>
+      <td>Parking information</td>
+      <td><code>{ street: true, private: true, payed: true }</code></td>
+      <td><code>{ street: null, private: null, payed: null }</code></td>
+    </tr>
+    <tr>
+      <td>publicTransportation</td>
+      <td>String</td>
+      <td>Public transportation information</td>
+      <td><code>"By Metro using the Green line on exit 'Cais do Sodré'"</code></td>
+      <td><code>null</code></td>
+    </tr>
+    <tr>
+      <td>paymentOptions</td>
+      <td>[Hash]</td>
+      <td>Available payment options</td>
+      <td><code>{ debit: true, visa: true, mastercard: true, amex: false}</code></td>
+      <td><code>{ debit: null, visa: null, mastercard: null, amex: null}</code></td>
+    </tr>
+    <tr>
+      <td>services</td>
+      <td>[Hash]</td>
+      <td>Available services</td>
+      <td><code>{ weelchair: true, smokingArea: true, lockers: true, food: true}</code></td>
+      <td><code>{ weelchair: null, smokingArea: null, lockers: null, food: null}</code></td>
+    </tr>
+    <tr>
+      <td>houseRules</td>
+      <td>String</td>
+      <td>Specific venue house rules description</td>
+      <td><code>"Dress code with fleep floops not allowed."</code></td>
+      <td><code>null</code></td>
+    </tr>
+  </tbody>
+</table>

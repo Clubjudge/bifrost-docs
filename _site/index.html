@@ -105,16 +105,6 @@
   
     
   
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
   
   <li><h2>using the api</h2>
     <ul>
@@ -150,6 +140,8 @@
       <li class=''><a href='#/me-model'>Me</a></li>
     
       <li class=''><a href='#/user-model'>User</a></li>
+    
+      <li class=''><a href='#/venue-details-model'>VenueDetails</a></li>
     
       <li class=''><a href='#/venue-model'>Venue</a></li>
     
@@ -241,25 +233,13 @@
   <li><h2>venues</h2>
     <ul>
     
-      <li class='GET'><a href='#/get-venue'>GET /venues/:id</a></li>
-    
       <li class='GET'><a href='#/get-venues'>GET /venues</a></li>
-    
-      <li class='GET'><a href='#/get-venue-comments'>GET /venues/:id/comments</a></li>
-    
-      <li class='GET'><a href='#/get-venue-events'>GET /venues/:id/events</a></li>
     
       <li class='GET'><a href='#/get-venues-search'>GET /venues/search</a></li>
     
-      <li class='DELETE'><a href='#/delete-venue-followers'>DELETE /venues/:id/followers</a></li>
+      <li class='GET'><a href='#/get-venue'>GET /venues/:id</a></li>
     
-      <li class='POST'><a href='#/post-venue-followers'>POST /venues/:id/followers</a></li>
-    
-      <li class='GET'><a href='#/get-venue-followers'>GET /venues/:id/followers</a></li>
-    
-      <li class='GET'><a href='#/get-venue-ratings'>GET /venues/:id/ratings</a></li>
-    
-      <li class='POST'><a href='#/post-venue-ratings'>POST /venues/:id/ratings</a></li>
+      <li class='GET'><a href='#/get-venue-details'>GET /venues/:id/details</a></li>
     
     </ul>
   </li>
@@ -494,8 +474,8 @@ https://bifrost.clubjudge.com/v1/artists/1981.json?fields=id,name,address.city
     <tr>
       <td>type</td>
       <td>String</td>
-      <td>Type of the city</td>
-      <td><code>"venue"</code></td>
+      <td>Tag type descriptor</td>
+      <td><code>"VenueType"</code></td>
     </tr>
   </tbody>
 </table>
@@ -512,7 +492,7 @@ https://bifrost.clubjudge.com/v1/artists/1981.json?fields=id,name,address.city
           </h2>
         </a>
         <section class='body'>
-          <p>A Clubjudge Venue.</p>
+          <p>A Clubjudge Venue information.</p>
 
 <table>
   <thead>
@@ -521,98 +501,247 @@ https://bifrost.clubjudge.com/v1/artists/1981.json?fields=id,name,address.city
       <th>Type</th>
       <th>Description</th>
       <th>Example</th>
+      <th>Defaults / Info</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>id</td>
       <td>Integer</td>
-      <td>Id of this venue</td>
+      <td>The venue unique identifier</td>
       <td><code>233</code></td>
+      <td><code>null</code></td>
+    </tr>
+    <tr>
+      <td>createdAt</td>
+      <td>String</td>
+      <td>UTC Datetime when this venue was last modified</td>
+      <td><code>2014-04-02T12:05:00</code></td>
+      <td><code>null</code></td>
+    </tr>
+    <tr>
+      <td>updatedAt</td>
+      <td>String</td>
+      <td>UTC Datetime when this venue was created</td>
+      <td><code>2014-04-02T12:05:00</code></td>
+      <td><code>null</code></td>
     </tr>
     <tr>
       <td>name</td>
       <td>String</td>
-      <td>Name of this venue</td>
+      <td>The venue name</td>
       <td><code>"Awesome venue"</code></td>
+      <td><code>null</code></td>
     </tr>
     <tr>
-      <td>description</td>
-      <td>String</td>
-      <td>Description of this venue</td>
-      <td><code>This venue is awesome</code></td>
+      <td>reviewsCount</td>
+      <td>Integer</td>
+      <td>Number of reviews</td>
+      <td><code>455</code></td>
+      <td><em>read only</em></td>
     </tr>
+    <tr>
+      <td>commentsCount</td>
+      <td>Integer</td>
+      <td>Number of comments</td>
+      <td><code>90</code></td>
+      <td><em>read only</em></td>
+    </tr>
+    <tr>
+      <td>followersCount</td>
+      <td>Integer</td>
+      <td>Number of followers</td>
+      <td><code>344</code></td>
+      <td><em>read only</em></td>
+    </tr>
+    <tr>
+      <td>upcomingEventsCount</td>
+      <td>Integer</td>
+      <td>Number of upcoming events</td>
+      <td><code>344</code></td>
+      <td><em>read only</em></td>
+    </tr>
+    <tr>
+      <td>keywords</td>
+      <td>[String]</td>
+      <td>Array with keywords that describe the venue</td>
+      <td><code>["dancing club", "old venue club", "historic"]</code></td>
+      <td><em>required</em></td>
+    </tr>
+    <tr>
+      <td>venueTypes</td>
+      <td>[<a href="#/tag-model">Tag</a>]</td>
+      <td>Array with venue type tags</td>
+      <td><code>[{ name: "Rooftop", type: "VenueType" }]</code></td>
+      <td><em>required</em></td>
+    </tr>
+    <tr>
+      <td>logo</td>
+      <td>Hash</td>
+      <td>Links to venue logo image</td>
+      <td><code>{ guid: 'guid', square_32: 'https://img.cdn-clubjudge.com/guid/1/square_32.jpg',  square_60: 'https://img.cdn-clubjudge.com/guid/1/square_60.jpg',  square_90: 'https://img.cdn-clubjudge.com/guid/1/square_90.jpg',  square_120: 'https://img.cdn-clubjudge.com/guid/1/square_120.jpg',  square_160: 'https://img.cdn-clubjudge.com/guid/1/square_160.jpg',  square_180: 'https://img.cdn-clubjudge.com/guid/1/square_180.jpg',  square_250: 'https://img.cdn-clubjudge.com/guid/1/square_250.jpg',  portrait_600: 'https://img.cdn-clubjudge.com/guid/1/portrait_600.jpg' }</code></td>
+      <td><code>null</code> <em>and only guid is writable</em></td>
+    </tr>
+    <tr>
+      <td>background</td>
+      <td>Hash</td>
+      <td>Links to venue background image</td>
+      <td><code>{ guid: 'guid', square_160: "https://img.cdn-clubjudge.com/guid/1/square_160.jpg",  square_320: "https://img.cdn-clubjudge.com/guid/1/square_320.jpg",  square_noblur_320: "https://img.cdn-clubjudge.com/guid/1/square_noblur_320.jpg",  square_blur_420: "https://img.cdn-clubjudge.com/guid/1/square_blur_420.jpg",  square_720: "https://img.cdn-clubjudge.com/guid/1/square_720.jpg",  square_1140: "https://img.cdn-clubjudge.com/guid/1/square_1140.jpg",  square_1900: "https://img.cdn-clubjudge.com/guid/1/square_1900.jpg",  rectangle_noblur_320x150: "https://img.cdn-clubjudge.com/guid/1/rectangle_noblur_320x150.jpg",  rectangle_1240: "https://img.cdn-clubjudge.com/guid/1/rectangle_1240.jpg" }</code></td>
+      <td><code>null</code> <em>and only guid is writable</em></td>
+    </tr>
+    <tr>
+      <td>address</td>
+      <td>Hash</td>
+      <td>Venue address</td>
+      <td><code>{ street: 'Oostelijke Handelskade 4', zipCode: '1019 BM', geolocation: { lat: 52.37, lon: 4.93 }, city: [City] }</code></td>
+      <td><em>required street, zipCode and city</em></td>
+    </tr>
+    <tr>
+      <td>_links</td>
+      <td>Hash</td>
+      <td>Include the subresources api links.</td>
+      <td>Subresouces keys: details, areas, schedule, socialLinks, musicGenres</td>
+      <td><em>read only</em></td>
+    </tr>
+  </tbody>
+</table>
+
+        </section>
+      </article>
+    
+      <article class=''>
+        <a name='/venue-details-model' href='#/venue-details-model'>
+          <h2>
+            
+              VenueDetails
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A Clubjudge Venue details information.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Example</th>
+      <th>Defaults</th>
+    </tr>
+  </thead>
+  <tbody>
     <tr>
       <td>email</td>
       <td>String</td>
-      <td>Contact email for this venue</td>
+      <td>Contact email</td>
       <td><code>"venue@email.com"</code></td>
+      <td><code>null</code></td>
+    </tr>
+    <tr>
+      <td>hideEmail</td>
+      <td>Boolean</td>
+      <td>Contact email should be private</td>
+      <td><code>false</code></td>
+      <td><code>false</code></td>
     </tr>
     <tr>
       <td>websiteUrl</td>
       <td>String</td>
-      <td>Link to venue website</td>
+      <td>website url</td>
       <td><code>"http://venue.com"</code></td>
+      <td><code>null</code></td>
     </tr>
     <tr>
       <td>phoneNumber</td>
       <td>String</td>
       <td>Contact phone for this venue</td>
       <td><code>"+55 5555-5555"</code></td>
+      <td><code>null</code></td>
     </tr>
     <tr>
-      <td>geolocation</td>
-      <td>Hash</td>
-      <td>Coordinates hash</td>
-      <td><code>{ lat: 31.0234, lon: 3.1233}</code></td>
+      <td>hidePhoneNumber</td>
+      <td>Boolean</td>
+      <td>Contact phone should be private</td>
+      <td><code>false</code></td>
+      <td><code>false</code></td>
     </tr>
     <tr>
-      <td>reviewCount</td>
-      <td>Integer</td>
-      <td>Number of reviews for this venue</td>
-      <td><code>455</code></td>
-    </tr>
-    <tr>
-      <td>commentsCount</td>
-      <td>Integer</td>
-      <td>Number of comments for this venue</td>
-      <td><code>90</code></td>
-    </tr>
-    <tr>
-      <td>socialMentionsCount</td>
-      <td>Integer</td>
-      <td>Number of social mentions for this venue</td>
-      <td><code>593</code></td>
-    </tr>
-    <tr>
-      <td>followersCount</td>
-      <td>Integer</td>
-      <td>Number of followers for this venue</td>
-      <td><code>344</code></td>
-    </tr>
-    <tr>
-      <td>updatedAt</td>
+      <td>description</td>
       <td>String</td>
-      <td>Date and time when this venue was last modified</td>
-      <td><code>2014-04-02T12:05:00</code></td>
+      <td>Description of this venue</td>
+      <td><code>This venue is awesome &lt;br&gt;</code></td>
+      <td><code>null</code></td>
     </tr>
     <tr>
-      <td>ratings</td>
+      <td>openSince</td>
+      <td>String</td>
+      <td>Opening date</td>
+      <td><code>"2015-01-25"</code></td>
+      <td><code>null</code></td>
+    </tr>
+    <tr>
+      <td>capacity</td>
+      <td>Integer</td>
+      <td>The venue overall capacity</td>
+      <td><code>1000</code> (default: <code>null</code>)</td>
+      <td><code>null</code></td>
+    </tr>
+    <tr>
+      <td>minimumAge</td>
+      <td>Integer</td>
+      <td>The venue entrance minimum age</td>
+      <td><code>16</code> (default: <code>null</code>)</td>
+      <td><code>null</code></td>
+    </tr>
+    <tr>
+      <td>vipAccess</td>
+      <td>Boolean</td>
+      <td>VIP entrance</td>
+      <td><code>true</code> (default: <code>null</code>)</td>
+      <td><code>null</code></td>
+    </tr>
+    <tr>
+      <td>vipPrivateArea</td>
+      <td>Boolean</td>
+      <td>The venue have a VIP private area</td>
+      <td><code>true</code> (default: <code>null</code>)</td>
+      <td><code>null</code></td>
+    </tr>
+    <tr>
+      <td>parking</td>
       <td>[Hash]</td>
-      <td>Ratings for this venue</td>
-      <td><code>{ global: 8.14 }</code></td>
+      <td>Parking information</td>
+      <td><code>{ street: true, private: true, payed: true }</code></td>
+      <td><code>{ street: null, private: null, payed: null }</code></td>
     </tr>
     <tr>
-      <td>logos</td>
+      <td>publicTransportation</td>
+      <td>String</td>
+      <td>Public transportation information</td>
+      <td><code>"By Metro using the Green line on exit 'Cais do Sodré'"</code></td>
+      <td><code>null</code></td>
+    </tr>
+    <tr>
+      <td>paymentOptions</td>
       <td>[Hash]</td>
-      <td>Links to venue logo</td>
-      <td><code>[{ id: 3638, base: 'http://example.com', ext: '.jpg' }]</code></td>
+      <td>Available payment options</td>
+      <td><code>{ debit: true, visa: true, mastercard: true, amex: false}</code></td>
+      <td><code>{ debit: null, visa: null, mastercard: null, amex: null}</code></td>
     </tr>
     <tr>
-      <td>background</td>
-      <td>Hash</td>
-      <td>Link to venue background image</td>
-      <td><code>{ base: 'http://example.com', ext: '.jpg'}</code></td>
+      <td>services</td>
+      <td>[Hash]</td>
+      <td>Available services</td>
+      <td><code>{ weelchair: true, smokingArea: true, lockers: true, food: true}</code></td>
+      <td><code>{ weelchair: null, smokingArea: null, lockers: null, food: null}</code></td>
+    </tr>
+    <tr>
+      <td>houseRules</td>
+      <td>String</td>
+      <td>Specific venue house rules description</td>
+      <td><code>"Dress code with fleep floops not allowed."</code></td>
+      <td><code>null</code></td>
     </tr>
   </tbody>
 </table>
@@ -2122,109 +2251,65 @@ curl "https://bifrost.clubjudge.com/v1/stats.json"
   <div>
     <h2>venues</h2>
     
-      <article class='POST'>
-        <a name='/post-venue-ratings' href='#/post-venue-ratings'>
+      <article class='GET'>
+        <a name='/get-venue-details' href='#/get-venue-details'>
           <h2>
             
-              <code><b>POST</b> /venues/:id/ratings</code>
+              <code><b>GET</b> /venues/:id/details</code>
             
           </h2>
         </a>
         <section class='body'>
-          <p>Reviews a ClubJudge <a href="#/venue-model">Venue</a></p>
+          <p>The <a href="#/venue-details-model">Details</a> for this venue.</p>
+
+<p>This resource is <a href="#/resource-embedding">embeddable</a> on venue.</p>
 
 <h3 id="example">Example</h3>
 
 <p><code>
-curl -X POST "https://bifrost.clubjudge.com/v1/venues/123/ratings.json"
+curl "https://bifrost.clubjudge.com/v2/venues/123/details.json"
 </code></p>
-
 
         </section>
       </article>
     
       <article class='GET'>
-        <a name='/get-venue-ratings' href='#/get-venue-ratings'>
+        <a name='/get-venue' href='#/get-venue'>
           <h2>
             
-              <code><b>GET</b> /venues/:id/ratings</code>
+              <code><b>GET</b> /venues/:id</code>
             
           </h2>
         </a>
         <section class='body'>
-          <p>A list of ClubJudge <a href="#/rating-model">Ratings</a> for this venue.</p>
+          <p>An instance of a ClubJudge <a href="#/venue-model">Venue</a>.</p>
 
 <h3 id="example">Example</h3>
 
 <p><code>
-curl "https://bifrost.clubjudge.com/v1/venues/123/ratings.json"
+curl "https://bifrost.clubjudge.com/v1/venues/3923.json"
 </code></p>
 
+<p><a href="#/partial-responses">Partial response</a> is also supported.</p>
 
-        </section>
-      </article>
-    
-      <article class='GET'>
-        <a name='/get-venue-followers' href='#/get-venue-followers'>
-          <h2>
-            
-              <code><b>GET</b> /venues/:id/followers</code>
-            
-          </h2>
-        </a>
-        <section class='body'>
-          <p>A list of ClubJudge <a href="#/user-model">Users</a> who follow this venue.</p>
+<h3 id="filters">Filters</h3>
 
-<p>This resource is embeddable.</p>
-
-<h3 id="example">Example</h3>
-
-<p><code>
-curl "https://bifrost.clubjudge.com/v1/venues/123/followers.json"
-</code></p>
-
-
-        </section>
-      </article>
-    
-      <article class='POST'>
-        <a name='/post-venue-followers' href='#/post-venue-followers'>
-          <h2>
-            
-              <code><b>POST</b> /venues/:id/followers</code>
-            
-          </h2>
-        </a>
-        <section class='body'>
-          <p>The logged in ClubJudge <a href="#/user-model">User</a> begins following the ClubJudge <a href="#/venue-model">Venue</a>.</p>
-
-<h3 id="example">Example</h3>
-
-<p><code>
-curl -X POST "https://bifrost.clubjudge.com/v1/venues/123/followers.json?token=userToken"
-</code></p>
-
-
-        </section>
-      </article>
-    
-      <article class='DELETE'>
-        <a name='/delete-venue-followers' href='#/delete-venue-followers'>
-          <h2>
-            
-              <code><b>DELETE</b> /venues/:id/followers</code>
-            
-          </h2>
-        </a>
-        <section class='body'>
-          <p>The logged in ClubJudge <a href="#/user-model">User</a> stops following the ClubJudge <a href="#/venue-model">Venue</a>.</p>
-
-<h3 id="example">Example</h3>
-
-<p><code>
-curl -X DELETE "https://bifrost.clubjudge.com/v1/venues/123/followers.json?token=userToken"
-</code></p>
-
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">type</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">(upcoming, recent)</td>
+    </tr>
+  </tbody>
+</table>
 
         </section>
       </article>
@@ -2284,49 +2369,6 @@ and <a href="#/pagination">Pagination</a> are also supported.</p>
       </article>
     
       <article class='GET'>
-        <a name='/get-venue-events' href='#/get-venue-events'>
-          <h2>
-            
-              <code><b>GET</b> /venues/:id/events</code>
-            
-          </h2>
-        </a>
-        <section class='body'>
-          <p>A list of ClubJudge <a href="#/event-model">Events</a> for this venue.</p>
-
-<p>This resource is <a href="#/resource-embedding">embeddable</a>.</p>
-
-<h3 id="example">Example</h3>
-
-<p><code>
-curl "https://bifrost.clubjudge.com/v1/venues/123/events.json"
-</code></p>
-
-        </section>
-      </article>
-    
-      <article class='GET'>
-        <a name='/get-venue-comments' href='#/get-venue-comments'>
-          <h2>
-            
-              <code><b>GET</b> /venues/:id/comments</code>
-            
-          </h2>
-        </a>
-        <section class='body'>
-          <p>A list of ClubJudge <a href="#/comment-model">Comments</a>.</p>
-
-<h3 id="example">Example</h3>
-
-<p><code>
-curl "https://bifrost.clubjudge.com/v1/venues/123/comments.json"
-</code></p>
-
-
-        </section>
-      </article>
-    
-      <article class='GET'>
         <a name='/get-venues' href='#/get-venues'>
           <h2>
             
@@ -2380,47 +2422,6 @@ curl "https://bifrost.clubjudge.com/v1/venues.json"
       <td style="text-align: left">country</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">country isocode (pt,nl,be …)</td>
-    </tr>
-  </tbody>
-</table>
-
-        </section>
-      </article>
-    
-      <article class='GET'>
-        <a name='/get-venue' href='#/get-venue'>
-          <h2>
-            
-              <code><b>GET</b> /venues/:id</code>
-            
-          </h2>
-        </a>
-        <section class='body'>
-          <p>An instance of a ClubJudge <a href="#/venue-model">Venue</a>.</p>
-
-<h3 id="example">Example</h3>
-
-<p><code>
-curl "https://bifrost.clubjudge.com/v1/venues/3923.json"
-</code></p>
-
-<p><a href="#/partial-responses">Partial response</a> is also supported.</p>
-
-<h3 id="filters">Filters</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Parameter</th>
-      <th style="text-align: left">Type</th>
-      <th style="text-align: left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">type</td>
-      <td style="text-align: left">String</td>
-      <td style="text-align: left">(upcoming, recent)</td>
     </tr>
   </tbody>
 </table>
