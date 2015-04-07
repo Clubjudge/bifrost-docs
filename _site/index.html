@@ -127,6 +127,12 @@
   
     
   
+    
+  
+    
+  
+    
+  
   
   <li><h2>using the api</h2>
     <ul>
@@ -166,6 +172,8 @@
       <li class=''><a href='#/venue-details-model'>Venue Details</a></li>
     
       <li class=''><a href='#/venue-model'>Venue</a></li>
+    
+      <li class=''><a href='#/venue-schedule-model'>Venue Schedule</a></li>
     
       <li class=''><a href='#/tag-model'>Tag</a></li>
     
@@ -263,13 +271,17 @@
     
       <li class='GET'><a href='#/get-venue'>GET /venues/:id</a></li>
     
-      <li class='GET'><a href='#/get-venue-details'>GET /venues/:id/details</a></li>
-    
       <li class='POST'><a href='#/post-venue'>POST /venues</a></li>
     
       <li class='PUT'><a href='#/put-venue'>PUT /venues/:id</a></li>
     
+      <li class='GET'><a href='#/get-venue-details'>GET /venues/:id/details</a></li>
+    
       <li class='PUT'><a href='#/put-venue-details'>PUT /venues/:id/details</a></li>
+    
+      <li class='GET'><a href='#/get-venue-schedule'>GET /venues/:id/schedule</a></li>
+    
+      <li class='PUT'><a href='#/put-venue-schedule'>PUT /venues/:id/schedule</a></li>
     
       <li class='DELETE'><a href='#/delete-venue-social-link'>DELETE /venues/:id/socialLinks/:slug</a></li>
     
@@ -581,6 +593,41 @@ https://bifrost.clubjudge.com/v1/artists/1981.json?fields=id,name,address.city
       <td>String</td>
       <td>Tag type descriptor</td>
       <td><code>"VenueType"</code></td>
+    </tr>
+  </tbody>
+</table>
+
+        </section>
+      </article>
+    
+      <article class=''>
+        <a name='/venue-schedule-model' href='#/venue-schedule-model'>
+          <h2>
+            
+              Venue Schedule
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A Clubjudge Venue schedule information.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Example</th>
+      <th>Defaults</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>email</td>
+      <td>String</td>
+      <td>Contact email</td>
+      <td><code>"venue@email.com"</code></td>
+      <td><code>null</code></td>
     </tr>
   </tbody>
 </table>
@@ -2506,6 +2553,50 @@ curl -X DELETE "https://bifrost.clubjudge.com/v2/venues/221/socialLinks/facebook
       </article>
     
       <article class='PUT'>
+        <a name='/put-venue-schedule' href='#/put-venue-schedule'>
+          <h2>
+            
+              <code><b>PUT</b> /venues/:id/schedule</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Update the ClubJudge <a href="#/venue-schedule-model">VenueSchedule</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl -X PUT "https://bifrost.clubjudge.com/v2/venues/221/schedule.json?token=userToken"
+</code></p>
+
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-venue-schedule' href='#/get-venue-schedule'>
+          <h2>
+            
+              <code><b>GET</b> /venues/:id/schedule</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>The <a href="#/venue-schedule-model">VenueSchedule</a> for this venue.</p>
+
+<p>This resource is <a href="#/resource-embedding">embeddable</a> on venue.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl "https://bifrost.clubjudge.com/v2/venues/123/schedule.json"
+</code></p>
+
+<p><a href="#/partial-responses">Partial response</a> is also supported.</p>
+
+        </section>
+      </article>
+    
+      <article class='PUT'>
         <a name='/put-venue-details' href='#/put-venue-details'>
           <h2>
             
@@ -2521,6 +2612,30 @@ curl -X DELETE "https://bifrost.clubjudge.com/v2/venues/221/socialLinks/facebook
 <p><code>
 curl -X PUT "https://bifrost.clubjudge.com/v2/venues/221/details.json?token=userToken"
 </code></p>
+
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-venue-details' href='#/get-venue-details'>
+          <h2>
+            
+              <code><b>GET</b> /venues/:id/details</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>The <a href="#/venue-details-model">Details</a> for this venue.</p>
+
+<p>This resource is <a href="#/resource-embedding">embeddable</a> on venue.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl "https://bifrost.clubjudge.com/v2/venues/123/details.json"
+</code></p>
+
+<p><a href="#/partial-responses">Partial response</a> is also supported.</p>
 
         </section>
       </article>
@@ -2561,30 +2676,6 @@ curl -X PUT "https://bifrost.clubjudge.com/v2/venues/221.json?token=userToken"
 <p><code>
 curl -X POST "https://bifrost.clubjudge.com/v2/venues.json?token=userToken"
 </code></p>
-
-        </section>
-      </article>
-    
-      <article class='GET'>
-        <a name='/get-venue-details' href='#/get-venue-details'>
-          <h2>
-            
-              <code><b>GET</b> /venues/:id/details</code>
-            
-          </h2>
-        </a>
-        <section class='body'>
-          <p>The <a href="#/venue-details-model">Details</a> for this venue.</p>
-
-<p>This resource is <a href="#/resource-embedding">embeddable</a> on venue.</p>
-
-<h3 id="example">Example</h3>
-
-<p><code>
-curl "https://bifrost.clubjudge.com/v2/venues/123/details.json"
-</code></p>
-
-<p><a href="#/partial-responses">Partial response</a> is also supported.</p>
 
         </section>
       </article>
