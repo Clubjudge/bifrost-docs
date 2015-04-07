@@ -1,22 +1,36 @@
 <p>A Clubjudge Venue schedule information.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Example</th>
-      <th>Defaults</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>email</td>
-      <td>String</td>
-      <td>Contact email</td>
-      <td><code>"venue@email.com"</code></td>
-      <td><code>null</code></td>
-    </tr>
-  </tbody>
-</table>
+<p><code>
+  allYear: [{
+    timetable": [{
+      startHour: 20,
+      startMinutes: 30,
+      endHour: 4,
+      endMinutes: 0,
+      monday: false,
+      tuesday: false,
+      wendsday: false,
+      thursday: true,
+      friday: true,
+      saturday: true,
+      sunday: false
+    }]
+  }],
+  seasons: [{
+    seasonStart: "01-10",
+    seasonEnd: "20-10",
+    timetable: [{
+      startHour: 20,
+      startMinutes: 30,
+      endHour: 4,
+      endMinutes: 0,
+      monday: true,
+      tuesday: true,
+      wendsday: true,
+      thursday: true,
+      friday: true,
+      saturday: true,
+      sunday: false
+    }]
+  }]
+</code></p>
