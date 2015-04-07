@@ -111,6 +111,22 @@
   
     
   
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
   
   <li><h2>using the api</h2>
     <ul>
@@ -147,11 +163,13 @@
     
       <li class=''><a href='#/user-model'>User</a></li>
     
-      <li class=''><a href='#/venue-details-model'>VenueDetails</a></li>
+      <li class=''><a href='#/venue-details-model'>Venue Details</a></li>
     
       <li class=''><a href='#/venue-model'>Venue</a></li>
     
       <li class=''><a href='#/tag-model'>Tag</a></li>
+    
+      <li class=''><a href='#/social-links-model'>Social Links</a></li>
     
     </ul>
   </li>
@@ -249,9 +267,23 @@
     
       <li class='POST'><a href='#/post-venue'>POST /venues</a></li>
     
+      <li class='PUT'><a href='#/put-venue'>PUT /venues/:id</a></li>
+    
       <li class='PUT'><a href='#/put-venue-details'>PUT /venues/:id/details</a></li>
     
-      <li class='PUT'><a href='#/put-venue0'>PUT /venues/:id</a></li>
+      <li class='DELETE'><a href='#/delete-venue-social-link'>DELETE /venues/:id/socialLinks/:slug</a></li>
+    
+      <li class='GET'><a href='#/get-venue-social-links'>GET /venues/:id/socialLinks</a></li>
+    
+      <li class='POST'><a href='#/post-venue-social-link'>POST /venues/:id/socialLinks</a></li>
+    
+      <li class='PUT'><a href='#/put-venue-social-link'>PUT /venues/:id/socialLinks/:slug</a></li>
+    
+      <li class='DELETE'><a href='#/delete-venue-music-genres'>DELETE /venues/:id/musicGenres/:id</a></li>
+    
+      <li class='GET'><a href='#/get-venue-music-genres'>GET /venues/:id/musicGenres</a></li>
+    
+      <li class='POST'><a href='#/post-venue-music-genres'>POST /venues/:id/musicGenres</a></li>
     
     </ul>
   </li>
@@ -457,6 +489,67 @@ https://bifrost.clubjudge.com/v1/artists/1981.json?fields=id,name,address.city
     <h2>models</h2>
     
       <article class=''>
+        <a name='/social-links-model' href='#/social-links-model'>
+          <h2>
+            
+              Social Links
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A Clubjudge Social link information.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Example</th>
+      <th>Defaults / Info</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>String</td>
+      <td>The social link name</td>
+      <td><code>"Facebook"</code></td>
+      <td><em>read only</em></td>
+    </tr>
+    <tr>
+      <td>slug</td>
+      <td>String</td>
+      <td>The social link slug name</td>
+      <td><code>"facebook"</code></td>
+      <td><em>required</em></td>
+    </tr>
+    <tr>
+      <td>href</td>
+      <td>String</td>
+      <td>The social link uri</td>
+      <td><code>"https://www.facebook.com/panama.amsterdam020"</code></td>
+      <td><em>required</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="available-social-link-types-slug">Available social link types (slug):</h4>
+
+<ul>
+  <li>Twitter (twitter)</li>
+  <li>Facebook (facebook)</li>
+  <li>YouTube (youtube)</li>
+  <li>SoundCloud (soundcloud)</li>
+  <li>Google+ (google+)</li>
+  <li>Songkick (songkick)</li>
+  <li>Instagram (instagram)</li>
+</ul>
+
+        </section>
+      </article>
+    
+      <article class=''>
         <a name='/tag-model' href='#/tag-model'>
           <h2>
             
@@ -625,7 +718,7 @@ https://bifrost.clubjudge.com/v1/artists/1981.json?fields=id,name,address.city
         <a name='/venue-details-model' href='#/venue-details-model'>
           <h2>
             
-              VenueDetails
+              Venue Details
             
           </h2>
         </a>
@@ -2263,21 +2356,150 @@ curl "https://bifrost.clubjudge.com/v1/stats.json"
   <div>
     <h2>venues</h2>
     
-      <article class='PUT'>
-        <a name='/put-venue0' href='#/put-venue0'>
+      <article class='POST'>
+        <a name='/post-venue-music-genres' href='#/post-venue-music-genres'>
           <h2>
             
-              <code><b>PUT</b> /venues/:id</code>
+              <code><b>POST</b> /venues/:id/musicGenres</code>
             
           </h2>
         </a>
         <section class='body'>
-          <p>Update the ClubJudge <a href="#/venue-model">Venue</a>.</p>
+          <p>Create the <a href="#/music-genre-model">MusicGenre</a> on the ClubJudge <a href="#/venue-model">Venue</a>.</p>
 
 <h3 id="example">Example</h3>
 
 <p><code>
-curl -X PUT "https://bifrost.clubjudge.com/v2/venues/221.json?token=userToken"
+curl -X POST "https://bifrost.clubjudge.com/v2/venues/221/musicGenres.json?token=userToken"
+</code></p>
+
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-venue-music-genres' href='#/get-venue-music-genres'>
+          <h2>
+            
+              <code><b>GET</b> /venues/:id/musicGenres</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A list of <a href="#/music-genre-model">MusicGenre</a> associated with the <a href="#/venue-model">Venue</a>.</p>
+
+<p>This resource is <a href="#/resource-embedding">embeddable</a> on venue.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl "https://bifrost.clubjudge.com/v2/venues/221/musicGenres.json"
+</code></p>
+
+<p><a href="#/partial-responses">Partial responses</a> and <a href="#/pagination">Pagination</a> are also supported.</p>
+
+        </section>
+      </article>
+    
+      <article class='DELETE'>
+        <a name='/delete-venue-music-genres' href='#/delete-venue-music-genres'>
+          <h2>
+            
+              <code><b>DELETE</b> /venues/:id/musicGenres/:id</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Delete the <a href="#/music-genre-model">MusicGenre</a> from the ClubJudge <a href="#/venue-model">Venue</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl -X DELETE "https://bifrost.clubjudge.com/v2/venues/221/musicGenres/1.json?token=userToken"
+</code></p>
+
+        </section>
+      </article>
+    
+      <article class='PUT'>
+        <a name='/put-venue-social-link' href='#/put-venue-social-link'>
+          <h2>
+            
+              <code><b>PUT</b> /venues/:id/socialLinks/:slug</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Update the <a href="#/social-link-model">SocialLink</a> in the ClubJudge <a href="#/venue-model">Venue</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl -X PUT "https://bifrost.clubjudge.com/v2/venues/221/socialLinks/facebook.json?token=userToken"
+</code></p>
+
+        </section>
+      </article>
+    
+      <article class='POST'>
+        <a name='/post-venue-social-link' href='#/post-venue-social-link'>
+          <h2>
+            
+              <code><b>POST</b> /venues/:id/socialLinks</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Create the <a href="#/social-link-model">SocialLink</a> on the ClubJudge <a href="#/venue-model">Venue</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl -X POST "https://bifrost.clubjudge.com/v2/venues/221/socialLinks.json?token=userToken"
+</code></p>
+
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-venue-social-links' href='#/get-venue-social-links'>
+          <h2>
+            
+              <code><b>GET</b> /venues/:id/socialLinks</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A list of <a href="#/social-link-model">SocialLinks</a> associated with the <a href="#/venue-model">Venue</a>.</p>
+
+<p>This resource is <a href="#/resource-embedding">embeddable</a> on venue.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl "https://bifrost.clubjudge.com/v2/venues/221/socialLinks.json"
+</code></p>
+
+<p><a href="#/partial-responses">Partial responses</a>
+and <a href="#/pagination">Pagination</a> are also supported.</p>
+
+        </section>
+      </article>
+    
+      <article class='DELETE'>
+        <a name='/delete-venue-social-link' href='#/delete-venue-social-link'>
+          <h2>
+            
+              <code><b>DELETE</b> /venues/:id/socialLinks/:slug</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Delete the <a href="#/social-link-model">SocialLink</a> from the ClubJudge <a href="#/venue-model">Venue</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl -X DELETE "https://bifrost.clubjudge.com/v2/venues/221/socialLinks/facebook.json?token=userToken"
 </code></p>
 
         </section>
@@ -2298,6 +2520,26 @@ curl -X PUT "https://bifrost.clubjudge.com/v2/venues/221.json?token=userToken"
 
 <p><code>
 curl -X PUT "https://bifrost.clubjudge.com/v2/venues/221/details.json?token=userToken"
+</code></p>
+
+        </section>
+      </article>
+    
+      <article class='PUT'>
+        <a name='/put-venue' href='#/put-venue'>
+          <h2>
+            
+              <code><b>PUT</b> /venues/:id</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Update the ClubJudge <a href="#/venue-model">Venue</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl -X PUT "https://bifrost.clubjudge.com/v2/venues/221.json?token=userToken"
 </code></p>
 
         </section>

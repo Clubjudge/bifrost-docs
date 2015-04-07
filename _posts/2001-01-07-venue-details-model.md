@@ -1,6 +1,6 @@
 ---
 category: Models
-title: 'VenueDetails'
+title: 'Venue Details'
 
 layout: nil
 ---
