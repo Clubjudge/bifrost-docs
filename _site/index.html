@@ -133,6 +133,8 @@
   
     
   
+    
+  
   
   <li><h2>using the api</h2>
     <ul>
@@ -278,6 +280,8 @@
       <li class='GET'><a href='#/get-venue-details'>GET /venues/:id/details</a></li>
     
       <li class='PUT'><a href='#/put-venue-details'>PUT /venues/:id/details</a></li>
+    
+      <li class='DELETE'><a href='#/delete-venue-schedule'>DELETE /venues/:id/schedule</a></li>
     
       <li class='GET'><a href='#/get-venue-schedule'>GET /venues/:id/schedule</a></li>
     
@@ -612,11 +616,13 @@ https://bifrost.clubjudge.com/v1/artists/1981.json?fields=id,name,address.city
           <p>A Clubjudge Venue schedule information.</p>
 
 <p><code>
-  allYear: [{
+  allYear: {
+    seasonStart: "01-01",
+    seasonEnd: "12-31",
     timetable": [{
-      startHour: 20,
+      startHour: 21,
       startMinutes: 30,
-      endHour: 4,
+      endHour: 3,
       endMinutes: 0,
       monday: false,
       tuesday: false,
@@ -626,10 +632,10 @@ https://bifrost.clubjudge.com/v1/artists/1981.json?fields=id,name,address.city
       saturday: true,
       sunday: false
     }]
-  }],
+  },
   seasons: [{
-    seasonStart: "01-10",
-    seasonEnd: "20-10",
+    seasonStart: "10-01",
+    seasonEnd: "10-20",
     timetable: [{
       startHour: 20,
       startMinutes: 30,
@@ -837,6 +843,20 @@ https://bifrost.clubjudge.com/v1/artists/1981.json?fields=id,name,address.city
       <td>String</td>
       <td>Description of this venue</td>
       <td><code>This venue is awesome &lt;br&gt;</code></td>
+      <td><code>null</code></td>
+    </tr>
+    <tr>
+      <td>escapedDescription</td>
+      <td>String</td>
+      <td>An escaped version of the description</td>
+      <td><code>This venue is awesome.\n</code></td>
+      <td><code>null</code></td>
+    </tr>
+    <tr>
+      <td>shortDescription</td>
+      <td>String</td>
+      <td>A short sentence about this venue</td>
+      <td><code>This venue is one of the most iconic places in berlin</code></td>
       <td><code>null</code></td>
     </tr>
     <tr>
@@ -2606,6 +2626,26 @@ curl "https://bifrost.clubjudge.com/v2/venues/123/schedule.json"
 </code></p>
 
 <p><a href="#/partial-responses">Partial response</a> is also supported.</p>
+
+        </section>
+      </article>
+    
+      <article class='DELETE'>
+        <a name='/delete-venue-schedule' href='#/delete-venue-schedule'>
+          <h2>
+            
+              <code><b>DELETE</b> /venues/:id/schedule</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Update the ClubJudge <a href="#/venue-schedule-model">VenueSchedule</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl -X DELETE "https://bifrost.clubjudge.com/v2/venues/221/schedule.json?token=userToken"
+</code></p>
 
         </section>
       </article>

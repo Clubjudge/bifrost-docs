@@ -7,11 +7,13 @@ layout: nil
 A Clubjudge Venue schedule information.
 
 ```
-  allYear: [{
+  allYear: {
+    seasonStart: "01-01",
+    seasonEnd: "12-31",
     timetable": [{
-      startHour: 20,
+      startHour: 21,
       startMinutes: 30,
-      endHour: 4,
+      endHour: 3,
       endMinutes: 0,
       monday: false,
       tuesday: false,
@@ -21,10 +23,10 @@ A Clubjudge Venue schedule information.
       saturday: true,
       sunday: false
     }]
-  }],
+  },
   seasons: [{
-    seasonStart: "01-10",
-    seasonEnd: "20-10",
+    seasonStart: "10-01",
+    seasonEnd: "10-20",
     timetable: [{
       startHour: 20,
       startMinutes: 30,

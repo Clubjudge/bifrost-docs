@@ -14,6 +14,8 @@ A Clubjudge Venue details information.
 | phoneNumber         | String   | Contact phone for this venue                    | ```"+55 5555-5555"```                                                 | ```null```                       |
 | hidePhoneNumber     | Boolean  | Contact phone should be private                 | ```false```                                                           | ```false```                      |
 | description         | String   | Description of this venue                       | ```This venue is awesome <br>```                                      | ```null```                       |
+| escapedDescription  | String   | An escaped version of the description           | ```This venue is awesome.\n```                                        | ```null```                       |
+| shortDescription    | String   | A short sentence about this venue               | ```This venue is one of the most iconic places in berlin```           | ```null```                       |
 | openSince           | String   | Opening date                                    | ```"2015-01-25"```                                                    | ```null```                       |
 | capacity            | Integer  | The venue overall capacity                      | ```1000``` \(default: ```null```\)                                    | ```null```                       |
 | minimumAge          | Integer  | The venue entrance minimum age                  | ```16``` \(default: ```null```\)                                      | ```null```                       |
