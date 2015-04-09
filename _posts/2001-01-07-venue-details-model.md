@@ -20,6 +20,7 @@ A Clubjudge Venue details information.
 | capacity            | Integer  | The venue overall capacity                      | ```1000``` \(default: ```null```\)                                    | ```null```                       |
 | minimumAge          | Integer  | The venue entrance minimum age                  | ```16``` \(default: ```null```\)                                      | ```null```                       |
 | vipAccess           | Boolean  | VIP entrance                                    | ```true``` \(default: ```null```\)                                    | ```null```                       |
+| priceRange          | Integer  | Price range from 1(cheapest) to 5(most expensive) | ```1``` \(default: ```null```\)                                     | ```null```                       |
 | vipPrivateArea      | Boolean  | The venue have a VIP private area               | ```true``` \(default: ```null```\)                                    | ```null```                       |
 | parking             | \[Hash\] | Parking information                             | ```{ street: true, private: true, payed: true }```                    |```{ street: null, private: null, payed: null }```|
 | publicTransportation| String   | Public transportation information               | ```"By Metro using the Green line on exit 'Cais do Sodré'"```         | ```null```                       |
