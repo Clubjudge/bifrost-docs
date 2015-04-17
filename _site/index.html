@@ -135,6 +135,8 @@
   
     
   
+    
+  
   
   <li><h2>using the api</h2>
     <ul>
@@ -170,6 +172,8 @@
       <li class=''><a href='#/me-model'>Me</a></li>
     
       <li class=''><a href='#/user-model'>User</a></li>
+    
+      <li class=''><a href='#/venue-area-model'>Venue Area</a></li>
     
       <li class=''><a href='#/venue-details-model'>Venue Details</a></li>
     
@@ -620,10 +624,8 @@ https://bifrost.clubjudge.com/v1/artists/1981.json?fields=id,name,address.city
     seasonStart: "01-01",
     seasonEnd: "12-31",
     timetable": [{
-      startHour: 21,
-      startMinutes: 30,
-      endHour: 3,
-      endMinutes: 0,
+      startHour: 21:30,
+      endHour: 3:00,
       monday: false,
       tuesday: false,
       wendsday: false,
@@ -637,10 +639,8 @@ https://bifrost.clubjudge.com/v1/artists/1981.json?fields=id,name,address.city
     seasonStart: "10-01",
     seasonEnd: "10-20",
     timetable: [{
-      startHour: 20,
-      startMinutes: 30,
-      endHour: 4,
-      endMinutes: 0,
+      startHour: 20:30,
+      endHour: 4:00,
       monday: true,
       tuesday: true,
       wendsday: true,
@@ -938,6 +938,27 @@ https://bifrost.clubjudge.com/v1/artists/1981.json?fields=id,name,address.city
     </tr>
   </tbody>
 </table>
+
+        </section>
+      </article>
+    
+      <article class=''>
+        <a name='/venue-area-model' href='#/venue-area-model'>
+          <h2>
+            
+              Venue Area
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A Clubjudge Venue area.</p>
+
+<p><code>
+{
+  id: 1,
+  name: 'Back Stage'
+}
+</code></p>
 
         </section>
       </article>
