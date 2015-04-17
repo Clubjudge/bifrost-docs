@@ -11,7 +11,7 @@ and <a href="#/pagination">Pagination</a> are also supported.</p>
 
 <h3 id="filters">Filters</h3>
 
-<p>To use the location filter you have to enter at least longitude and latitude.</p>
+<p>To use the location filter you have to enter at least longitude and latitude and use type=nearby.</p>
 
 <table>
   <thead>
@@ -31,6 +31,26 @@ and <a href="#/pagination">Pagination</a> are also supported.</p>
       <td style="text-align: left">country</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">country isocode (pt,nl,be …)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">type</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">(nearby)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">location[lat]</td>
+      <td style="text-align: left">Hash</td>
+      <td style="text-align: left">latitude</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">location[lon]</td>
+      <td style="text-align: left">Hash</td>
+      <td style="text-align: left">longitude</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">location[radius]</td>
+      <td style="text-align: left">Hash</td>
+      <td style="text-align: left">radius</td>
     </tr>
   </tbody>
 </table>

@@ -137,6 +137,16 @@
   
     
   
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
   
   <li><h2>using the api</h2>
     <ul>
@@ -275,11 +285,15 @@
     
       <li class='GET'><a href='#/get-venues-search'>GET /venues/search</a></li>
     
+      <li class='DELETE'><a href='#/delete-venue'>DELETE /venues/:id</a></li>
+    
       <li class='GET'><a href='#/get-venue'>GET /venues/:id</a></li>
     
       <li class='POST'><a href='#/post-venue'>POST /venues</a></li>
     
       <li class='PUT'><a href='#/put-venue'>PUT /venues/:id</a></li>
+    
+      <li class='DELETE'><a href='#/delete-venue-details'>DELETE /venues/:id/details</a></li>
     
       <li class='GET'><a href='#/get-venue-details'>GET /venues/:id/details</a></li>
     
@@ -304,6 +318,12 @@
       <li class='GET'><a href='#/get-venue-music-genres'>GET /venues/:id/musicGenres</a></li>
     
       <li class='POST'><a href='#/post-venue-music-genres'>POST /venues/:id/musicGenres</a></li>
+    
+      <li class='DELETE'><a href='#/delete-venue-areas'>DELETE /venues/:id/areas/:id</a></li>
+    
+      <li class='GET'><a href='#/get-venue-areas'>GET /venues/:id/areas</a></li>
+    
+      <li class='POST'><a href='#/post-venue-areas'>POST /venues/:id/areas</a></li>
     
     </ul>
   </li>
@@ -2466,6 +2486,75 @@ curl "https://bifrost.clubjudge.com/v1/stats.json"
     <h2>venues</h2>
     
       <article class='POST'>
+        <a name='/post-venue-areas' href='#/post-venue-areas'>
+          <h2>
+            
+              <code><b>POST</b> /venues/:id/areas</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Create the <a href="#/venue-area-model">VenueArea</a> on the ClubJudge <a href="#/venue-model">Venue</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p>Creates a new area for venue 221</p>
+
+<p><code>
+curl -H "Content-Type: application/json" -X POST /
+-d '{"name": "Main stage"}' /
+https://bifrost.clubjudge.com/v2/venues/221/areas.json?token=userToken
+</code></p>
+
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-venue-areas' href='#/get-venue-areas'>
+          <h2>
+            
+              <code><b>GET</b> /venues/:id/areas</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A list of <a href="#/venue-area-model">VenueArea</a> associated with the <a href="#/venue-model">Venue</a>.</p>
+
+<p>This resource is <a href="#/resource-embedding">embeddable</a> on venue.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl "https://bifrost.clubjudge.com/v2/venues/221/areas.json"
+</code></p>
+
+<p><a href="#/partial-responses">Partial responses</a>
+and <a href="#/pagination">Pagination</a> are also supported.</p>
+
+        </section>
+      </article>
+    
+      <article class='DELETE'>
+        <a name='/delete-venue-areas' href='#/delete-venue-areas'>
+          <h2>
+            
+              <code><b>DELETE</b> /venues/:id/areas/:id</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Delete the <a href="#/venue-area-model">VenueArea</a> from the ClubJudge <a href="#/venue-model">Venue</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl -X DELETE "https://bifrost.clubjudge.com/v2/venues/221/areas/1.json?token=userToken"
+</code></p>
+
+        </section>
+      </article>
+    
+      <article class='POST'>
         <a name='/post-venue-music-genres' href='#/post-venue-music-genres'>
           <h2>
             
@@ -2478,8 +2567,12 @@ curl "https://bifrost.clubjudge.com/v1/stats.json"
 
 <h3 id="example">Example</h3>
 
+<p>Associates the music genre with id 1 to the venue with id 221</p>
+
 <p><code>
-curl -X POST "https://bifrost.clubjudge.com/v2/venues/221/musicGenres.json?token=userToken"
+curl -H "Content-Type: application/json" -X POST /
+-d '{"id": 1}' /
+https://bifrost.clubjudge.com/v2/venues/221/musicGenres.json?token=userToken
 </code></p>
 
         </section>
@@ -2542,9 +2635,14 @@ curl -X DELETE "https://bifrost.clubjudge.com/v2/venues/221/musicGenres/1.json?t
 
 <h3 id="example">Example</h3>
 
-<p><code>
-curl -X PUT "https://bifrost.clubjudge.com/v2/venues/221/socialLinks/facebook.json?token=userToken"
-</code></p>
+<p>Updates the link of social network facebook on venue 221</p>
+
+<p>```
+curl -H “Content-Type: application/json” -X PUT /
+-d ‘{“href”: “http://facebook.com/mybook”}’ /
+https://bifrost.clubjudge.com/v2/venues/221/socialLinks/facebook.json?token=userToken</p>
+
+<p>```</p>
 
         </section>
       </article>
@@ -2562,8 +2660,12 @@ curl -X PUT "https://bifrost.clubjudge.com/v2/venues/221/socialLinks/facebook.js
 
 <h3 id="example">Example</h3>
 
+<p>Creates a link between venue 221 and the social network facebook</p>
+
 <p><code>
-curl -X POST "https://bifrost.clubjudge.com/v2/venues/221/socialLinks.json?token=userToken"
+curl -H "Content-Type: application/json" -X POST /
+-d '{"slug": "facebook", "href": "http://facebook.com/mybook", name: "Facebook"}' /
+https://bifrost.clubjudge.com/v2/venues/221/socialLinks.json?token=userToken
 </code></p>
 
         </section>
@@ -2628,7 +2730,38 @@ curl -X DELETE "https://bifrost.clubjudge.com/v2/venues/221/socialLinks/facebook
 <h3 id="example">Example</h3>
 
 <p><code>
-curl -X PUT "https://bifrost.clubjudge.com/v2/venues/221/schedule.json?token=userToken"
+curl -H "Content-Type: application/json" -X POST /
+-d '{"allYear": { \
+    "seasonStart": "01-01", \
+    "seasonEnd": "12-31", \
+    "timetable": [{ \
+      "startHour": "21:30", \
+      "endHour": 3:00, \
+      "monday": false, \
+      "tuesday": false, \
+      "wendsday": false, \
+      "thursday": true, \
+      "friday": true, \
+      "saturday": true, \
+      "sunday": false \
+    }] \
+  }, \
+  "seasons": [{ \
+    "seasonStart": "10-01", \
+    "seasonEnd": "10-20", \
+    "timetable": [{ \
+      "startHour": "20:30", \
+      "endHour": "4:00", \
+      "monday": true, \
+      "tuesday": true, \
+      "wendsday": true, \
+      "thursday": true, \
+      "friday": true, \
+      "saturday": true, \
+      "sunday": false \
+    }]
+  }]}' /
+https://bifrost.clubjudge.com/v2/venues/221/schedule.json?token=userToken
 </code></p>
 
         </section>
@@ -2667,7 +2800,7 @@ curl "https://bifrost.clubjudge.com/v2/venues/123/schedule.json"
           </h2>
         </a>
         <section class='body'>
-          <p>Update the ClubJudge <a href="#/venue-schedule-model">VenueSchedule</a>.</p>
+          <p>Delete the ClubJudge <a href="#/venue-schedule-model">VenueSchedule</a>.</p>
 
 <h3 id="example">Example</h3>
 
@@ -2692,7 +2825,45 @@ curl -X DELETE "https://bifrost.clubjudge.com/v2/venues/221/schedule.json?token=
 <h3 id="example">Example</h3>
 
 <p><code>
-curl -X PUT "https://bifrost.clubjudge.com/v2/venues/221/details.json?token=userToken"
+curl -H "Content-Type: application/json" -X POST /
+-d '{ \
+  "details": { \
+    "email": "someemail@email.com", \
+    "hideEmail": false, \
+    "websiteUrl": "http://www.website.com", \
+    "phoneNumber": "+351 9999999", \
+    "hidePhoneNumber": false, \
+    "description": "This is a description", \
+    "escapedDescription": "This is a description", \
+    "shortDescription": "This is", \
+    "openSince": "2012-01-01", \
+    "capacity": 100, \
+    "minimumAge": 16, \
+    "vipAccess": true, \
+    "priceRange": 2, \
+    "vipPrivateArea": true, \
+    "parking": { \
+      "street":true, \
+      "private":true, \
+      "payed":true \
+    }, \
+    "services": { \
+      "wheelchair": true, \
+      "smokingArea":true, \
+      "lockers":true, \
+      "food":true \
+    }, \
+    "paymentOptions": { \
+      "debit":true, \
+      "visa":true, \
+      "mastercard":true, \
+      "amex":true \
+    }, \
+    "publicTransportation": "a bus", \
+    "houseRules": "No shoes" \
+  } \
+}'\
+https://bifrost.clubjudge.com/v2/venues/221/details.json?token=userToken
 </code></p>
 
         </section>
@@ -2722,6 +2893,26 @@ curl "https://bifrost.clubjudge.com/v2/venues/123/details.json"
         </section>
       </article>
     
+      <article class='DELETE'>
+        <a name='/delete-venue-details' href='#/delete-venue-details'>
+          <h2>
+            
+              <code><b>DELETE</b> /venues/:id/details</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Delete the ClubJudge <a href="#/venue-detail-model">VenueDetail</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl -X DELETE "https://bifrost.clubjudge.com/v2/venues/221/details.json?token=userToken"
+</code></p>
+
+        </section>
+      </article>
+    
       <article class='PUT'>
         <a name='/put-venue' href='#/put-venue'>
           <h2>
@@ -2736,7 +2927,41 @@ curl "https://bifrost.clubjudge.com/v2/venues/123/details.json"
 <h3 id="example">Example</h3>
 
 <p><code>
-curl -X PUT "https://bifrost.clubjudge.com/v2/venues/221.json?token=userToken"
+curl -H "Content-Type: application/json" -X PUT /
+-d '{ \
+      "name": "De Mast", \
+      "reviewsCount": 0, \
+      "commentsCount": 0, \
+      "followersCount": 0, \
+      "upcomingEventsCount": 0, \
+      "keywords": [ \
+          "word1", \
+          "word2" \
+      ], \
+      "venueTypes": [ \
+          { \
+              "name": "Rooftop", \
+              "type": "VenueType" \
+          } \
+      ], \
+      "logo": { \
+        "guid": "fsd78f8sd-f45hfgdhgf5f5-f53ft24f5" \
+      }, \
+      "background": { \
+          "guid": "fsd78f8sd-f453gff5f5-f53ft24f5" \
+      }, \
+      "address": { \
+          "street": "Industrielaan 2", \
+          "zipCode": "8820 Torhout", \
+          "geolocation": { \
+              "lat": 51.6478451, \
+              "lon": 5.6437661 \
+          }, \
+          "city": { \
+              "id": 774, \
+          } \
+      }' \
+https://bifrost.clubjudge.com/v2/venues/221.json?token=userToken
 </code></p>
 
         </section>
@@ -2756,8 +2981,43 @@ curl -X PUT "https://bifrost.clubjudge.com/v2/venues/221.json?token=userToken"
 <h3 id="example">Example</h3>
 
 <p><code>
-curl -X POST "https://bifrost.clubjudge.com/v2/venues.json?token=userToken"
-</code></p>
+</code>
+curl -H “Content-Type: application/json” -X POST /
+-d ‘{ \
+      “name”: “De Mast”, \
+      “reviewsCount”: 0, \
+      “commentsCount”: 0, \
+      “followersCount”: 0, \
+      “upcomingEventsCount”: 0, \
+      “keywords”: [ \
+          “word1”, \
+          “word2” \
+      ], \
+      “venueTypes”: [ \
+          { \
+              “name”: “Rooftop”, \
+              “type”: “VenueType” \
+          } \
+      ], \
+      “logo”: { \
+        “guid”: “fsd78f8sd-f45hfgdhgf5f5-f53ft24f5” \
+      }, \
+      “background”: { \
+          “guid”: “fsd78f8sd-f453gff5f5-f53ft24f5” \
+      }, \
+      “address”: { \
+          “street”: “Industrielaan 2”, \
+          “zipCode”: “8820 Torhout”, \
+          “geolocation”: { \
+              “lat”: 51.6478451, \
+              “lon”: 5.6437661 \
+          }, \
+          “city”: { \
+              “id”: 774, \
+          } \
+      }’ \
+https://bifrost.clubjudge.com/v2/venues/221.json?token=userToken
+```</p>
 
         </section>
       </article>
@@ -2780,6 +3040,26 @@ curl "https://bifrost.clubjudge.com/v2/venues/3923.json"
 </code></p>
 
 <p><a href="#/partial-responses">Partial response</a> is also supported.</p>
+
+        </section>
+      </article>
+    
+      <article class='DELETE'>
+        <a name='/delete-venue' href='#/delete-venue'>
+          <h2>
+            
+              <code><b>DELETE</b> /venues/:id</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Delete the ClubJudge <a href="#/venue-model">Venue</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl -X DELETE "https://bifrost.clubjudge.com/v2/venues/221.json?token=userToken"
+</code></p>
 
         </section>
       </article>
@@ -2860,7 +3140,7 @@ and <a href="#/pagination">Pagination</a> are also supported.</p>
 
 <h3 id="filters">Filters</h3>
 
-<p>To use the location filter you have to enter at least longitude and latitude.</p>
+<p>To use the location filter you have to enter at least longitude and latitude and use type=nearby.</p>
 
 <table>
   <thead>
@@ -2880,6 +3160,26 @@ and <a href="#/pagination">Pagination</a> are also supported.</p>
       <td style="text-align: left">country</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">country isocode (pt,nl,be …)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">type</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">(nearby)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">location[lat]</td>
+      <td style="text-align: left">Hash</td>
+      <td style="text-align: left">latitude</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">location[lon]</td>
+      <td style="text-align: left">Hash</td>
+      <td style="text-align: left">longitude</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">location[radius]</td>
+      <td style="text-align: left">Hash</td>
+      <td style="text-align: left">radius</td>
     </tr>
   </tbody>
 </table>

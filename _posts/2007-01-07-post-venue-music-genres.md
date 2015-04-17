@@ -11,6 +11,10 @@ Create the [MusicGenre](#/music-genre-model) on the ClubJudge [Venue](#/venue-mo
 
 ### Example
 
+Associates the music genre with id 1 to the venue with id 221
+
 ```
-curl -X POST "https://bifrost.clubjudge.com/v2/venues/221/musicGenres.json?token=userToken"
+curl -H "Content-Type: application/json" -X POST /
+-d '{"id": 1}' /
+https://bifrost.clubjudge.com/v2/venues/221/musicGenres.json?token=userToken
 ```

@@ -7,7 +7,7 @@ type: 'DELETE'
 layout: nil
 ---
 
-Update the ClubJudge [VenueSchedule](#/venue-schedule-model).
+Delete the ClubJudge [VenueSchedule](#/venue-schedule-model).
 
 ### Example
 

@@ -11,6 +11,11 @@ Update the [SocialLink](#/social-link-model) in the ClubJudge [Venue](#/venue-mo
 
 ### Example
 
+Updates the link of social network facebook on venue 221
+
 ```
-curl -X PUT "https://bifrost.clubjudge.com/v2/venues/221/socialLinks/facebook.json?token=userToken"
+curl -H "Content-Type: application/json" -X PUT /
+-d '{"href": "http://facebook.com/mybook"}' /
+https://bifrost.clubjudge.com/v2/venues/221/socialLinks/facebook.json?token=userToken
+
 ```

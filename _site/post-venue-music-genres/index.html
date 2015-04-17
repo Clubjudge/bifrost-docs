@@ -2,6 +2,10 @@
 
 <h3 id="example">Example</h3>
 
+<p>Associates the music genre with id 1 to the venue with id 221</p>
+
 <p><code>
-curl -X POST "https://bifrost.clubjudge.com/v2/venues/221/musicGenres.json?token=userToken"
+curl -H "Content-Type: application/json" -X POST /
+-d '{"id": 1}' /
+https://bifrost.clubjudge.com/v2/venues/221/musicGenres.json?token=userToken
 </code></p>
