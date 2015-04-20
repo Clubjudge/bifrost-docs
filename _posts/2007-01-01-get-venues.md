@@ -20,13 +20,13 @@ and [Pagination](#/pagination) are also supported.
 
 ### Filters
 
-To use the location filter you have to enter at least longitude and latitude and use type=nearby.
+To use the location filter you have to enter at least longitude and latitude and use type=(nearby || trending).
 
 | Parameter  |   Type  |                 Description                  |
 | :--------- | :------ | :------------------------------------------- |
 | city       | Integer | city id                                      |
 | country    | String  | country isocode (pt,nl,be ...)               |
-| type       | String  | (nearby)                                     |
+| type       | String  | (nearby, trending, bestJudged)               |
 | location[lat]   | Hash    | latitude                                |
 | location[lon]   | Hash    | longitude                               |
 | location[radius]   | Hash    | radius                               |
