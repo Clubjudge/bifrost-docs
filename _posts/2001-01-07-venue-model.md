@@ -11,7 +11,8 @@ A Clubjudge Venue information.
 | id                  | Integer  | The venue unique identifier                     | ```233```                                                     | ```null```                    |
 | createdAt           | String   | UTC Datetime when this venue was last modified  | ```2014-04-02T12:05:00```                                     | ```null```                    |
 | updatedAt           | String   | UTC Datetime when this venue was created        | ```2014-04-02T12:05:00```                                     | ```null```                    |
-| name                | String   | The venue name                                  | ```"Awesome venue"```                                         | ```null```                    |
+| name                | String   | The venue name                                  | ```"Awesome venue"```                                         | ```null```
+| closed              | Boolean  | Is the venue closed?                            | ```true```                                                    | ```false```                    |
 | reviewsCount        | Integer  | Number of reviews                               | ```455```                                                     | *read only*                   |
 | commentsCount       | Integer  | Number of comments                              | ```90```                                                      | *read only*                   |
 | followersCount      | Integer  | Number of followers                             | ```344```                                                     | *read only*                   |
