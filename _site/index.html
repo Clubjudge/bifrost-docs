@@ -28,6 +28,12 @@
     
   
     
+    <li><a href='#/get-venue-similar'>Get Venue Similar</a></li>
+    
+  
+    
+  
+    
   
     
   
@@ -263,6 +269,8 @@
     
       <li class='GET'><a href='#/get-user'>GET /users/:id</a></li>
     
+      <li class='GET'><a href='#/get-me-suggested'>GET /me/venues?type=suggested</a></li>
+    
     </ul>
   </li>
 
@@ -303,7 +311,7 @@
     
       <li class='PUT'><a href='#/put-venue-details'>PUT /venues/:id/details</a></li>
     
-      <li class='DELETE'><a href='#/delete-venue-schedule'>DELETE /venues/:id/schedule</a></li>
+      <li class='GET'><a href='#/delete-venue-schedule'>GET /venues/:id/venues?type=similar</a></li>
     
       <li class='GET'><a href='#/get-venue-schedule'>GET /venues/:id/schedule</a></li>
     
@@ -2407,6 +2415,31 @@ curl "https://bifrost.clubjudge.com/v1/artists.json"
     <h2>users</h2>
     
       <article class='GET'>
+        <a name='/get-me-suggested' href='#/get-me-suggested'>
+          <h2>
+            
+              <code><b>GET</b> /me/venues?type=suggested</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A list of <a href="#/venue-model">Venue</a> suggested for the current <a href="#/user-model">User</a> for a given cityId.</p>
+
+<p>Current user is identified by token and cityId is mandatory</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl "https://bifrost.clubjudge.com/v2/me/venues.json?type=suggested&amp;cityId=3&amp;token=sometoken"
+</code></p>
+
+<p><a href="#/partial-responses">Partial responses</a>
+and <a href="#/pagination">Pagination</a> are also supported.</p>
+
+        </section>
+      </article>
+    
+      <article class='GET'>
         <a name='/get-user' href='#/get-user'>
           <h2>
             
@@ -2812,22 +2845,29 @@ curl "https://bifrost.clubjudge.com/v2/venues/123/schedule.json"
         </section>
       </article>
     
-      <article class='DELETE'>
+      <article class='GET'>
         <a name='/delete-venue-schedule' href='#/delete-venue-schedule'>
           <h2>
             
-              <code><b>DELETE</b> /venues/:id/schedule</code>
+              <code><b>GET</b> /venues/:id/venues?type=similar</code>
             
           </h2>
         </a>
         <section class='body'>
-          <p>Delete the ClubJudge <a href="#/venue-schedule-model">VenueSchedule</a>.</p>
+          <p>A list of <a href="#/venue-model">Venue</a> similar to the <a href="#/venue-model">Venue</a>.</p>
+
+<p>This resource is <a href="#/resource-embedding">embeddable</a> on venue.</p>
 
 <h3 id="example">Example</h3>
 
 <p><code>
-curl -X DELETE "https://bifrost.clubjudge.com/v2/venues/221/schedule.json?token=userToken"
+curl "https://bifrost.clubjudge.com/v2/venues/221/venues.json?type=similar&amp;userId=3"
 </code></p>
+
+<p>userId is optional. If included, venues currently followed by user will be discarded</p>
+
+<p><a href="#/partial-responses">Partial responses</a>
+and <a href="#/pagination">Pagination</a> are also supported.</p>
 
         </section>
       </article>

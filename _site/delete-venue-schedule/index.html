@@ -1,7 +1,14 @@
-<p>Delete the ClubJudge <a href="#/venue-schedule-model">VenueSchedule</a>.</p>
+<p>A list of <a href="#/venue-model">Venue</a> similar to the <a href="#/venue-model">Venue</a>.</p>
+
+<p>This resource is <a href="#/resource-embedding">embeddable</a> on venue.</p>
 
 <h3 id="example">Example</h3>
 
 <p><code>
-curl -X DELETE "https://bifrost.clubjudge.com/v2/venues/221/schedule.json?token=userToken"
+curl "https://bifrost.clubjudge.com/v2/venues/221/venues.json?type=similar&amp;userId=3"
 </code></p>
+
+<p>userId is optional. If included, venues currently followed by user will be discarded</p>
+
+<p><a href="#/partial-responses">Partial responses</a>
+and <a href="#/pagination">Pagination</a> are also supported.</p>
