@@ -147,6 +147,10 @@
   
     
   
+    
+  
+    
+  
   
   <li><h2>using the api</h2>
     <ul>
@@ -332,6 +336,16 @@
     <ul>
     
       <li class='GET'><a href='#/get-tags'>GET /tags</a></li>
+    
+    </ul>
+  </li>
+
+  <li><h2>music genres</h2>
+    <ul>
+    
+      <li class='GET'><a href='#/get-music-genre'>GET /musicGenres/:id</a></li>
+    
+      <li class='GET'><a href='#/get-music-genres'>GET /musicGenres</a></li>
     
     </ul>
   </li>
@@ -3246,6 +3260,78 @@ curl "https://bifrost.clubjudge.com/v1/tags.json?type=venue"
     </tr>
   </tbody>
 </table>
+
+        </section>
+      </article>
+    
+  </div>
+
+  <div>
+    <h2>music genres</h2>
+    
+      <article class='GET'>
+        <a name='/get-music-genres' href='#/get-music-genres'>
+          <h2>
+            
+              <code><b>GET</b> /musicGenres</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A ClubJudge <a href="#/music-genre-model">MusicGenre</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl "https://bifrost.clubjudge.com/v1/musicGenres.json?type=parent"
+</code></p>
+
+<p><a href="#/pagination">Pagination</a> is also supported.</p>
+
+<h3 id="filters">Filters</h3>
+
+<p>type filter is mandatory.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Description</th>
+      <th>Optional</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">type</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">A music genre type filter, type=parent returns parent music genres only.</td>
+      <td>true</td>
+    </tr>
+  </tbody>
+</table>
+
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-music-genre' href='#/get-music-genre'>
+          <h2>
+            
+              <code><b>GET</b> /musicGenres/:id</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>An instance of a ClubJudge <a href="#/music-genre-model">MusicGenre</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl "https://bifrost.clubjudge.com/v1/musicGenres/1.json"
+</code></p>
+
+<p><a href="#/partial-responses">Partial response</a> is also supported.</p>
 
         </section>
       </article>
