@@ -28,7 +28,17 @@
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
     <li><a href='#/get-venue-similar'>Get Venue Similar</a></li>
+    
+  
     
   
     
@@ -176,6 +186,8 @@
     <ul>
     
       <li class=''><a href='#/city-model'>City</a></li>
+    
+      <li class=''><a href='#/image-model'>Image</a></li>
     
       <li class=''><a href='#/rating-model'>Rating</a></li>
     
@@ -354,6 +366,20 @@
       <li class='GET'><a href='#/get-music-genre'>GET /musicGenres/:id</a></li>
     
       <li class='GET'><a href='#/get-music-genres'>GET /musicGenres</a></li>
+    
+    </ul>
+  </li>
+
+  <li><h2>images</h2>
+    <ul>
+    
+      <li class='POST'><a href='#/post-image-background'>POST /images/backgrounds</a></li>
+    
+      <li class='POST'><a href='#/post-images-logos'>POST /images/logos</a></li>
+    
+      <li class='PUT'><a href='#/put_image_logos'>PUT /images/logos/:guid</a></li>
+    
+      <li class='PUT'><a href='#/put-images-background'>PUT /images/backgrounds/:guid</a></li>
     
     </ul>
   </li>
@@ -1849,6 +1875,39 @@ https://bifrost.clubjudge.com/v1/artists/1981.json?fields=id,name,address.city
       <td>Float</td>
       <td>The value of the rating in a scale of 1 to 10</td>
       <td><code>7.6</code></td>
+    </tr>
+  </tbody>
+</table>
+
+        </section>
+      </article>
+    
+      <article class=''>
+        <a name='/image-model' href='#/image-model'>
+          <h2>
+            
+              Image
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>An image.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>guid</td>
+      <td>String</td>
+      <td>a unique id of an image</td>
+      <td><code>9e0d5901-e778-48e3-ab90-0abc0343ba0c</code></td>
     </tr>
   </tbody>
 </table>
@@ -3372,6 +3431,147 @@ curl "https://bifrost.clubjudge.com/v1/musicGenres/1.json"
 </code></p>
 
 <p><a href="#/partial-responses">Partial response</a> is also supported.</p>
+
+        </section>
+      </article>
+    
+  </div>
+
+  <div>
+    <h2>images</h2>
+    
+      <article class='PUT'>
+        <a name='/put-images-background' href='#/put-images-background'>
+          <h2>
+            
+              <code><b>PUT</b> /images/backgrounds/:guid</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Updates a temp <a href="#/image-model">Image</a> background</p>
+
+<h3 id="example">Example</h3>
+
+<p>Updates a temporary image background</p>
+
+<p>With a blob</p>
+
+<p><code>
+curl -H "Content-Type: application/json" -X PUT /
+-d '{"blob": { "data": "asfsadf", "extension": "png"}}' /
+https://bifrost.clubjudge.com/v2/images/backgrounds/asds-asdasd-dasdas-asdd.json
+</code></p>
+
+<p>With a url</p>
+
+<p><code>
+curl -H "Content-Type: application/json" -X PUT /
+-d '{"url": "http://mycdn.com/image.png" }' /
+https://bifrost.clubjudge.com/v2/images/backgrounds/asds-asdasd-dasdas-asdd.json
+</code></p>
+
+        </section>
+      </article>
+    
+      <article class='PUT'>
+        <a name='/put_image_logos' href='#/put_image_logos'>
+          <h2>
+            
+              <code><b>PUT</b> /images/logos/:guid</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Updates a temp <a href="#/image-model">Image</a> logo</p>
+
+<h3 id="example">Example</h3>
+
+<p>Updates a temporary image logo</p>
+
+<p>With a blob</p>
+
+<p><code>
+curl -H "Content-Type: application/json" -X PUT /
+-d '{"blob": { "data": "asfsadf", "extension": "png"}}' /
+https://bifrost.clubjudge.com/v2/images/logos/asds-asdasd-dasdas-asdd.json
+</code></p>
+
+<p>With a url</p>
+
+<p><code>
+curl -H "Content-Type: application/json" -X PUT /
+-d '{"url": "http://mycdn.com/image.png" }' /
+https://bifrost.clubjudge.com/v2/images/logos/asds-asdasd-dasdas-asdd.json
+</code></p>
+
+        </section>
+      </article>
+    
+      <article class='POST'>
+        <a name='/post-images-logos' href='#/post-images-logos'>
+          <h2>
+            
+              <code><b>POST</b> /images/logos</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Create a temp <a href="#/image-model">Image</a> logo</p>
+
+<h3 id="example">Example</h3>
+
+<p>Creates a temporary image logo</p>
+
+<p>With a blob</p>
+
+<p><code>
+curl -H "Content-Type: application/json" -X POST /
+-d '{"blob": { "data": "asfsadf", "extension": "png"}}' /
+https://bifrost.clubjudge.com/v2/images/logos.json
+</code></p>
+
+<p>With a url</p>
+
+<p><code>
+curl -H "Content-Type: application/json" -X POST /
+-d '{"url": "http://mycdn.com/image.png" }' /
+https://bifrost.clubjudge.com/v2/images/logos.json
+</code></p>
+
+        </section>
+      </article>
+    
+      <article class='POST'>
+        <a name='/post-image-background' href='#/post-image-background'>
+          <h2>
+            
+              <code><b>POST</b> /images/backgrounds</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Create a temp <a href="#/image-model">Image</a> background</p>
+
+<h3 id="example">Example</h3>
+
+<p>Creates a temporary image background</p>
+
+<p>With a blob</p>
+
+<p><code>
+curl -H "Content-Type: application/json" -X POST /
+-d '{"blob": { "data": "asfsadf", "extension": "png"}}' /
+https://bifrost.clubjudge.com/v2/images/backgrounds.json
+</code></p>
+
+<p>With a url</p>
+
+<p><code>
+curl -H "Content-Type: application/json" -X POST /
+-d '{"url": "http://mycdn.com/image.png" }' /
+https://bifrost.clubjudge.com/v2/images/backgrounds.json
+</code></p>
 
         </section>
       </article>
