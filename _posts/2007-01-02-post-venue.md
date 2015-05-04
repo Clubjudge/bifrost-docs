@@ -12,7 +12,6 @@ Create a new ClubJudge [Venue](#/venue-model).
 ### Example
 
 ```
-```
 curl -H "Content-Type: application/json" -X POST /
 -d '{ \
       "name": "De Mast", \
