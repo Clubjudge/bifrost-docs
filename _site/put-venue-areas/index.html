@@ -1,0 +1,11 @@
+<p>Updates a <a href="#/venue-area-model">VenueArea</a> on a ClubJudge <a href="#/venue-model">Venue</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p>Updates area 1 for venue 221</p>
+
+<p><code>
+curl -H "Content-Type: application/json" -X PUT /
+-d '{"name": "Main stage updated"}' /
+https://bifrost.clubjudge.com/v2/venues/221/areas/1.json?token=userToken
+</code></p>

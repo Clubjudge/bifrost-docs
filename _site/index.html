@@ -167,6 +167,8 @@
   
     
   
+    
+  
   
   <li><h2>using the api</h2>
     <ul>
@@ -348,6 +350,8 @@
       <li class='GET'><a href='#/get-venue-areas'>GET /venues/:id/areas</a></li>
     
       <li class='POST'><a href='#/post-venue-areas'>POST /venues/:id/areas</a></li>
+    
+      <li class='PUT'><a href='#/put-venue-areas'>PUT /venues/:id/areas/:areaId</a></li>
     
     </ul>
   </li>
@@ -2597,6 +2601,30 @@ curl "https://bifrost.clubjudge.com/v1/stats.json"
 
   <div>
     <h2>venues</h2>
+    
+      <article class='PUT'>
+        <a name='/put-venue-areas' href='#/put-venue-areas'>
+          <h2>
+            
+              <code><b>PUT</b> /venues/:id/areas/:areaId</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Updates a <a href="#/venue-area-model">VenueArea</a> on a ClubJudge <a href="#/venue-model">Venue</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p>Updates area 1 for venue 221</p>
+
+<p><code>
+curl -H "Content-Type: application/json" -X PUT /
+-d '{"name": "Main stage updated"}' /
+https://bifrost.clubjudge.com/v2/venues/221/areas/1.json?token=userToken
+</code></p>
+
+        </section>
+      </article>
     
       <article class='POST'>
         <a name='/post-venue-areas' href='#/post-venue-areas'>
