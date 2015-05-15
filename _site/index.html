@@ -199,7 +199,7 @@
   <li><h2>artists</h2>
     <ul>
     
-      <li class='GET'><a href='#/get-artists'>GET /artists</a></li>
+      <li class='GET'><a href='#/get-artist'>GET /artists/:id</a></li>
     
       <li class='GET'><a href='#/get-artists-comments'>GET /artists/:id/comments</a></li>
     
@@ -1997,22 +1997,21 @@ curl "https://bifrost.clubjudge.com/v1/artists/123/comments.json"
       </article>
     
       <article class='GET'>
-        <a name='/get-artists' href='#/get-artists'>
+        <a name='/get-artist' href='#/get-artist'>
           <h2>
             
-              <code><b>GET</b> /artists</code>
+              <code><b>GET</b> /artists/:id</code>
             
           </h2>
         </a>
         <section class='body'>
-          <p>A list of ClubJudge <a href="#/artist-model">Artists</a>.</p>
+          <p>A ClubJudge <a href="#/artist-model">Artist</a>.</p>
 
 <h3 id="example">Example</h3>
 
 <p><code>
-curl "https://bifrost.clubjudge.com/v1/artists.json"
+curl "https://bifrost.clubjudge.com/v1/artists/:id.json"
 </code></p>
-
 
         </section>
       </article>
