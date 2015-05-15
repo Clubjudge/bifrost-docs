@@ -13,11 +13,11 @@ Create a temp [Image](#/image-model) background
 
 Creates a temporary image background
 
-With a blob
+With a blob (using enconding base64 or binary string)
 
 ```
 curl -H "Content-Type: application/json" -X POST /
--d '{"blob": { "data": "asfsadf", "extension": "png"}}' /
+-d '{"blob": { "data": "asfsadf", "extension": "png", enconding: 'base64'}}' /
 https://bifrost.clubjudge.com/v2/images/backgrounds.json
 ```
 

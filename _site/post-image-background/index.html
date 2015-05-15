@@ -4,11 +4,11 @@
 
 <p>Creates a temporary image background</p>
 
-<p>With a blob</p>
+<p>With a blob (using enconding base64 or binary string)</p>
 
 <p><code>
 curl -H "Content-Type: application/json" -X POST /
--d '{"blob": { "data": "asfsadf", "extension": "png"}}' /
+-d '{"blob": { "data": "asfsadf", "extension": "png", enconding: 'base64'}}' /
 https://bifrost.clubjudge.com/v2/images/backgrounds.json
 </code></p>
 

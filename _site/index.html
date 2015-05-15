@@ -32,10 +32,6 @@
     
   
     
-  
-    
-  
-    
     <li><a href='#/get-venue-similar'>Get Venue Similar</a></li>
     
   
@@ -380,10 +376,6 @@
       <li class='POST'><a href='#/post-image-background'>POST /images/backgrounds</a></li>
     
       <li class='POST'><a href='#/post-images-logos'>POST /images/logos</a></li>
-    
-      <li class='PUT'><a href='#/put_image_logos'>PUT /images/logos/:guid</a></li>
-    
-      <li class='PUT'><a href='#/put-images-background'>PUT /images/backgrounds/:guid</a></li>
     
     </ul>
   </li>
@@ -3467,74 +3459,6 @@ curl "https://bifrost.clubjudge.com/v1/musicGenres/1.json"
   <div>
     <h2>images</h2>
     
-      <article class='PUT'>
-        <a name='/put-images-background' href='#/put-images-background'>
-          <h2>
-            
-              <code><b>PUT</b> /images/backgrounds/:guid</code>
-            
-          </h2>
-        </a>
-        <section class='body'>
-          <p>Updates a temp <a href="#/image-model">Image</a> background</p>
-
-<h3 id="example">Example</h3>
-
-<p>Updates a temporary image background</p>
-
-<p>With a blob</p>
-
-<p><code>
-curl -H "Content-Type: application/json" -X PUT /
--d '{"blob": { "data": "asfsadf", "extension": "png"}}' /
-https://bifrost.clubjudge.com/v2/images/backgrounds/asds-asdasd-dasdas-asdd.json
-</code></p>
-
-<p>With a url</p>
-
-<p><code>
-curl -H "Content-Type: application/json" -X PUT /
--d '{"url": "http://mycdn.com/image.png" }' /
-https://bifrost.clubjudge.com/v2/images/backgrounds/asds-asdasd-dasdas-asdd.json
-</code></p>
-
-        </section>
-      </article>
-    
-      <article class='PUT'>
-        <a name='/put_image_logos' href='#/put_image_logos'>
-          <h2>
-            
-              <code><b>PUT</b> /images/logos/:guid</code>
-            
-          </h2>
-        </a>
-        <section class='body'>
-          <p>Updates a temp <a href="#/image-model">Image</a> logo</p>
-
-<h3 id="example">Example</h3>
-
-<p>Updates a temporary image logo</p>
-
-<p>With a blob</p>
-
-<p><code>
-curl -H "Content-Type: application/json" -X PUT /
--d '{"blob": { "data": "asfsadf", "extension": "png"}}' /
-https://bifrost.clubjudge.com/v2/images/logos/asds-asdasd-dasdas-asdd.json
-</code></p>
-
-<p>With a url</p>
-
-<p><code>
-curl -H "Content-Type: application/json" -X PUT /
--d '{"url": "http://mycdn.com/image.png" }' /
-https://bifrost.clubjudge.com/v2/images/logos/asds-asdasd-dasdas-asdd.json
-</code></p>
-
-        </section>
-      </article>
-    
       <article class='POST'>
         <a name='/post-images-logos' href='#/post-images-logos'>
           <h2>
@@ -3584,11 +3508,11 @@ https://bifrost.clubjudge.com/v2/images/logos.json
 
 <p>Creates a temporary image background</p>
 
-<p>With a blob</p>
+<p>With a blob (using enconding base64 or binary string)</p>
 
 <p><code>
 curl -H "Content-Type: application/json" -X POST /
--d '{"blob": { "data": "asfsadf", "extension": "png"}}' /
+-d '{"blob": { "data": "asfsadf", "extension": "png", enconding: 'base64'}}' /
 https://bifrost.clubjudge.com/v2/images/backgrounds.json
 </code></p>
 
