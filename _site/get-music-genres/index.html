@@ -1,9 +1,9 @@
-<p>A ClubJudge <a href="#/tag-model">Tag</a>.</p>
+<p>A ClubJudge <a href="#/music-genre-model">MusicGenre</a>.</p>
 
 <h3 id="example">Example</h3>
 
 <p><code>
-curl "https://bifrost.clubjudge.com/v1/tags.json?type=VenueType"
+curl "https://bifrost.clubjudge.com/v1/musicGenres.json?type=parent"
 </code></p>
 
 <p><a href="#/pagination">Pagination</a> is also supported.</p>
@@ -18,13 +18,15 @@ curl "https://bifrost.clubjudge.com/v1/tags.json?type=VenueType"
       <th style="text-align: left">Parameter</th>
       <th style="text-align: left">Type</th>
       <th style="text-align: left">Description</th>
+      <th>Optional</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align: left">type</td>
       <td style="text-align: left">String</td>
-      <td style="text-align: left">A tag type (“VenueType”|”VenueKeyword”). Returns tags of given type</td>
+      <td style="text-align: left">A music genre type filter, type=parent returns parent music genres only.</td>
+      <td>true</td>
     </tr>
   </tbody>
 </table>

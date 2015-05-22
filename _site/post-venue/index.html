@@ -1,0 +1,41 @@
+<p>Create a new ClubJudge <a href="#/venue-model">Venue</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl -H "Content-Type: application/json" -X POST /
+-d '{ \
+      "name": "De Mast", \
+      "reviewsCount": 0, \
+      "commentsCount": 0, \
+      "followersCount": 0, \
+      "upcomingEventsCount": 0, \
+      "keywords": [ \
+          "word1", \
+          "word2" \
+      ], \
+      "venueTypes": [ \
+          { \
+              "name": "Rooftop", \
+              "type": "VenueType" \
+          } \
+      ], \
+      "logo": { \
+        "guid": "fsd78f8sd-f45hfgdhgf5f5-f53ft24f5" \
+      }, \
+      "background": { \
+          "guid": "fsd78f8sd-f453gff5f5-f53ft24f5" \
+      }, \
+      "address": { \
+          "street": "Industrielaan 2", \
+          "zipCode": "8820 Torhout", \
+          "geolocation": { \
+              "lat": 51.6478451, \
+              "lon": 5.6437661 \
+          }, \
+          "city": { \
+              "id": 774, \
+          } \
+      }' \
+https://bifrost.clubjudge.com/v2/venues/221.json?token=userToken
+</code></p>

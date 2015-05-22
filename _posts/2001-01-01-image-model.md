@@ -1,12 +1,11 @@
 ---
 category: Models
-title: 'Tag'
+title: 'Image'
 
 layout: nil
 ---
-A Clubjudge Tag.
+An image.
 
 |     Name    |    Type    |              Description               |               Example                |
 | ----------- | ---------- | -------------------------------------- | ------------------------------------ |
-| name        | String     | Name of the tag                        | ```"Trendy"```                       |
-| type        | String     | Tag type descriptor                    | ```"VenueType"```                        |
+| guid        | String     | a unique id of an image                | ```9e0d5901-e778-48e3-ab90-0abc0343ba0c``` |

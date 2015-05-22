@@ -1,4 +1,4 @@
-<p>A Clubjudge Venue.</p>
+<p>A Clubjudge Venue information.</p>
 
 <table>
   <thead>
@@ -7,98 +7,114 @@
       <th>Type</th>
       <th>Description</th>
       <th>Example</th>
+      <th>Defaults / Info</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>id</td>
       <td>Integer</td>
-      <td>Id of this venue</td>
+      <td>The venue unique identifier</td>
       <td><code>233</code></td>
+      <td><code>null</code></td>
     </tr>
     <tr>
-      <td>name</td>
+      <td>createdAt</td>
       <td>String</td>
-      <td>Name of this venue</td>
-      <td><code>"Awesome venue"</code></td>
-    </tr>
-    <tr>
-      <td>description</td>
-      <td>String</td>
-      <td>Description of this venue</td>
-      <td><code>This venue is awesome</code></td>
-    </tr>
-    <tr>
-      <td>email</td>
-      <td>String</td>
-      <td>Contact email for this venue</td>
-      <td><code>"venue@email.com"</code></td>
-    </tr>
-    <tr>
-      <td>websiteUrl</td>
-      <td>String</td>
-      <td>Link to venue website</td>
-      <td><code>"http://venue.com"</code></td>
-    </tr>
-    <tr>
-      <td>phoneNumber</td>
-      <td>String</td>
-      <td>Contact phone for this venue</td>
-      <td><code>"+55 5555-5555"</code></td>
-    </tr>
-    <tr>
-      <td>geolocation</td>
-      <td>Hash</td>
-      <td>Coordinates hash</td>
-      <td><code>{ lat: 31.0234, lon: 3.1233}</code></td>
-    </tr>
-    <tr>
-      <td>reviewCount</td>
-      <td>Integer</td>
-      <td>Number of reviews for this venue</td>
-      <td><code>455</code></td>
-    </tr>
-    <tr>
-      <td>commentsCount</td>
-      <td>Integer</td>
-      <td>Number of comments for this venue</td>
-      <td><code>90</code></td>
-    </tr>
-    <tr>
-      <td>socialMentionsCount</td>
-      <td>Integer</td>
-      <td>Number of social mentions for this venue</td>
-      <td><code>593</code></td>
-    </tr>
-    <tr>
-      <td>followersCount</td>
-      <td>Integer</td>
-      <td>Number of followers for this venue</td>
-      <td><code>344</code></td>
+      <td>UTC Datetime when this venue was last modified</td>
+      <td><code>2014-04-02T12:05:00</code></td>
+      <td><code>null</code></td>
     </tr>
     <tr>
       <td>updatedAt</td>
       <td>String</td>
-      <td>Date and time when this venue was last modified</td>
+      <td>UTC Datetime when this venue was created</td>
       <td><code>2014-04-02T12:05:00</code></td>
+      <td><code>null</code></td>
     </tr>
     <tr>
-      <td>ratings</td>
-      <td>[Hash]</td>
-      <td>Ratings for this venue</td>
-      <td><code>{ global: 8.14 }</code></td>
+      <td>name</td>
+      <td>String</td>
+      <td>The venue name</td>
+      <td><code>"Awesome venue"</code></td>
+      <td><code>null</code></td>
     </tr>
     <tr>
-      <td>logos</td>
-      <td>[Hash]</td>
-      <td>Links to venue logo</td>
-      <td><code>[{ id: 3638, base: 'http://example.com', ext: '.jpg' }]</code></td>
+      <td>closed</td>
+      <td>Boolean</td>
+      <td>Is the venue closed?</td>
+      <td><code>true</code></td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td>reviewsCount</td>
+      <td>Integer</td>
+      <td>Number of reviews</td>
+      <td><code>455</code></td>
+      <td><em>read only</em></td>
+    </tr>
+    <tr>
+      <td>commentsCount</td>
+      <td>Integer</td>
+      <td>Number of comments</td>
+      <td><code>90</code></td>
+      <td><em>read only</em></td>
+    </tr>
+    <tr>
+      <td>followersCount</td>
+      <td>Integer</td>
+      <td>Number of followers</td>
+      <td><code>344</code></td>
+      <td><em>read only</em></td>
+    </tr>
+    <tr>
+      <td>upcomingEventsCount</td>
+      <td>Integer</td>
+      <td>Number of upcoming events</td>
+      <td><code>344</code></td>
+      <td><em>read only</em></td>
+    </tr>
+    <tr>
+      <td>keywords</td>
+      <td>[String]</td>
+      <td>Array with keywords that describe the venue</td>
+      <td><code>["dancing club", "old venue club", "historic"]</code></td>
+      <td><em>required</em></td>
+    </tr>
+    <tr>
+      <td>venueTypes</td>
+      <td>[<a href="#/tag-model">Tag</a>]</td>
+      <td>Array with venue type tags</td>
+      <td><code>[{ name: "Rooftop", type: "VenueType" }]</code></td>
+      <td><em>required</em></td>
+    </tr>
+    <tr>
+      <td>logo</td>
+      <td>Hash</td>
+      <td>Links to venue logo image</td>
+      <td><code>{ guid: 'guid', square_32: 'https://img.cdn-clubjudge.com/guid/1/square_32.jpg',  square_60: 'https://img.cdn-clubjudge.com/guid/1/square_60.jpg',  square_90: 'https://img.cdn-clubjudge.com/guid/1/square_90.jpg',  square_120: 'https://img.cdn-clubjudge.com/guid/1/square_120.jpg',  square_160: 'https://img.cdn-clubjudge.com/guid/1/square_160.jpg',  square_180: 'https://img.cdn-clubjudge.com/guid/1/square_180.jpg',  square_250: 'https://img.cdn-clubjudge.com/guid/1/square_250.jpg',  portrait_600: 'https://img.cdn-clubjudge.com/guid/1/portrait_600.jpg' }</code></td>
+      <td><code>null</code> <em>and only guid is writable</em></td>
     </tr>
     <tr>
       <td>background</td>
       <td>Hash</td>
-      <td>Link to venue background image</td>
-      <td><code>{ base: 'http://example.com', ext: '.jpg'}</code></td>
+      <td>Links to venue background image</td>
+      <td><code>{ guid: 'guid', square_160: "https://img.cdn-clubjudge.com/guid/1/square_160.jpg",  square_320: "https://img.cdn-clubjudge.com/guid/1/square_320.jpg",  square_noblur_320: "https://img.cdn-clubjudge.com/guid/1/square_noblur_320.jpg",  square_blur_420: "https://img.cdn-clubjudge.com/guid/1/square_blur_420.jpg",  square_720: "https://img.cdn-clubjudge.com/guid/1/square_720.jpg",  square_1140: "https://img.cdn-clubjudge.com/guid/1/square_1140.jpg",  square_1900: "https://img.cdn-clubjudge.com/guid/1/square_1900.jpg",  rectangle_noblur_320x150: "https://img.cdn-clubjudge.com/guid/1/rectangle_noblur_320x150.jpg",  rectangle_1240: "https://img.cdn-clubjudge.com/guid/1/rectangle_1240.jpg" }</code></td>
+      <td><code>null</code> <em>and only guid is writable</em></td>
+    </tr>
+    <tr>
+      <td>address</td>
+      <td>Hash</td>
+      <td>Venue address</td>
+      <td><code>{ street: 'Oostelijke Handelskade 4', zipCode: '1019 BM', geolocation: { lat: 52.37, lon: 4.93 }, city: [City] }</code></td>
+      <td><em>required street, zipCode and city</em></td>
+    </tr>
+    <tr>
+      <td>_links</td>
+      <td>Hash</td>
+      <td>Include the subresources api links.</td>
+      <td>Subresouces keys: details, areas, schedule, socialLinks, musicGenres</td>
+      <td><em>read only</em></td>
     </tr>
   </tbody>
 </table>
