@@ -12,5 +12,5 @@ A ClubJudge [Artist](#/artist-model).
 ### Example
 
 ```
-curl "https://bifrost.clubjudge.com/v1/artists/:id.json"
+curl "https://bifrost.clubjudge.com/v2/artists/:id.json"
 ```

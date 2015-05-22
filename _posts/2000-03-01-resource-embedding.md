@@ -10,7 +10,7 @@ Some resources include a *links* property, which contains pointers to its variou
 Example:
 
 ```
-https://bifrost.clubjudge.com/v1/artists/1981.json?embeds=events
+https://bifrost.clubjudge.com/v2/artists/1981.json?embeds=events
 ```
 
 This yields:
@@ -29,11 +29,11 @@ This yields:
         "totalItems": 22
       },
       "_links": {
-        "first": "https://bifrost.clubjudge.com/v1/artists/1981/events.json?page=1",
+        "first": "https://bifrost.clubjudge.com/v2/artists/1981/events.json?page=1",
         "previous": null,
-        "self": "https://bifrost.clubjudge.com/v1/artists/1981/events.json?page=1",
-        "next": "https://bifrost.clubjudge.com/v1/artists/1981/events.json?page=2",
-        "last": "https://bifrost.clubjudge.com/v1/artists/1981/events.json?page=3"
+        "self": "https://bifrost.clubjudge.com/v2/artists/1981/events.json?page=1",
+        "next": "https://bifrost.clubjudge.com/v2/artists/1981/events.json?page=2",
+        "last": "https://bifrost.clubjudge.com/v2/artists/1981/events.json?page=3"
       },
       "source": [...]
     }

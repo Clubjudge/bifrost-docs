@@ -403,7 +403,7 @@
 <p>In order to access the api please send a email to ‘feedback at clubjudge.com’ with your needs and use case.</p>
 
 <p><code>
-https://bifrost.clubjudge.com/v1/artists/1981.json?clientId=orderYourKeyFirst
+https://bifrost.clubjudge.com/v2/artists/1981.json?clientId=orderYourKeyFirst
 </code></p>
 
         </section>
@@ -423,7 +423,7 @@ https://bifrost.clubjudge.com/v1/artists/1981.json?clientId=orderYourKeyFirst
 <p>Example:</p>
 
 <p><code>
-https://bifrost.clubjudge.com/v1/artists/1981.json?embeds=events
+https://bifrost.clubjudge.com/v2/artists/1981.json?embeds=events
 </code></p>
 
 <p>This yields:</p>
@@ -442,11 +442,11 @@ https://bifrost.clubjudge.com/v1/artists/1981.json?embeds=events
         "totalItems": 22
       },
       "_links": {
-        "first": "https://bifrost.clubjudge.com/v1/artists/1981/events.json?page=1",
+        "first": "https://bifrost.clubjudge.com/v2/artists/1981/events.json?page=1",
         "previous": null,
-        "self": "https://bifrost.clubjudge.com/v1/artists/1981/events.json?page=1",
-        "next": "https://bifrost.clubjudge.com/v1/artists/1981/events.json?page=2",
-        "last": "https://bifrost.clubjudge.com/v1/artists/1981/events.json?page=3"
+        "self": "https://bifrost.clubjudge.com/v2/artists/1981/events.json?page=1",
+        "next": "https://bifrost.clubjudge.com/v2/artists/1981/events.json?page=2",
+        "last": "https://bifrost.clubjudge.com/v2/artists/1981/events.json?page=3"
       },
       "source": [...]
     }
@@ -472,7 +472,7 @@ https://bifrost.clubjudge.com/v1/artists/1981.json?embeds=events
 It works by passing a <code>fields</code> property in the querystring, using comma-separated values:</p>
 
 <p><code>
-https://bifrost.clubjudge.com/v1/artists/1981.json?fields=id,name,address.city
+https://bifrost.clubjudge.com/v2/artists/1981.json?fields=id,name,address.city
 </code></p>
 
 <p>This yields:</p>
@@ -483,10 +483,10 @@ https://bifrost.clubjudge.com/v1/artists/1981.json?fields=id,name,address.city
     "id": 1981,
     "name": "Tiesto",
     "_links": {
-      "events": "https://bifrost.clubjudge.com/v1/artists/1981/events.json",
-      "followers": "https://bifrost.clubjudge.com/v1/artists/1981/followers.json",
-      "comments": "https://bifrost.clubjudge.com/v1/artists/1981/comments.json",
-      "musicGenres": "https://bifrost.clubjudge.com/v1/artists/1981/musicGenres.json"
+      "events": "https://bifrost.clubjudge.com/v2/artists/1981/events.json",
+      "followers": "https://bifrost.clubjudge.com/v2/artists/1981/followers.json",
+      "comments": "https://bifrost.clubjudge.com/v2/artists/1981/comments.json",
+      "musicGenres": "https://bifrost.clubjudge.com/v2/artists/1981/musicGenres.json"
     }
   }
 }
@@ -1987,7 +1987,7 @@ https://bifrost.clubjudge.com/v1/artists/1981.json?fields=id,name,address.city
 <h3 id="example">Example</h3>
 
 <p><code>
-curl -X DELETE "https://bifrost.clubjudge.com/v1/events/123/followers.json?token=userToken"
+curl -X DELETE "https://bifrost.clubjudge.com/v2/events/123/followers.json?token=userToken"
 </code></p>
 
 
@@ -2008,7 +2008,7 @@ curl -X DELETE "https://bifrost.clubjudge.com/v1/events/123/followers.json?token
 <h3 id="example">Example</h3>
 
 <p><code>
-curl -X POST "https://bifrost.clubjudge.com/v1/events/123/followers.json?token=userToken"
+curl -X POST "https://bifrost.clubjudge.com/v2/events/123/followers.json?token=userToken"
 </code></p>
 
 
@@ -2031,7 +2031,7 @@ curl -X POST "https://bifrost.clubjudge.com/v1/events/123/followers.json?token=u
 <h3 id="example">Example</h3>
 
 <p><code>
-curl "https://bifrost.clubjudge.com/v1/events/123/followers.json"
+curl "https://bifrost.clubjudge.com/v2/events/123/followers.json"
 </code></p>
 
         </section>
@@ -2053,7 +2053,7 @@ curl "https://bifrost.clubjudge.com/v1/events/123/followers.json"
 <h3 id="example">Example</h3>
 
 <p><code>
-curl "https://bifrost.clubjudge.com/v1/events/123/venue.json"
+curl "https://bifrost.clubjudge.com/v2/events/123/venue.json"
 </code></p>
 
         </section>
@@ -2073,7 +2073,7 @@ curl "https://bifrost.clubjudge.com/v1/events/123/venue.json"
 <h3 id="example">Example</h3>
 
 <p><code>
-curl "https://bifrost.clubjudge.com/v1/events/123/tickets.json"
+curl "https://bifrost.clubjudge.com/v2/events/123/tickets.json"
 </code></p>
 
 
@@ -2096,7 +2096,7 @@ curl "https://bifrost.clubjudge.com/v1/events/123/tickets.json"
 <h3 id="example">Example</h3>
 
 <p><code>
-curl "https://bifrost.clubjudge.com/v1/events/123/musicGenres.json"
+curl "https://bifrost.clubjudge.com/v2/events/123/musicGenres.json"
 </code></p>
 
         </section>
@@ -2116,7 +2116,7 @@ curl "https://bifrost.clubjudge.com/v1/events/123/musicGenres.json"
 <h3 id="example">Example</h3>
 
 <p><code>
-curl "https://bifrost.clubjudge.com/v1/events/123/invitations.json"
+curl "https://bifrost.clubjudge.com/v2/events/123/invitations.json"
 </code></p>
 
 
@@ -2137,7 +2137,7 @@ curl "https://bifrost.clubjudge.com/v1/events/123/invitations.json"
 <h3 id="example">Example</h3>
 
 <p><code>
-curl "https://bifrost.clubjudge.com/v1/events/123/comments.json"
+curl "https://bifrost.clubjudge.com/v2/events/123/comments.json"
 </code></p>
 
 
@@ -2160,7 +2160,7 @@ curl "https://bifrost.clubjudge.com/v1/events/123/comments.json"
 <h3 id="example">Example</h3>
 
 <p><code>
-curl "https://bifrost.clubjudge.com/v1/events/123/artists.json"
+curl "https://bifrost.clubjudge.com/v2/events/123/artists.json"
 </code></p>
 
         </section>
@@ -2180,7 +2180,7 @@ curl "https://bifrost.clubjudge.com/v1/events/123/artists.json"
 <h3 id="example">Example</h3>
 
 <p><code>
-curl "https://bifrost.clubjudge.com/v1/events/3923.json"
+curl "https://bifrost.clubjudge.com/v2/events/3923.json"
 </code></p>
 
 <p><a href="#/partial-responses">Partial response</a> is also supported.</p>
@@ -2202,7 +2202,7 @@ curl "https://bifrost.clubjudge.com/v1/events/3923.json"
 <h3 id="example">Example</h3>
 
 <p><code>
-curl "https://bifrost.clubjudge.com/v1/events.json"
+curl "https://bifrost.clubjudge.com/v2/events.json"
 </code></p>
 
 <h3 id="filters">Filters</h3>
@@ -2288,7 +2288,7 @@ curl "https://bifrost.clubjudge.com/v1/events.json"
 <h3 id="example">Example</h3>
 
 <p><code>
-curl "https://bifrost.clubjudge.com/v1/cities/search.json?term=berlin"
+curl "https://bifrost.clubjudge.com/v2/cities/search.json?term=berlin"
 </code></p>
 
 <p><a href="#/partial-responses">Partial responses</a>
@@ -2342,7 +2342,7 @@ and <a href="#/pagination">Pagination</a> are also supported.</p>
 <h3 id="example">Example</h3>
 
 <p><code>
-curl "https://bifrost.clubjudge.com/v1/cities.json"
+curl "https://bifrost.clubjudge.com/v2/cities.json"
 </code></p>
 
 <p><a href="#/partial-responses">Partial responses</a>, <a href="#/reference-embedding">Reference embedding</a>
@@ -2372,7 +2372,7 @@ and <a href="#/pagination">Pagination</a> are also supported.</p>
 <h3 id="example">Example</h3>
 
 <p><code>
-curl "https://bifrost.clubjudge.com/v1/artists/123/musicGenres.json"
+curl "https://bifrost.clubjudge.com/v2/artists/123/musicGenres.json"
 </code></p>
 
         </section>
@@ -2394,7 +2394,7 @@ curl "https://bifrost.clubjudge.com/v1/artists/123/musicGenres.json"
 <h3 id="example">Example</h3>
 
 <p><code>
-curl "https://bifrost.clubjudge.com/v1/artists/123/followers.json"
+curl "https://bifrost.clubjudge.com/v2/artists/123/followers.json"
 </code></p>
 
         </section>
@@ -2416,7 +2416,7 @@ curl "https://bifrost.clubjudge.com/v1/artists/123/followers.json"
 <h3 id="example">Example</h3>
 
 <p><code>
-curl "https://bifrost.clubjudge.com/v1/artists/123/events.json"
+curl "https://bifrost.clubjudge.com/v2/artists/123/events.json"
 </code></p>
 
         </section>
@@ -2436,7 +2436,7 @@ curl "https://bifrost.clubjudge.com/v1/artists/123/events.json"
 <h3 id="example">Example</h3>
 
 <p><code>
-curl "https://bifrost.clubjudge.com/v1/artists/123/comments.json"
+curl "https://bifrost.clubjudge.com/v2/artists/123/comments.json"
 </code></p>
 
 
@@ -2457,7 +2457,7 @@ curl "https://bifrost.clubjudge.com/v1/artists/123/comments.json"
 <h3 id="example">Example</h3>
 
 <p><code>
-curl "https://bifrost.clubjudge.com/v1/artists/:id.json"
+curl "https://bifrost.clubjudge.com/v2/artists/:id.json"
 </code></p>
 
         </section>
@@ -2507,7 +2507,7 @@ and <a href="#/pagination">Pagination</a> are also supported.</p>
 <h3 id="example">Example</h3>
 
 <p><code>
-curl "https://bifrost.clubjudge.com/v1/users/443.json"
+curl "https://bifrost.clubjudge.com/v2/users/443.json"
 </code></p>
 
 
@@ -2528,7 +2528,7 @@ curl "https://bifrost.clubjudge.com/v1/users/443.json"
 <h3 id="example">Example</h3>
 
 <p><code>
-curl "https://bifrost.clubjudge.com/v1/me.json"
+curl "https://bifrost.clubjudge.com/v2/me.json"
 </code></p>
 
 
@@ -2554,7 +2554,7 @@ curl "https://bifrost.clubjudge.com/v1/me.json"
 <h3 id="example">Example</h3>
 
 <p><code>
-curl "https://bifrost.clubjudge.com/v1/users/443/events.json"
+curl "https://bifrost.clubjudge.com/v2/users/443/events.json"
 </code></p>
 
 
@@ -2581,7 +2581,7 @@ curl "https://bifrost.clubjudge.com/v1/users/443/events.json"
 <h3 id="example">Example</h3>
 
 <p><code>
-curl "https://bifrost.clubjudge.com/v1/stats.json"
+curl "https://bifrost.clubjudge.com/v2/stats.json"
 </code></p>
 
 
@@ -3216,7 +3216,7 @@ curl -X DELETE "https://bifrost.clubjudge.com/v2/venues/221.json?token=userToken
 <h3 id="example">Example</h3>
 
 <p><code>
-curl "https://bifrost.clubjudge.com/v1/venues/search.json?term=paradiso"
+curl "https://bifrost.clubjudge.com/v2/venues/search.json?term=paradiso"
 </code></p>
 
 <p><a href="#/partial-responses">Partial responses</a>
@@ -3352,7 +3352,7 @@ and <a href="#/pagination">Pagination</a> are also supported.</p>
 <h3 id="example">Example</h3>
 
 <p><code>
-curl "https://bifrost.clubjudge.com/v1/tags.json?type=VenueType"
+curl "https://bifrost.clubjudge.com/v2/tags.json?type=VenueType"
 </code></p>
 
 <p><a href="#/pagination">Pagination</a> is also supported.</p>
@@ -3400,7 +3400,7 @@ curl "https://bifrost.clubjudge.com/v1/tags.json?type=VenueType"
 <h3 id="example">Example</h3>
 
 <p><code>
-curl "https://bifrost.clubjudge.com/v1/musicGenres.json?type=parent"
+curl "https://bifrost.clubjudge.com/v2/musicGenres.json?type=parent"
 </code></p>
 
 <p><a href="#/pagination">Pagination</a> is also supported.</p>
@@ -3445,7 +3445,7 @@ curl "https://bifrost.clubjudge.com/v1/musicGenres.json?type=parent"
 <h3 id="example">Example</h3>
 
 <p><code>
-curl "https://bifrost.clubjudge.com/v1/musicGenres/1.json"
+curl "https://bifrost.clubjudge.com/v2/musicGenres/1.json"
 </code></p>
 
 <p><a href="#/partial-responses">Partial response</a> is also supported.</p>

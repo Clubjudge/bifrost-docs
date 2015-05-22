@@ -9,7 +9,7 @@ The API supports partial responses, meaning that you can select which fields you
 It works by passing a ```fields``` property in the querystring, using comma-separated values:
 
 ```
-https://bifrost.clubjudge.com/v1/artists/1981.json?fields=id,name,address.city
+https://bifrost.clubjudge.com/v2/artists/1981.json?fields=id,name,address.city
 ```
 
 This yields:
@@ -20,10 +20,10 @@ This yields:
     "id": 1981,
     "name": "Tiesto",
     "_links": {
-      "events": "https://bifrost.clubjudge.com/v1/artists/1981/events.json",
-      "followers": "https://bifrost.clubjudge.com/v1/artists/1981/followers.json",
-      "comments": "https://bifrost.clubjudge.com/v1/artists/1981/comments.json",
-      "musicGenres": "https://bifrost.clubjudge.com/v1/artists/1981/musicGenres.json"
+      "events": "https://bifrost.clubjudge.com/v2/artists/1981/events.json",
+      "followers": "https://bifrost.clubjudge.com/v2/artists/1981/followers.json",
+      "comments": "https://bifrost.clubjudge.com/v2/artists/1981/comments.json",
+      "musicGenres": "https://bifrost.clubjudge.com/v2/artists/1981/musicGenres.json"
     }
   }
 }

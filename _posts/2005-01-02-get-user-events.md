@@ -12,7 +12,7 @@ Lists the upcoming [Events](#/event-model) for a [User](#/user-model).
 ### Example
 
 ```
-curl "https://bifrost.clubjudge.com/v1/users/443/events.json"
+curl "https://bifrost.clubjudge.com/v2/users/443/events.json"
 ```
 
 

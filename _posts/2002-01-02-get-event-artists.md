@@ -14,5 +14,5 @@ This resource is [embeddable](#/resource-embedding).
 ### Example
 
 ```
-curl "https://bifrost.clubjudge.com/v1/events/123/artists.json"
+curl "https://bifrost.clubjudge.com/v2/events/123/artists.json"
 ```

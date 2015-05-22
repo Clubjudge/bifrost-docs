@@ -12,7 +12,7 @@ A ClubJudge [MusicGenre](#/music-genre-model).
 ### Example
 
 ```
-curl "https://bifrost.clubjudge.com/v1/musicGenres.json?type=parent"
+curl "https://bifrost.clubjudge.com/v2/musicGenres.json?type=parent"
 ```
 
 [Pagination](#/pagination) is also supported.

@@ -12,7 +12,7 @@ An instance of a ClubJudge [MusicGenre](#/music-genre-model).
 ### Example
 
 ```
-curl "https://bifrost.clubjudge.com/v1/musicGenres/1.json"
+curl "https://bifrost.clubjudge.com/v2/musicGenres/1.json"
 ```
 
 [Partial response](#/partial-responses) is also supported.

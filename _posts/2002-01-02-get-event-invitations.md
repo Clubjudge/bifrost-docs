@@ -12,7 +12,7 @@ A list of ClubJudge [Invitation](#/invitation-model).
 ### Example
 
 ```
-curl "https://bifrost.clubjudge.com/v1/events/123/invitations.json"
+curl "https://bifrost.clubjudge.com/v2/events/123/invitations.json"
 ```
 
 
