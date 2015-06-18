@@ -32,7 +32,31 @@
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
     <li><a href='#/get-venue-similar'>Get Venue Similar</a></li>
+    
+  
+    
+  
+    
+  
     
   
     
@@ -187,8 +211,6 @@
     
       <li class=''><a href='#/image-model'>Image</a></li>
     
-      <li class=''><a href='#/rating-model'>Rating</a></li>
-    
       <li class=''><a href='#/event-model'>Event</a></li>
     
       <li class=''><a href='#/artist-model'>Artist</a></li>
@@ -200,6 +222,8 @@
       <li class=''><a href='#/ticket-model'>Ticket</a></li>
     
       <li class=''><a href='#/me-model'>Me</a></li>
+    
+      <li class=''><a href='#/review-model'>Review</a></li>
     
       <li class=''><a href='#/user-model'>User</a></li>
     
@@ -279,15 +303,13 @@
     
       <li class='GET'><a href='#/get-user'>GET /users/:id</a></li>
     
-      <li class='GET'><a href='#/get-me-suggested'>GET /me/venues?type=suggested</a></li>
-    
-    </ul>
-  </li>
-
-  <li><h2>user</h2>
-    <ul>
-    
       <li class='GET'><a href='#/get-user-events'>GET /users/:id/events</a></li>
+    
+      <li class='GET'><a href='#/get-user-reviews'>GET /users/:id/reviews</a></li>
+    
+      <li class='GET'><a href='#/get-me-suggested-venues'>GET /me/venues?type=suggested</a></li>
+    
+      <li class='GET'><a href='#/get-me-reviews'>GET /me/reviews</a></li>
     
     </ul>
   </li>
@@ -349,6 +371,8 @@
     
       <li class='PUT'><a href='#/put-venue-areas'>PUT /venues/:id/areas/:areaId</a></li>
     
+      <li class='GET'><a href='#/get-venue-reviews'>GET /venues/:id/reviews</a></li>
+    
     </ul>
   </li>
 
@@ -376,6 +400,30 @@
       <li class='POST'><a href='#/post-image-background'>POST /images/backgrounds</a></li>
     
       <li class='POST'><a href='#/post-images-logos'>POST /images/logos</a></li>
+    
+    </ul>
+  </li>
+
+  <li><h2>reviews</h2>
+    <ul>
+    
+      <li class='GET'><a href='#/get-review'>GET /reviews/:id</a></li>
+    
+      <li class='GET'><a href='#/get-reviews'>GET /reviews</a></li>
+    
+      <li class='POST'><a href='#/post-review'>POST /reviews</a></li>
+    
+      <li class='PUT'><a href='#/put-review'>PUT /reviews/:id</a></li>
+    
+      <li class='DELETE'><a href='#/delete-review'>DELETE /reviews/:id</a></li>
+    
+      <li class='POST'><a href='#/post-review-like'>POST /reviews/:id/like</a></li>
+    
+      <li class='DELETE'><a href='#/delete-review-like'>DELETE /reviews/:id/like</a></li>
+    
+      <li class='POST'><a href='#/post-review-unlike'>POST /reviews/:id/unlike</a></li>
+    
+      <li class='DELETE'><a href='#/delete-review-unlike'>DELETE /reviews/:id/unlike</a></li>
     
     </ul>
   </li>
@@ -840,6 +888,13 @@ https://bifrost.clubjudge.com/v2/artists/1981.json?fields=id,name,address.city
       <td><em>required street, zipCode and city</em></td>
     </tr>
     <tr>
+      <td>scores</td>
+      <td>Hash</td>
+      <td>Venue scores, global and by category</td>
+      <td><code>{ global: 8.4, pricing: 7.6, location: 7, atmosphere: 6, safety: 10, service: 8.6, musicAndLineup: 5}</code></td>
+      <td><em>read only</em></td>
+    </tr>
+    <tr>
       <td>_links</td>
       <td>Hash</td>
       <td>Include the subresources api links.</td>
@@ -1171,6 +1226,169 @@ https://bifrost.clubjudge.com/v2/artists/1981.json?fields=id,name,address.city
     </tr>
   </tbody>
 </table>
+
+        </section>
+      </article>
+    
+      <article class=''>
+        <a name='/review-model' href='#/review-model'>
+          <h2>
+            
+              Review
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A Clubjudge Venue Review information.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Example</th>
+      <th>Defaults / Info</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>Integer</td>
+      <td>The review unique identifier</td>
+      <td><code>1</code></td>
+      <td><code>null</code></td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>String</td>
+      <td>The review type, supported options: VenueReview</td>
+      <td><code>"VenueReview"</code></td>
+      <td><em>read only</em></td>
+    </tr>
+    <tr>
+      <td>createdAt</td>
+      <td>String</td>
+      <td>UTC Datetime when this review was last modified</td>
+      <td><code>"2014-04-02T12:05:00"</code></td>
+      <td><em>read only</em></td>
+    </tr>
+    <tr>
+      <td>updatedAt</td>
+      <td>String</td>
+      <td>UTC Datetime when this review was created</td>
+      <td><code>"2014-04-02T12:05:00"</code></td>
+      <td><em>read only</em></td>
+    </tr>
+    <tr>
+      <td>targetId</td>
+      <td>Integer</td>
+      <td>The venue unique identifier</td>
+      <td><code>221</code></td>
+      <td><em>required</em></td>
+    </tr>
+    <tr>
+      <td>userId</td>
+      <td>Integer</td>
+      <td>The reviewer unique identifier</td>
+      <td><code>1</code></td>
+      <td><em>required</em></td>
+    </tr>
+    <tr>
+      <td>title</td>
+      <td>String</td>
+      <td>The review title</td>
+      <td><code>"Awesome Place to party!!"</code></td>
+      <td><em>required</em></td>
+    </tr>
+    <tr>
+      <td>positiveComments</td>
+      <td>String</td>
+      <td>Positive comments about the venue</td>
+      <td><code>"The environment is awesome!"</code></td>
+      <td><code>null</code></td>
+    </tr>
+    <tr>
+      <td>negativeComments</td>
+      <td>String</td>
+      <td>Negative comments about the venue</td>
+      <td><code>"Hard to enter!"</code></td>
+      <td><code>null</code></td>
+    </tr>
+    <tr>
+      <td>scores</td>
+      <td>Hash</td>
+      <td>Review score by category, in beetween [0-10]</td>
+      <td><code>{"pricing", 10,"location", 0,"atmosphere", 5,"safety", 1,"service", 10,"musicAndLineup", 10}</code></td>
+      <td><em>required</em></td>
+    </tr>
+    <tr>
+      <td>edited</td>
+      <td>Boolean</td>
+      <td>Was this review edited</td>
+      <td><code>false</code></td>
+      <td><em>read only</em></td>
+    </tr>
+    <tr>
+      <td>likedCount</td>
+      <td>Integer</td>
+      <td>Number of users who liked this review</td>
+      <td><code>344</code></td>
+      <td><em>read only</em></td>
+    </tr>
+    <tr>
+      <td>unlikedCount</td>
+      <td>Integer</td>
+      <td>Number of users who didn’t liked this review</td>
+      <td><code>1</code></td>
+      <td><em>read only</em></td>
+    </tr>
+    <tr>
+      <td>userData</td>
+      <td>Hash</td>
+      <td>User data associated with the current user</td>
+      <td><code>{"liked", true}</code></td>
+      <td><code>null</code></td>
+    </tr>
+    <tr>
+      <td>_links</td>
+      <td>Hash</td>
+      <td>Include the subresources api links.</td>
+      <td>Subresouces keys: user, target</td>
+      <td><em>read only</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>NOTE:</em> The userId and targetId of a review can’t be changed after review creation.</p>
+
+<p><strong>PAYLOAD</strong></p>
+
+<p><code>
+{
+  "id": 1,
+  "type": "VenueReview",
+  "createdAt": "2014-01-16T21:00:00+01:00",
+  "updatedAt": "2014-01-16T21:00:00+01:00",
+  "targetId": 221,
+  "userId": 1829,
+  "title": "Awesome Place to party!!",
+  "positiveComments": "The environment is awesome!",
+  "negativeComments": "Hard to enter!",
+  "scores": {
+    "pricing": 10,
+    "location": 0,
+    "atmosphere": 5,
+    "safety": 1,
+    "service": 10,
+    "musicAndLineup": 10
+  },
+  "edited": false,
+  "likedCount": 10
+  "unlikedCount": 1,
+  "userData": { "liked", true }
+}
+</code></p>
 
         </section>
       </article>
@@ -1772,18 +1990,6 @@ https://bifrost.clubjudge.com/v2/artists/1981.json?fields=id,name,address.city
       <td>Contest data</td>
       <td><code>{ startDate: '2014-01-16T21:00:00+01:00', spots: 5, entriesDeadline: '2014-01-16T21:00:00+01:00', organizerConfirmationDeadline: '2014-01-16T21:00:00+01:00', guestlistCloseTime: '2014-01-16T21:00:00+01:00', confirmationToken: 'acbd18db4cc', abortReason: null, entryCost: 50, organizerIds: [123,349] }</code></td>
     </tr>
-    <tr>
-      <td>expertReviewRatings</td>
-      <td>Hash</td>
-      <td>Expert review ratings</td>
-      <td><code>{ crowd: 6, hygiene: 4, service: 9 }</code></td>
-    </tr>
-    <tr>
-      <td>globalRating</td>
-      <td>Hash</td>
-      <td>Global rating</td>
-      <td><code>{ global: 8.53 }</code></td>
-    </tr>
   </tbody>
 </table>
 
@@ -1822,55 +2028,12 @@ https://bifrost.clubjudge.com/v2/artists/1981.json?fields=id,name,address.city
       <td><a href="#/music-genre-model">Music Genre</a></td>
     </tr>
     <tr>
-      <td>ratings</td>
-      <td><a href="#/rating-model">Rating</a></td>
-    </tr>
-    <tr>
       <td>tickets</td>
       <td><a href="#/ticket-model">Ticket</a></td>
     </tr>
     <tr>
       <td>venue</td>
       <td><a href="#/venue-model">Venue</a></td>
-    </tr>
-  </tbody>
-</table>
-
-        </section>
-      </article>
-    
-      <article class=''>
-        <a name='/rating-model' href='#/rating-model'>
-          <h2>
-            
-              Rating
-            
-          </h2>
-        </a>
-        <section class='body'>
-          <p>A ClubJudge Rating.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Example</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>id</td>
-      <td>String</td>
-      <td>The unique rating category</td>
-      <td><code>crowd</code></td>
-    </tr>
-    <tr>
-      <td>score</td>
-      <td>Float</td>
-      <td>The value of the rating in a scale of 1 to 10</td>
-      <td><code>7.6</code></td>
     </tr>
   </tbody>
 </table>
@@ -2469,7 +2632,95 @@ curl "https://bifrost.clubjudge.com/v2/artists/:id.json"
     <h2>users</h2>
     
       <article class='GET'>
-        <a name='/get-me-suggested' href='#/get-me-suggested'>
+        <a name='/get-me-reviews' href='#/get-me-reviews'>
+          <h2>
+            
+              <code><b>GET</b> /me/reviews</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A list of <a href="#/review-model">Reviews</a> made by the current <a href="#/user-model">User</a>. Current user is identified by token.</p>
+
+<p><a href="#/partial-responses">Partial responses</a> and <a href="#/pagination">Pagination</a> are also supported.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl "https://bifrost.clubjudge.com/v2/me/reviews.json?token=sometoken"
+</code></p>
+
+<p><strong>PAYLOAD</strong></p>
+
+<p><code>
+{
+  "reviews": [
+    {
+      "id": 1,
+      "type": "VenueReview",
+      "createdAt": "2015-06-03T16:45:20",
+      "updatedAt": "2015-06-03T16:45:20",
+      "targetId": 221,
+      "userId": 1829,
+      "title": "Awesome Place to party!!",
+      "positiveComments": "The environment is awesome!",
+      "negativeComments": "Hard to enter!",
+      "scores": {
+        "pricing": 1,
+        "location": 1,
+        "atmosphere": 1,
+        "safety": 1,
+        "service": 1,
+        "musicAndLineup": 1
+      },
+      "_links": {
+        "target": "https://bifrost.clubjudge.com/v2/reviews/1/target.json",
+        "user": "https://bifrost.clubjudge.com/v2/reviews/1/user.json"
+      }
+    }
+  ],
+  "_pagination": {
+    "currentPage": 1,
+    "perPage": 1,
+    "totalPages": 27,
+    "totalItems": 27
+  },
+  "_links": {
+    "first": "https://bifrost.clubjudge.com/v2/me/reviews.json?page=1",
+    "previous": null,
+    "self": "https://bifrost.clubjudge.com/v2/me/reviews.json?page=1",
+    "next": "https://bifrost.clubjudge.com/v2/me/reviews.json?page=2",
+    "last": "https://bifrost.clubjudge.com/v2/me/reviews.json?page=27"
+  }
+}
+</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<p>Reviews can be filtered by venueId (optional).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">venueId</td>
+      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">Supports multiple ids to filter reviews</td>
+    </tr>
+  </tbody>
+</table>
+
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-me-suggested-venues' href='#/get-me-suggested-venues'>
           <h2>
             
               <code><b>GET</b> /me/venues?type=suggested</code>
@@ -2489,6 +2740,93 @@ curl "https://bifrost.clubjudge.com/v2/me/venues.json?type=suggested&amp;cityId=
 
 <p><a href="#/partial-responses">Partial responses</a>
 and <a href="#/pagination">Pagination</a> are also supported.</p>
+
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-user-reviews' href='#/get-user-reviews'>
+          <h2>
+            
+              <code><b>GET</b> /users/:id/reviews</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A list of <a href="#/review-model">Reviews</a> made by the specified <a href="#/user-model">User</a>.</p>
+
+<p><a href="#/partial-responses">Partial responses</a> and <a href="#/pagination">Pagination</a> are also supported.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl "https://bifrost.clubjudge.com/v2/users/1829/reviews.json"
+</code></p>
+
+<p><strong>PAYLOAD</strong></p>
+
+<p><code>
+{
+  "reviews": [
+    {
+      "id": 1,
+      "type": "VenueReview",
+      "createdAt": "2015-06-03T16:45:20",
+      "updatedAt": "2015-06-03T16:45:20",
+      "targetId": 221,
+      "userId": 1829,
+      "title": "Awesome Place to party!!",
+      "positiveComments": "The environment is awesome!",
+      "negativeComments": "Hard to enter!",
+      "scores": {
+        "pricing": 1,
+        "location": 1,
+        "atmosphere": 1,
+        "safety": 1,
+        "service": 1,
+        "musicAndLineup": 1
+      },
+      "_links": {
+        "target": "https://bifrost.clubjudge.com/v2/reviews/1/target.json",
+        "user": "https://bifrost.clubjudge.com/v2/reviews/1/user.json"
+      }
+    }
+  ],
+  "_pagination": {
+    "currentPage": 1,
+    "perPage": 1,
+    "totalPages": 27,
+    "totalItems": 27
+  },
+  "_links": {
+    "first": "https://bifrost.clubjudge.com/v2/users/1829/reviews.json?page=1",
+    "previous": null,
+    "self": "https://bifrost.clubjudge.com/v2/users/1829/reviews.json?page=1",
+    "next": "https://bifrost.clubjudge.com/v2/users/1829/reviews.json?page=2",
+    "last": "https://bifrost.clubjudge.com/v2/users/1829/reviews.json?page=27"
+  }
+}
+</code></p>
+
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-user-events' href='#/get-user-events'>
+          <h2>
+            
+              <code><b>GET</b> /users/:id/events</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Lists the upcoming <a href="#/event-model">Events</a> for a <a href="#/user-model">User</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl "https://bifrost.clubjudge.com/v2/users/443/events.json"
+</code></p>
 
         </section>
       </article>
@@ -2538,32 +2876,6 @@ curl "https://bifrost.clubjudge.com/v2/me.json"
   </div>
 
   <div>
-    <h2>user</h2>
-    
-      <article class='GET'>
-        <a name='/get-user-events' href='#/get-user-events'>
-          <h2>
-            
-              <code><b>GET</b> /users/:id/events</code>
-            
-          </h2>
-        </a>
-        <section class='body'>
-          <p>Lists the upcoming <a href="#/event-model">Events</a> for a <a href="#/user-model">User</a>.</p>
-
-<h3 id="example">Example</h3>
-
-<p><code>
-curl "https://bifrost.clubjudge.com/v2/users/443/events.json"
-</code></p>
-
-
-        </section>
-      </article>
-    
-  </div>
-
-  <div>
     <h2>stats</h2>
     
       <article class='GET'>
@@ -2592,6 +2904,106 @@ curl "https://bifrost.clubjudge.com/v2/stats.json"
 
   <div>
     <h2>venues</h2>
+    
+      <article class='GET'>
+        <a name='/get-venue-reviews' href='#/get-venue-reviews'>
+          <h2>
+            
+              <code><b>GET</b> /venues/:id/reviews</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Retrieve a list of <a href="#/review-model">Review</a> from the <a href="#/venue-model">Venue</a>.</p>
+
+<p><a href="#/partial-responses">Partial responses</a> and <a href="#/pagination">Pagination</a> are also supported.</p>
+
+<h3 id="example">Example</h3>
+
+<p>Returns a list of reviews.</p>
+
+<p><code>
+curl -H "Content-Type: application/json" -X GET https://bifrost.clubjudge.com/v2/venues/221/reviews.json
+</code></p>
+
+<p><strong>PAYLOAD</strong></p>
+
+<p><code>
+{
+  "reviews": [
+    {
+      "id": 1,
+      "type": "VenueReview",
+      "createdAt": "2015-06-03T16:45:20",
+      "updatedAt": "2015-06-03T16:45:20",
+      "targetId": 221,
+      "userId": 1829,
+      "title": "Awesome Place to party!!",
+      "positiveComments": "The environment is awesome!",
+      "negativeComments": "Hard to enter!",
+      "scores": {
+        "pricing": 1,
+        "location": 1,
+        "atmosphere": 1,
+        "safety": 1,
+        "service": 1,
+        "musicAndLineup": 1
+      },
+      "_links": {
+        "target": "https://bifrost.clubjudge.com/v2/reviews/1/target.json",
+        "user": "https://bifrost.clubjudge.com/v2/reviews/1/user.json"
+      }
+    }
+  ],
+  "_pagination": {
+    "currentPage": 1,
+    "perPage": 1,
+    "totalPages": 27,
+    "totalItems": 27
+  },
+  "_links": {
+    "first": "https://bifrost.clubjudge.com/v2/venues/221/reviews.json?page=1",
+    "previous": null,
+    "self": "https://bifrost.clubjudge.com/v2/venues/221/reviews.json?page=1",
+    "next": "https://bifrost.clubjudge.com/v2/venues/221/reviews.json?page=2",
+    "last": "https://bifrost.clubjudge.com/v2/venues/221/reviews.json?page=27"
+  }
+}
+</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<p>Reviews can be ordered by date, score, likes and unlikes.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">token</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Current user token, will be used to retrieve user data (optional)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">orderBy</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Order criteria: date (default), score, likes and unlikes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">order</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Order type: desc (default), asc</td>
+    </tr>
+  </tbody>
+</table>
+
+        </section>
+      </article>
     
       <article class='PUT'>
         <a name='/put-venue-areas' href='#/put-venue-areas'>
@@ -3522,6 +3934,360 @@ curl -H "Content-Type: application/json" -X POST /
 -d '{"url": "http://mycdn.com/image.png" }' /
 https://bifrost.clubjudge.com/v2/images/backgrounds.json
 </code></p>
+
+        </section>
+      </article>
+    
+  </div>
+
+  <div>
+    <h2>reviews</h2>
+    
+      <article class='DELETE'>
+        <a name='/delete-review-unlike' href='#/delete-review-unlike'>
+          <h2>
+            
+              <code><b>DELETE</b> /reviews/:id/unlike</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Remove a Unlike from a <a href="#/review-model">Review</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p>Remove the Unlike from the review with id 1.</p>
+
+<p><code>
+curl -H "Content-Type: application/json" -X DELETE https://bifrost.clubjudge.com/v2/reviews/1/unlike.json?token=userToken
+</code></p>
+
+        </section>
+      </article>
+    
+      <article class='POST'>
+        <a name='/post-review-unlike' href='#/post-review-unlike'>
+          <h2>
+            
+              <code><b>POST</b> /reviews/:id/unlike</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Unlike an existent <a href="#/review-model">Review</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p>Unlike the review with id 1.</p>
+
+<p><code>
+curl -H "Content-Type: application/json" -X POST https://bifrost.clubjudge.com/v2/reviews/1/unlike.json?token=userToken
+</code></p>
+
+        </section>
+      </article>
+    
+      <article class='DELETE'>
+        <a name='/delete-review-like' href='#/delete-review-like'>
+          <h2>
+            
+              <code><b>DELETE</b> /reviews/:id/like</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Remove a Like from a <a href="#/review-model">Review</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p>Remove the Like from the review with id 1.</p>
+
+<p><code>
+curl -H "Content-Type: application/json" -X DELETE https://bifrost.clubjudge.com/v2/reviews/1/like.json?token=userToken
+</code></p>
+
+        </section>
+      </article>
+    
+      <article class='POST'>
+        <a name='/post-review-like' href='#/post-review-like'>
+          <h2>
+            
+              <code><b>POST</b> /reviews/:id/like</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Like an existent <a href="#/review-model">Review</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p>Like the review with id 1.</p>
+
+<p><code>
+curl -H "Content-Type: application/json" -X POST https://bifrost.clubjudge.com/v2/reviews/1/like.json?token=userToken
+</code></p>
+
+        </section>
+      </article>
+    
+      <article class='DELETE'>
+        <a name='/delete-review' href='#/delete-review'>
+          <h2>
+            
+              <code><b>DELETE</b> /reviews/:id</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Delete an existent <a href="#/review-model">Review</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p>Delete the review with id 1.</p>
+
+<p><code>
+curl -H "Content-Type: application/json" -X DELETE https://bifrost.clubjudge.com/v2/reviews/1.json?token=userToken
+</code></p>
+
+<p>NOTE: Only adminstrator users and the user who created the review are allowed to delete the review.</p>
+
+        </section>
+      </article>
+    
+      <article class='PUT'>
+        <a name='/put-review' href='#/put-review'>
+          <h2>
+            
+              <code><b>PUT</b> /reviews/:id</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Update an existent <a href="#/review-model">Review</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p>Update the review with id 1.</p>
+
+<p><code>
+curl -H "Content-Type: application/json" -X PUT -d \
+'{
+  "title": "Awesome Place to party!!",
+  "positiveComments": "The environment is awesome!",
+  "negativeComments": "Hard to enter!",
+  "scores": {
+    "pricing": 10,
+    "location": 0,
+    "atmosphere": 5,
+    "safety": 1,
+    "service": 10,
+    "musicAndLineup": 10
+  }
+}' \
+https://bifrost.clubjudge.com/v2/reviews/1.json?token=userToken
+</code></p>
+
+<p>NOTE: Only the user who created the review are allowed to update the review.</p>
+
+        </section>
+      </article>
+    
+      <article class='POST'>
+        <a name='/post-review' href='#/post-review'>
+          <h2>
+            
+              <code><b>POST</b> /reviews</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Create the <a href="#/review-model">Review</a> on the ClubJudge.</p>
+
+<h3 id="example">Example</h3>
+
+<p>Creates a new review for venue 221.</p>
+
+<p><code>
+curl -H "Content-Type: application/json" -X POST -d \
+'{
+  "type": "VenueReview",
+  "targetId": 221,
+  "title": "Awesome Place to party!!",
+  "positiveComments": "The environment is awesome!",
+  "negativeComments": "Hard to enter!",
+  "scores": {
+    "pricing": 10,
+    "location": 0,
+    "atmosphere": 5,
+    "safety": 1,
+    "service": 10,
+    "musicAndLineup": 10
+  }
+}' \
+https://bifrost.clubjudge.com/v2/reviews.json?token=userToken
+</code></p>
+
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-reviews' href='#/get-reviews'>
+          <h2>
+            
+              <code><b>GET</b> /reviews</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Retrieve a list of <a href="#/review-model">Review</a>.</p>
+
+<p><a href="#/partial-responses">Partial responses</a> and <a href="#/pagination">Pagination</a> are also supported.</p>
+
+<h3 id="example">Example</h3>
+
+<p>Returns a list of reviews.</p>
+
+<p><code>
+curl -H "Content-Type: application/json" -X GET https://bifrost.clubjudge.com/v2/reviews.json
+</code></p>
+
+<p><strong>PAYLOAD</strong></p>
+
+<p><code>
+{
+  "reviews": [
+    {
+      "id": 1,
+      "type": "VenueReview",
+      "createdAt": "2015-06-03T16:45:20",
+      "updatedAt": "2015-06-03T16:45:20",
+      "targetId": 221,
+      "userId": 1829,
+      "title": "Awesome Place to party!!",
+      "positiveComments": "The environment is awesome!",
+      "negativeComments": "Hard to enter!",
+      "scores": {
+        "pricing": 1,
+        "location": 1,
+        "atmosphere": 1,
+        "safety": 1,
+        "service": 1,
+        "musicAndLineup": 1
+      },
+      "_links": {
+        "target": "https://bifrost.clubjudge.com/v2/reviews/1/target.json",
+        "user": "https://bifrost.clubjudge.com/v2/reviews/1/user.json"
+      }
+    }
+  ],
+  "_pagination": {
+    "currentPage": 1,
+    "perPage": 1,
+    "totalPages": 27,
+    "totalItems": 27
+  },
+  "_links": {
+    "first": "https://bifrost.clubjudge.com/v2/reviews.json?page=1",
+    "previous": null,
+    "self": "https://bifrost.clubjudge.com/v2/reviews.json?page=1",
+    "next": "https://bifrost.clubjudge.com/v2/reviews.json?page=2",
+    "last": "https://bifrost.clubjudge.com/v2/reviews.json?page=27"
+  }
+}
+</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<p>Reviews can be ordered by date, score, likes and unlikes.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">token</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Current user token, will be used to retrieve user data (optional)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">type</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Filter by review type: VenueReview</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">orderBy</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Order criteria: date (default), score, likes and unlikes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">order</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Order type: desc (default), asc</td>
+    </tr>
+  </tbody>
+</table>
+
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-review' href='#/get-review'>
+          <h2>
+            
+              <code><b>GET</b> /reviews/:id</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Retrieve a specific <a href="#/review-model">Review</a>.</p>
+
+<p><a href="#/partial-responses">Partial responses</a> and <a href="#/pagination">Pagination</a> are also supported.</p>
+
+<h3 id="example">Example</h3>
+
+<p>Returns the review with id 1.</p>
+
+<p><code>
+curl -H "Content-Type: application/json" -X GET -d https://bifrost.clubjudge.com/v2/reviews/1.json
+</code></p>
+
+<p><strong>PAYLOAD</strong></p>
+
+<p><code>
+{
+  "review": {
+    "id": 1,
+    "type": "VenueReview",
+    "createdAt": "2015-06-04T15:45:46",
+    "updatedAt": "2015-06-04T15:45:46",
+    "targetId": 221,
+    "userId": 1829,
+    "title": "Awesome Place to party!!",
+    "positiveComments": "The environment is awesome!",
+    "negativeComments": "Hard to enter!",
+    "scores": {
+      "pricing": 10,
+      "location": 0,
+      "atmosphere": 5,
+      "safety": 1,
+      "service": 10,
+      "musicAndLineup": 10
+    },
+    "_links": {
+      "target": "https://bifrost.clubjudge.com/v2/reviews/1/target.json",
+      "user": "https://bifrost.clubjudge.com/v2/reviews/1/user.json"
+    }
+  }
+}
+</code></p>
+
+<p>NOTE: The token parameter is optional and will be used to retrieve user data.</p>
 
         </section>
       </article>
