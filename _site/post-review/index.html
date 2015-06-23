@@ -1,0 +1,25 @@
+<p>Create the <a href="#/review-model">Review</a> on the ClubJudge.</p>
+
+<h3 id="example">Example</h3>
+
+<p>Creates a new review for venue 221.</p>
+
+<p><code>
+curl -H "Content-Type: application/json" -X POST -d \
+'{
+  "type": "VenueReview",
+  "targetId": 221,
+  "title": "Awesome Place to party!!",
+  "positiveComments": "The environment is awesome!",
+  "negativeComments": "Hard to enter!",
+  "scores": {
+    "pricing": 10,
+    "location": 0,
+    "atmosphere": 5,
+    "safety": 1,
+    "service": 10,
+    "musicAndLineup": 10
+  }
+}' \
+https://bifrost.clubjudge.com/v2/reviews.json?token=userToken
+</code></p>

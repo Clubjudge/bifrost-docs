@@ -29,8 +29,6 @@ A Clubjudge Event.
 | reviewCount           | Integer | The number of reviews given for this event                   | ```30```                                                                                                                                                                                                                                                                                                           |
 | userData              | Hash    | Logged user data regarding this event                        | ```{ appliedForGuestlist: true, attended: true, cancelledByUser: false, confirmed: true, expertJudge: false, judged: false, liked: true, rejected: false }```                                                                                                                                                      |
 | contest               | Hash    | Contest data                                                 | ```{ startDate: '2014-01-16T21:00:00+01:00', spots: 5, entriesDeadline: '2014-01-16T21:00:00+01:00', organizerConfirmationDeadline: '2014-01-16T21:00:00+01:00', guestlistCloseTime: '2014-01-16T21:00:00+01:00', confirmationToken: 'acbd18db4cc', abortReason: null, entryCost: 50, organizerIds: [123,349] }``` |
-| expertReviewRatings   | Hash    | Expert review ratings                                        | ```{ crowd: 6, hygiene: 4, service: 9 }```                                                                                                                                                                                                                                                                         |
-| globalRating          | Hash    | Global rating                                                | ```{ global: 8.53 }```                                                                                                                                                                                                                                                                                             |
 
 ### Subresources
 
@@ -42,6 +40,5 @@ A Clubjudge Event.
 | invitations | [Invitation](#/invitation-model)   |
 | followers   | [User](#/user-model)               |
 | musicGenres | [Music Genre](#/music-genre-model) |
-| ratings     | [Rating](#/rating-model)           |
 | tickets     | [Ticket](#/ticket-model)           |
 | venue       | [Venue](#/venue-model)             |

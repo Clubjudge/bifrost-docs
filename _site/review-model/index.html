@@ -1,0 +1,150 @@
+<p>A Clubjudge Venue Review information.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Example</th>
+      <th>Defaults / Info</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>Integer</td>
+      <td>The review unique identifier</td>
+      <td><code>1</code></td>
+      <td><code>null</code></td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>String</td>
+      <td>The review type, supported options: VenueReview</td>
+      <td><code>"VenueReview"</code></td>
+      <td><em>read only</em></td>
+    </tr>
+    <tr>
+      <td>createdAt</td>
+      <td>String</td>
+      <td>UTC Datetime when this review was last modified</td>
+      <td><code>"2014-04-02T12:05:00"</code></td>
+      <td><em>read only</em></td>
+    </tr>
+    <tr>
+      <td>updatedAt</td>
+      <td>String</td>
+      <td>UTC Datetime when this review was created</td>
+      <td><code>"2014-04-02T12:05:00"</code></td>
+      <td><em>read only</em></td>
+    </tr>
+    <tr>
+      <td>targetId</td>
+      <td>Integer</td>
+      <td>The venue unique identifier</td>
+      <td><code>221</code></td>
+      <td><em>required</em></td>
+    </tr>
+    <tr>
+      <td>userId</td>
+      <td>Integer</td>
+      <td>The reviewer unique identifier</td>
+      <td><code>1</code></td>
+      <td><em>required</em></td>
+    </tr>
+    <tr>
+      <td>title</td>
+      <td>String</td>
+      <td>The review title</td>
+      <td><code>"Awesome Place to party!!"</code></td>
+      <td><em>required</em></td>
+    </tr>
+    <tr>
+      <td>positiveComments</td>
+      <td>String</td>
+      <td>Positive comments about the venue</td>
+      <td><code>"The environment is awesome!"</code></td>
+      <td><code>null</code></td>
+    </tr>
+    <tr>
+      <td>negativeComments</td>
+      <td>String</td>
+      <td>Negative comments about the venue</td>
+      <td><code>"Hard to enter!"</code></td>
+      <td><code>null</code></td>
+    </tr>
+    <tr>
+      <td>scores</td>
+      <td>Hash</td>
+      <td>Review score by category, in beetween [0-10]</td>
+      <td><code>{"pricing", 10,"location", 0,"atmosphere", 5,"safety", 1,"service", 10,"musicAndLineup", 10}</code></td>
+      <td><em>required</em></td>
+    </tr>
+    <tr>
+      <td>edited</td>
+      <td>Boolean</td>
+      <td>Was this review edited</td>
+      <td><code>false</code></td>
+      <td><em>read only</em></td>
+    </tr>
+    <tr>
+      <td>likedCount</td>
+      <td>Integer</td>
+      <td>Number of users who liked this review</td>
+      <td><code>344</code></td>
+      <td><em>read only</em></td>
+    </tr>
+    <tr>
+      <td>unlikedCount</td>
+      <td>Integer</td>
+      <td>Number of users who didn’t liked this review</td>
+      <td><code>1</code></td>
+      <td><em>read only</em></td>
+    </tr>
+    <tr>
+      <td>userData</td>
+      <td>Hash</td>
+      <td>User data associated with the current user</td>
+      <td><code>{"liked", true}</code></td>
+      <td><code>null</code></td>
+    </tr>
+    <tr>
+      <td>_links</td>
+      <td>Hash</td>
+      <td>Include the subresources api links.</td>
+      <td>Subresouces keys: user, target</td>
+      <td><em>read only</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>NOTE:</em> The userId and targetId of a review can’t be changed after review creation.</p>
+
+<p><strong>PAYLOAD</strong></p>
+
+<p><code>
+{
+  "id": 1,
+  "type": "VenueReview",
+  "createdAt": "2014-01-16T21:00:00+01:00",
+  "updatedAt": "2014-01-16T21:00:00+01:00",
+  "targetId": 221,
+  "userId": 1829,
+  "title": "Awesome Place to party!!",
+  "positiveComments": "The environment is awesome!",
+  "negativeComments": "Hard to enter!",
+  "scores": {
+    "pricing": 10,
+    "location": 0,
+    "atmosphere": 5,
+    "safety": 1,
+    "service": 10,
+    "musicAndLineup": 10
+  },
+  "edited": false,
+  "likedCount": 10
+  "unlikedCount": 1,
+  "userData": { "liked", true }
+}
+</code></p>

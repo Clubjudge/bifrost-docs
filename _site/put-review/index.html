@@ -1,0 +1,25 @@
+<p>Update an existent <a href="#/review-model">Review</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p>Update the review with id 1.</p>
+
+<p><code>
+curl -H "Content-Type: application/json" -X PUT -d \
+'{
+  "title": "Awesome Place to party!!",
+  "positiveComments": "The environment is awesome!",
+  "negativeComments": "Hard to enter!",
+  "scores": {
+    "pricing": 10,
+    "location": 0,
+    "atmosphere": 5,
+    "safety": 1,
+    "service": 10,
+    "musicAndLineup": 10
+  }
+}' \
+https://bifrost.clubjudge.com/v2/reviews/1.json?token=userToken
+</code></p>
+
+<p>NOTE: Only the user who created the review are allowed to update the review.</p>
