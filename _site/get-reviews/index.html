@@ -76,7 +76,7 @@ curl -H "Content-Type: application/json" -X GET https://bifrost.clubjudge.com/v2
     <tr>
       <td style="text-align: left">type</td>
       <td style="text-align: left">String</td>
-      <td style="text-align: left">Filter by review type: VenueReview</td>
+      <td style="text-align: left">Filter by review type: VenueReview  (optional)</td>
     </tr>
     <tr>
       <td style="text-align: left">orderBy</td>
@@ -87,6 +87,16 @@ curl -H "Content-Type: application/json" -X GET https://bifrost.clubjudge.com/v2
       <td style="text-align: left">order</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Order type: desc (default), asc</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">targetId</td>
+      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">Filter reviews by target Id (optional)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">userId</td>
+      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">Filter reviews by user Id (optional)</td>
     </tr>
   </tbody>
 </table>
