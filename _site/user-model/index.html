@@ -26,7 +26,13 @@
       <td>address</td>
       <td>Hash</td>
       <td>Address for this user</td>
-      <td><code>{ address: { city: { id: "891", name: "Lisbon", lonLat: [-9.13333, 38.71667], venuesCount: 10}, country: { id: 49, name: "Portugal", isocode: "PT"}, region: { id: 2646, name: "Lisbon", isocode: null}, composedName: "Lisbon,Portugal"}}</code></td>
+      <td><code>{ address: { city: { id: "891", name: "Lisbon", lonLat: [-9.13333, 38.71667], venuesCount: 10}, country: { id: 49, name: "Portugal", isocode: "PT"}, region: { id: 2646, name: "Lisbon", isocode: null}, composedName: "Lisbon,Portugal"}}</code> v1 only. Replaced by city in v2</td>
+    </tr>
+    <tr>
+      <td>city</td>
+      <td>Hash</td>
+      <td>City for this user</td>
+      <td><code>"city": { "id": 891, "name": "Lisbon", "aliases": [{ "id": 174066, "cityId": 891, "name": "Lisboa", "locale": "pt" }, { "id": 174067, "cityId": 891, "name": "Olisipo", "locale": "la" }], "geolocation": { "lat": 38.71667, "lon": -9.13333 }, "country": { "id": 49, "name": "Portugal", "isocode": "PT" }, "region": { "id": 2646, "name": "Lisbon", "isocode": null } }</code> v2 only. Replaces address</td>
     </tr>
     <tr>
       <td>firstName</td>
@@ -68,7 +74,7 @@
       <td>expertReviewsCount</td>
       <td>Integer</td>
       <td>Number of expert reviews performed by this user</td>
-      <td><code>20</code></td>
+      <td><code>20</code> (v1 only)</td>
     </tr>
     <tr>
       <td>friendsCount</td>
@@ -80,31 +86,31 @@
       <td>mutualFriendsCount</td>
       <td>Integer</td>
       <td>Number of mutual friends between this user and the logged in user</td>
-      <td><code>100</code></td>
+      <td><code>100</code> (v1 only)</td>
     </tr>
     <tr>
       <td>isFriend</td>
       <td>Boolean</td>
       <td>Is this user a friend of the logged in user</td>
-      <td><code>true</code></td>
+      <td><code>true</code> (v1 only)</td>
     </tr>
     <tr>
       <td>isPendingFriend</td>
       <td>Boolean</td>
       <td>Is there an outstanding friend request from the logged in user</td>
-      <td><code>false</code></td>
+      <td><code>false</code> (v1 only)</td>
     </tr>
     <tr>
       <td>upcomingEventsCount</td>
       <td>Integer</td>
       <td>The number of upcoming events for this user</td>
-      <td><code>10</code></td>
+      <td><code>10</code> (v1 only)</td>
     </tr>
     <tr>
       <td>pastEventsCount</td>
       <td>Integer</td>
       <td>The number of events this user went to</td>
-      <td><code>20</code></td>
+      <td><code>20</code> (v1 only)</td>
     </tr>
     <tr>
       <td>score</td>

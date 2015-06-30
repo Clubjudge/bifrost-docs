@@ -1,11 +1,9 @@
-<p>ONLY FOR V1. REPLACED BY /venues.json?q=<term></term></p>
-
-<p>A collection of ClubJudge <a href="#/venue-model">Venue</a> models.</p>
+<p>A collection of ClubJudge <a href="#/venue-model">Venue</a> models that match the search parameter.</p>
 
 <h3 id="example">Example</h3>
 
 <p><code>
-curl "https://bifrost.clubjudge.com/v1/venues/search.json?term=paradiso"
+curl "https://bifrost.clubjudge.com/v2/venues.json?q=paradiso"
 </code></p>
 
 <p><a href="#/partial-responses">Partial responses</a>
@@ -25,19 +23,9 @@ and <a href="#/pagination">Pagination</a> are also supported.</p>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">term</td>
+      <td style="text-align: left">q</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">the term to perform the search against</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">lat</td>
-      <td style="text-align: left">Decimal</td>
-      <td style="text-align: left">latitude</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">lon</td>
-      <td style="text-align: left">Decimal</td>
-      <td style="text-align: left">longitude</td>
     </tr>
   </tbody>
 </table>

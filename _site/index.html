@@ -50,7 +50,11 @@
     
   
     
+  
+    
     <li><a href='#/get-venue-similar'>Get Venue Similar</a></li>
+    
+  
     
   
     
@@ -325,6 +329,8 @@
   <li><h2>venues</h2>
     <ul>
     
+      <li class='GET'><a href='#/get-venue-search'>GET /venues?q=</a></li>
+    
       <li class='GET'><a href='#/get-venues'>GET /venues</a></li>
     
       <li class='GET'><a href='#/get-venues-search'>GET /venues/search</a></li>
@@ -424,6 +430,8 @@
       <li class='POST'><a href='#/post-review-unlike'>POST /reviews/:id/unlike</a></li>
     
       <li class='DELETE'><a href='#/delete-review-unlike'>DELETE /reviews/:id/unlike</a></li>
+    
+      <li class='GET'><a href='#/get-review-users'>GET /reviews/:id/user</a></li>
     
     </ul>
   </li>
@@ -1126,7 +1134,13 @@ https://bifrost.clubjudge.com/v2/artists/1981.json?fields=id,name,address.city
       <td>address</td>
       <td>Hash</td>
       <td>Address for this user</td>
-      <td><code>{ address: { city: { id: "891", name: "Lisbon", lonLat: [-9.13333, 38.71667], venuesCount: 10}, country: { id: 49, name: "Portugal", isocode: "PT"}, region: { id: 2646, name: "Lisbon", isocode: null}, composedName: "Lisbon,Portugal"}}</code></td>
+      <td><code>{ address: { city: { id: "891", name: "Lisbon", lonLat: [-9.13333, 38.71667], venuesCount: 10}, country: { id: 49, name: "Portugal", isocode: "PT"}, region: { id: 2646, name: "Lisbon", isocode: null}, composedName: "Lisbon,Portugal"}}</code> v1 only. Replaced by city in v2</td>
+    </tr>
+    <tr>
+      <td>city</td>
+      <td>Hash</td>
+      <td>City for this user</td>
+      <td><code>"city": { "id": 891, "name": "Lisbon", "aliases": [{ "id": 174066, "cityId": 891, "name": "Lisboa", "locale": "pt" }, { "id": 174067, "cityId": 891, "name": "Olisipo", "locale": "la" }], "geolocation": { "lat": 38.71667, "lon": -9.13333 }, "country": { "id": 49, "name": "Portugal", "isocode": "PT" }, "region": { "id": 2646, "name": "Lisbon", "isocode": null } }</code> v2 only. Replaces address</td>
     </tr>
     <tr>
       <td>firstName</td>
@@ -1168,7 +1182,7 @@ https://bifrost.clubjudge.com/v2/artists/1981.json?fields=id,name,address.city
       <td>expertReviewsCount</td>
       <td>Integer</td>
       <td>Number of expert reviews performed by this user</td>
-      <td><code>20</code></td>
+      <td><code>20</code> (v1 only)</td>
     </tr>
     <tr>
       <td>friendsCount</td>
@@ -1180,31 +1194,31 @@ https://bifrost.clubjudge.com/v2/artists/1981.json?fields=id,name,address.city
       <td>mutualFriendsCount</td>
       <td>Integer</td>
       <td>Number of mutual friends between this user and the logged in user</td>
-      <td><code>100</code></td>
+      <td><code>100</code> (v1 only)</td>
     </tr>
     <tr>
       <td>isFriend</td>
       <td>Boolean</td>
       <td>Is this user a friend of the logged in user</td>
-      <td><code>true</code></td>
+      <td><code>true</code> (v1 only)</td>
     </tr>
     <tr>
       <td>isPendingFriend</td>
       <td>Boolean</td>
       <td>Is there an outstanding friend request from the logged in user</td>
-      <td><code>false</code></td>
+      <td><code>false</code> (v1 only)</td>
     </tr>
     <tr>
       <td>upcomingEventsCount</td>
       <td>Integer</td>
       <td>The number of upcoming events for this user</td>
-      <td><code>10</code></td>
+      <td><code>10</code> (v1 only)</td>
     </tr>
     <tr>
       <td>pastEventsCount</td>
       <td>Integer</td>
       <td>The number of events this user went to</td>
-      <td><code>20</code></td>
+      <td><code>20</code> (v1 only)</td>
     </tr>
     <tr>
       <td>score</td>
@@ -1430,7 +1444,13 @@ https://bifrost.clubjudge.com/v2/artists/1981.json?fields=id,name,address.city
       <td>address</td>
       <td>Hash</td>
       <td>Address for this user</td>
-      <td><code>{ address: { city: { id: "891", name: "Lisbon", lonLat: [-9.13333, 38.71667], venuesCount: 10}, country: { id: 49, name: "Portugal", isocode: "PT"}, region: { id: 2646, name: "Lisbon", isocode: null}, composedName: "Lisbon,Portugal"}}</code></td>
+      <td><code>{ address: { city: { id: "891", name: "Lisbon", lonLat: [-9.13333, 38.71667], venuesCount: 10}, country: { id: 49, name: "Portugal", isocode: "PT"}, region: { id: 2646, name: "Lisbon", isocode: null}, composedName: "Lisbon,Portugal"}}</code> v1 only. Replaced by city in v2</td>
+    </tr>
+    <tr>
+      <td>city</td>
+      <td>Hash</td>
+      <td>City for this user</td>
+      <td><code>"city": { "id": 891, "name": "Lisbon", "aliases": [{ "id": 174066, "cityId": 891, "name": "Lisboa", "locale": "pt" }, { "id": 174067, "cityId": 891, "name": "Olisipo", "locale": "la" }], "geolocation": { "lat": 38.71667, "lon": -9.13333 }, "country": { "id": 49, "name": "Portugal", "isocode": "PT" }, "region": { "id": 2646, "name": "Lisbon", "isocode": null } }</code> v2 only. Replaces address</td>
     </tr>
     <tr>
       <td>firstName</td>
@@ -1472,7 +1492,7 @@ https://bifrost.clubjudge.com/v2/artists/1981.json?fields=id,name,address.city
       <td>expertReviewsCount</td>
       <td>Integer</td>
       <td>Number of expert reviews performed by this user</td>
-      <td><code>20</code></td>
+      <td><code>20</code> (v1 only)</td>
     </tr>
     <tr>
       <td>friendsCount</td>
@@ -1484,31 +1504,31 @@ https://bifrost.clubjudge.com/v2/artists/1981.json?fields=id,name,address.city
       <td>mutualFriendsCount</td>
       <td>Integer</td>
       <td>Number of mutual friends between this user and the logged in user</td>
-      <td><code>100</code></td>
+      <td><code>100</code> (v1 only)</td>
     </tr>
     <tr>
       <td>isFriend</td>
       <td>Boolean</td>
       <td>Is this user a friend of the logged in user</td>
-      <td><code>true</code></td>
+      <td><code>true</code> (v1 only)</td>
     </tr>
     <tr>
       <td>isPendingFriend</td>
       <td>Boolean</td>
       <td>Is there an outstanding friend request from the logged in user</td>
-      <td><code>false</code></td>
+      <td><code>false</code> (v1 only)</td>
     </tr>
     <tr>
       <td>upcomingEventsCount</td>
       <td>Integer</td>
       <td>The number of upcoming events for this user</td>
-      <td><code>10</code></td>
+      <td><code>10</code> (v1 only)</td>
     </tr>
     <tr>
       <td>pastEventsCount</td>
       <td>Integer</td>
       <td>The number of events this user went to</td>
-      <td><code>20</code></td>
+      <td><code>20</code> (v1 only)</td>
     </tr>
     <tr>
       <td>score</td>
@@ -1532,7 +1552,7 @@ https://bifrost.clubjudge.com/v2/artists/1981.json?fields=id,name,address.city
       <td>preferences</td>
       <td>Hash</td>
       <td>This user’s preferences</td>
-      <td><code>{ preferences: { musicGenres: ["62", "1"], city: { id: "891", name: "Lisbon", lonLat: [-9.13333, 38.71667], venuesCount: 10 }, birthdatePreferences: { showOnProfile: false, hideYear: false } }</code></td>
+      <td><code>{ preferences: { musicGenres: ["62", "1"], city: { id: "891", name: "Lisbon", lonLat: [-9.13333, 38.71667], venuesCount: 10 }, birthdatePreferences: { showOnProfile: false, hideYear: false } }</code> (v1 only)</td>
     </tr>
   </tbody>
 </table>
@@ -3623,12 +3643,14 @@ curl -X DELETE "https://bifrost.clubjudge.com/v2/venues/221.json?token=userToken
           </h2>
         </a>
         <section class='body'>
-          <p>A collection of ClubJudge <a href="#/venue-model">Venue</a> models.</p>
+          <p>ONLY FOR V1. REPLACED BY /venues.json?q=<term></term></p>
+
+<p>A collection of ClubJudge <a href="#/venue-model">Venue</a> models.</p>
 
 <h3 id="example">Example</h3>
 
 <p><code>
-curl "https://bifrost.clubjudge.com/v2/venues/search.json?term=paradiso"
+curl "https://bifrost.clubjudge.com/v1/venues/search.json?term=paradiso"
 </code></p>
 
 <p><a href="#/partial-responses">Partial responses</a>
@@ -3738,6 +3760,50 @@ and <a href="#/pagination">Pagination</a> are also supported.</p>
       <td style="text-align: left">location[radius]</td>
       <td style="text-align: left">Hash</td>
       <td style="text-align: left">radius</td>
+    </tr>
+  </tbody>
+</table>
+
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-venue-search' href='#/get-venue-search'>
+          <h2>
+            
+              <code><b>GET</b> /venues?q=</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A collection of ClubJudge <a href="#/venue-model">Venue</a> models that match the search parameter.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl "https://bifrost.clubjudge.com/v2/venues.json?q=paradiso"
+</code></p>
+
+<p><a href="#/partial-responses">Partial responses</a>
+and <a href="#/pagination">Pagination</a> are also supported.</p>
+
+<h3 id="filters">Filters</h3>
+
+<p>To use the location filter you have to enter at least longitude and latitude.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">q</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">the term to perform the search against</td>
     </tr>
   </tbody>
 </table>
@@ -3942,6 +4008,93 @@ https://bifrost.clubjudge.com/v2/images/backgrounds.json
 
   <div>
     <h2>reviews</h2>
+    
+      <article class='GET'>
+        <a name='/get-review-users' href='#/get-review-users'>
+          <h2>
+            
+              <code><b>GET</b> /reviews/:id/user</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Retrieve the <a href="#/user-model">User</a> for the current review</p>
+
+<p><a href="#/partial-responses">Partial responses</a> and <a href="#/pagination">Pagination</a> are also supported.</p>
+
+<h3 id="example">Example</h3>
+
+<p>Returns the reviews’s user.</p>
+
+<p><code>
+curl -H "Content-Type: application/json" -X GET https://bifrost.clubjudge.com/v2/reviews/5/user.json
+</code></p>
+
+<p><strong>PAYLOAD</strong></p>
+
+<p><code>
+{
+  "user": {
+    "id": 6,
+    "email": "dadah@sapo.pt",
+    "city": {
+      "id": 891,
+      "name": "Lisbon",
+      "aliases": [
+        {
+          "id": 174066,
+          "cityId": 891,
+          "name": "Lisboa",
+          "locale": "pt"
+        },
+        {
+          "id": 174067,
+          "cityId": 891,
+          "name": "Olisipo",
+          "locale": "la"
+        }
+      ],
+      "geolocation": {
+        "lat": 38.71667,
+        "lon": -9.13333
+      },
+      "country": {
+        "id": 49,
+        "name": "Portugal",
+        "isocode": "PT"
+      },
+      "region": {
+        "id": 2646,
+        "name": "Lisbon",
+        "isocode": null
+      }
+    },
+    "firstName": "Francisco",
+    "lastName": "Temudo",
+    "fullName": "Francisco Temudo",
+    "avatarUrl": "https://images.clubjudge.com/3b48a1a4-e0fe-4093-913a-6fbce8c09805/1/square_100.jpg",
+    "isFacebook": true,
+    "createdAt": "2012-12-14T04:15:03",
+    "updatedAt": "2015-02-27T18:49:47",
+    "reviewsCount": 0,
+    "friendsCount": 35,
+    "score": {
+      "totalPoints": 0,
+      "usedPoints": 0,
+      "availablePoints": 0,
+      "availableTickets": 0
+    },
+    "gender": "male",
+    "bornOn": "1979-10-01T00:00:00",
+    "_links": {
+      "events": "http://localhost:5000/v2/users/6/events.json?type=upcoming",
+      "reviews": "http://localhost:5000/v2/users/6/reviews.json"
+    }
+  }
+}</code></p>
+
+        </section>
+      </article>
     
       <article class='DELETE'>
         <a name='/delete-review-unlike' href='#/delete-review-unlike'>

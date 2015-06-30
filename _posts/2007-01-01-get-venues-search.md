@@ -7,12 +7,14 @@ type: 'GET'
 layout: nil
 ---
 
+ONLY FOR V1. REPLACED BY /venues.json?q=<term>
+
 A collection of ClubJudge [Venue](#/venue-model) models.
 
 ### Example
 
 ```
-curl "https://bifrost.clubjudge.com/v2/venues/search.json?term=paradiso"
+curl "https://bifrost.clubjudge.com/v1/venues/search.json?term=paradiso"
 ```
 
 [Partial responses](#/partial-responses)
