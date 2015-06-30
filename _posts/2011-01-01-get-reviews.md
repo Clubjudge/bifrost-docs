@@ -74,3 +74,5 @@ Reviews can be ordered by date, score, likes and unlikes.
 | type       | String  | Filter by review type: VenueReview           |
 | orderBy    | String  | Order criteria: date (default), score, likes and unlikes |
 | order      | String  | Order type: desc (default), asc              |
+| targetId   | Integer | Filter reviews by target Id (optional)              |
+| userId     | Integer | Filter reviews by user Id (optional)              |
