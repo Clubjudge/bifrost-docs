@@ -68,4 +68,4 @@ Reviews can be filtered by venueId (optional).
 
 | Parameter  |   Type  |                 Description                  |
 | :--------- | :------ | :------------------------------------------- |
-| venueId    | Integer | Supports multiple ids to filter reviews      |
+| targetId    | Integer | Filter reviews by targetId (optional)     |
