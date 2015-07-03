@@ -193,6 +193,8 @@
   
     
   
+    
+  
   
   <li><h2>using the api</h2>
     <ul>
@@ -310,6 +312,8 @@
       <li class='GET'><a href='#/get-user-events'>GET /users/:id/events</a></li>
     
       <li class='GET'><a href='#/get-user-reviews'>GET /users/:id/reviews</a></li>
+    
+      <li class='GET'><a href='#/get-user-venues-followed'>GET /users/:id/venues?type=followed</a></li>
     
       <li class='GET'><a href='#/get-me-suggested-venues'>GET /me/venues?type=suggested</a></li>
     
@@ -2760,6 +2764,86 @@ curl "https://bifrost.clubjudge.com/v2/me/venues.json?type=suggested&amp;cityId=
 
 <p><a href="#/partial-responses">Partial responses</a>
 and <a href="#/pagination">Pagination</a> are also supported.</p>
+
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-user-venues-followed' href='#/get-user-venues-followed'>
+          <h2>
+            
+              <code><b>GET</b> /users/:id/venues?type=followed</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A list of <a href="#/venue-model">Venues</a> followed by the <a href="#/user-model">User</a>.</p>
+
+<p><a href="#/partial-responses">Partial responses</a> and <a href="#/pagination">Pagination</a> are also supported.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl "https://bifrost.clubjudge.com/v2/users/1829/venues.json?type=followed"
+</code></p>
+
+<p><strong>PAYLOAD</strong></p>
+
+<p><code>
+{
+  "venues": [
+    {
+      "id": 4989,
+      "createdAt": "2014-08-14T11:52:48",
+      "updatedAt": "2014-09-05T11:43:03",
+      "name": "Paradise Garage",
+      "reviewsCount": 0,
+      "commentsCount": 0,
+      "followersCount": 0,
+      "upcomingEventsCount": 0,
+      "keywords": [],
+      "venueTypes": [],
+      "logo": null,
+      "background": null,
+      "address": {
+        "street": "Rua João Oliveira Miquens 34/38",
+        "zipCode": "1350-187",
+        "city": {
+          "id": 891
+        },
+        "geolocation": {
+          "lat": 38.7051792,
+          "lon": -9.1740121
+        }
+      },
+      "closed": false,
+      "scores": null,
+      "userData": null,
+      "_links": {
+        "details": "https://bifrost.clubjudge.com/v2/venues/4989/details.json",
+        "schedule": "https://bifrost.clubjudge.com/v2/venues/4989/schedule.json",
+        "areas": "https://bifrost.clubjudge.com/v2/venues/4989/areas.json",
+        "socialLinks": "https://bifrost.clubjudge.com/v2/venues/4989/socialLinks.json",
+        "musicGenres": "https://bifrost.clubjudge.com/v2/venues/4989/musicGenres.json",
+        "reviews": "https://bifrost.clubjudge.com/v2/venues/4989/reviews.json"
+      }
+    }
+  ],
+  "_pagination": {
+    "currentPage": 1,
+    "perPage": 1,
+    "totalPages": 29,
+    "totalItems": 29
+  },
+  "_links": {
+    "first": "https://bifrost.clubjudge.com/v2/users/1829/venues.json?type=followed&amp;perPage=1&amp;page=1",
+    "previous": null,
+    "self": "https://bifrost.clubjudge.com/v2/users/1829/venues.json?type=followed&amp;perPage=1&amp;page=1",
+    "next": "https://bifrost.clubjudge.com/v2/users/1829/venues.json?type=followed&amp;perPage=1&amp;page=2",
+    "last": "https://bifrost.clubjudge.com/v2/users/1829/venues.json?type=followed&amp;perPage=1&amp;page=15"
+  }
+}
+</code></p>
 
         </section>
       </article>
