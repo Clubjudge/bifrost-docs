@@ -185,16 +185,6 @@
   
     
   
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
   
   <li><h2>using the api</h2>
     <ul>
@@ -257,21 +247,11 @@
     
       <li class='GET'><a href='#/get-event-artists'>GET /events/:id/artists</a></li>
     
-      <li class='GET'><a href='#/get-event-comments'>GET /events/:id/comments</a></li>
-    
-      <li class='GET'><a href='#/get-event-invitations'>GET /events/:id/invitations</a></li>
-    
       <li class='GET'><a href='#/get-event-music-genres'>GET /events/:id/musicGenres</a></li>
     
       <li class='GET'><a href='#/get-event-tickets'>GET /events/:id/tickets</a></li>
     
       <li class='GET'><a href='#/get-event-venue'>GET /events/:id/venue</a></li>
-    
-      <li class='GET'><a href='#/get-event-followers'>GET /events/:id/followers</a></li>
-    
-      <li class='POST'><a href='#/post-event-followers'>POST /events/:id/followers</a></li>
-    
-      <li class='DELETE'><a href='#/delete-event-followers'>DELETE /events/:id/followers</a></li>
     
     </ul>
   </li>
@@ -1937,12 +1917,6 @@ https://bifrost.clubjudge.com/v2/artists/1981.json?fields=id,name,address.city
       <td><code>"2014-01-17T03:00:00+01:00"</code></td>
     </tr>
     <tr>
-      <td>reviewEndsAt</td>
-      <td>String</td>
-      <td>Date and time until when reviews are accepted</td>
-      <td><code>"2014-01-18T21:00:00+01:00"</code></td>
-    </tr>
-    <tr>
       <td>updatedAt</td>
       <td>String</td>
       <td>Date and time when the event was last modified</td>
@@ -1955,21 +1929,9 @@ https://bifrost.clubjudge.com/v2/artists/1981.json?fields=id,name,address.city
       <td><code>true</code></td>
     </tr>
     <tr>
-      <td>follow</td>
-      <td>Boolean</td>
-      <td>Weather the logged user is going to this event or not</td>
-      <td><code>true</code></td>
-    </tr>
-    <tr>
       <td>lineUpToBeAnnounced</td>
       <td>Boolean</td>
       <td>Weather the lineup has being announced or not</td>
-      <td><code>false</code></td>
-    </tr>
-    <tr>
-      <td>reviewable</td>
-      <td>Boolean</td>
-      <td>Weather reviews are permited for this event</td>
       <td><code>false</code></td>
     </tr>
     <tr>
@@ -1995,12 +1957,6 @@ https://bifrost.clubjudge.com/v2/artists/1981.json?fields=id,name,address.city
       <td>Integer</td>
       <td>The number of friends of the logged user going to this event</td>
       <td><code>20</code></td>
-    </tr>
-    <tr>
-      <td>reviewCount</td>
-      <td>Integer</td>
-      <td>The number of reviews given for this event</td>
-      <td><code>30</code></td>
     </tr>
     <tr>
       <td>userData</td>
@@ -2160,70 +2116,6 @@ https://bifrost.clubjudge.com/v2/artists/1981.json?fields=id,name,address.city
   <div>
     <h2>events</h2>
     
-      <article class='DELETE'>
-        <a name='/delete-event-followers' href='#/delete-event-followers'>
-          <h2>
-            
-              <code><b>DELETE</b> /events/:id/followers</code>
-            
-          </h2>
-        </a>
-        <section class='body'>
-          <p>The logged in ClubJudge <a href="#/user-model">User</a> stops following the ClubJudge <a href="#/event-model">Event</a>.</p>
-
-<h3 id="example">Example</h3>
-
-<p><code>
-curl -X DELETE "https://bifrost.clubjudge.com/v2/events/123/followers.json?token=userToken"
-</code></p>
-
-
-        </section>
-      </article>
-    
-      <article class='POST'>
-        <a name='/post-event-followers' href='#/post-event-followers'>
-          <h2>
-            
-              <code><b>POST</b> /events/:id/followers</code>
-            
-          </h2>
-        </a>
-        <section class='body'>
-          <p>The logged in ClubJudge <a href="#/user-model">User</a> begins following the ClubJudge <a href="#/event-model">Event</a>.</p>
-
-<h3 id="example">Example</h3>
-
-<p><code>
-curl -X POST "https://bifrost.clubjudge.com/v2/events/123/followers.json?token=userToken"
-</code></p>
-
-
-        </section>
-      </article>
-    
-      <article class='GET'>
-        <a name='/get-event-followers' href='#/get-event-followers'>
-          <h2>
-            
-              <code><b>GET</b> /events/:id/followers</code>
-            
-          </h2>
-        </a>
-        <section class='body'>
-          <p>A list of ClubJudge <a href="#/user-model">Users</a>.</p>
-
-<p>This resource is <a href="#/resource-embedding">embeddable</a>.</p>
-
-<h3 id="example">Example</h3>
-
-<p><code>
-curl "https://bifrost.clubjudge.com/v2/events/123/followers.json"
-</code></p>
-
-        </section>
-      </article>
-    
       <article class='GET'>
         <a name='/get-event-venue' href='#/get-event-venue'>
           <h2>
@@ -2285,48 +2177,6 @@ curl "https://bifrost.clubjudge.com/v2/events/123/tickets.json"
 <p><code>
 curl "https://bifrost.clubjudge.com/v2/events/123/musicGenres.json"
 </code></p>
-
-        </section>
-      </article>
-    
-      <article class='GET'>
-        <a name='/get-event-invitations' href='#/get-event-invitations'>
-          <h2>
-            
-              <code><b>GET</b> /events/:id/invitations</code>
-            
-          </h2>
-        </a>
-        <section class='body'>
-          <p>A list of ClubJudge <a href="#/invitation-model">Invitation</a>.</p>
-
-<h3 id="example">Example</h3>
-
-<p><code>
-curl "https://bifrost.clubjudge.com/v2/events/123/invitations.json"
-</code></p>
-
-
-        </section>
-      </article>
-    
-      <article class='GET'>
-        <a name='/get-event-comments' href='#/get-event-comments'>
-          <h2>
-            
-              <code><b>GET</b> /events/:id/comments</code>
-            
-          </h2>
-        </a>
-        <section class='body'>
-          <p>A list of ClubJudge <a href="#/comment-model">Comments</a>.</p>
-
-<h3 id="example">Example</h3>
-
-<p><code>
-curl "https://bifrost.clubjudge.com/v2/events/123/comments.json"
-</code></p>
-
 
         </section>
       </article>
