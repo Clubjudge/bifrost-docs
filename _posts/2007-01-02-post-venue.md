@@ -24,10 +24,7 @@ curl -H "Content-Type: application/json" -X POST /
           "word2" \
       ], \
       "venueTypes": [ \
-          { \
-              "name": "Rooftop", \
-              "type": "VenueType" \
-          } \
+        "Rooftop" \
       ], \
       "logo": { \
         "guid": "fsd78f8sd-f45hfgdhgf5f5-f53ft24f5" \

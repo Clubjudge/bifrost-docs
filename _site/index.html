@@ -873,9 +873,9 @@ https://bifrost.clubjudge.com/v2/artists/1981.json?fields=id,name,address.city
     </tr>
     <tr>
       <td>venueTypes</td>
-      <td>[<a href="#/tag-model">Tag</a>]</td>
-      <td>Array with venue type tags</td>
-      <td><code>[{ name: "Rooftop", type: "VenueType" }]</code></td>
+      <td>[String]</td>
+      <td>Array with venue types</td>
+      <td><code>["Rooftop", "Bar"]</code></td>
       <td><em>required</em></td>
     </tr>
     <tr>
@@ -3594,10 +3594,7 @@ curl -H "Content-Type: application/json" -X PUT /
           "word2" \
       ], \
       "venueTypes": [ \
-          { \
-              "name": "Rooftop", \
-              "type": "VenueType" \
-          } \
+        "Rooftop", \
       ], \
       "logo": { \
         "guid": "fsd78f8sd-f45hfgdhgf5f5-f53ft24f5" \
@@ -3648,10 +3645,7 @@ curl -H "Content-Type: application/json" -X POST /
           "word2" \
       ], \
       "venueTypes": [ \
-          { \
-              "name": "Rooftop", \
-              "type": "VenueType" \
-          } \
+        "Rooftop" \
       ], \
       "logo": { \
         "guid": "fsd78f8sd-f45hfgdhgf5f5-f53ft24f5" \
