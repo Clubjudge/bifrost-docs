@@ -76,3 +76,5 @@ Reviews can be ordered by date, score, likes and unlikes.
 | order      | String  | Order type: desc (default), asc              |
 | targetId   | Integer | Filter reviews by target Id (optional)              |
 | userId     | Integer | Filter reviews by user Id (optional)              |
+| country    | String  | Filter reviews by country isocode (optional)              |
+| countryId  | Integer | Filter reviews by country Id (optional)              |
