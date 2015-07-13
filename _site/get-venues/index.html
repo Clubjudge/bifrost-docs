@@ -12,16 +12,6 @@ and <a href="#/pagination">Pagination</a> are also supported.</p>
 <h3 id="filters">Filters</h3>
 
 <table>
-  <tbody>
-    <tr>
-      <td>To use the location filter you have to enter at least longitude and latitude and use type=(nearby</td>
-      <td> </td>
-      <td>trending).</td>
-    </tr>
-  </tbody>
-</table>
-
-<table>
   <thead>
     <tr>
       <th style="text-align: left">Parameter</th>
@@ -31,9 +21,14 @@ and <a href="#/pagination">Pagination</a> are also supported.</p>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">city</td>
+      <td style="text-align: left">cityId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">city id</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">countryId</td>
+      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">country id</td>
     </tr>
     <tr>
       <td style="text-align: left">country</td>
@@ -46,19 +41,36 @@ and <a href="#/pagination">Pagination</a> are also supported.</p>
       <td style="text-align: left">(nearby, trending, bestJudged)</td>
     </tr>
     <tr>
-      <td style="text-align: left">location[lat]</td>
-      <td style="text-align: left">Hash</td>
+      <td style="text-align: left">lat</td>
+      <td style="text-align: left">float</td>
       <td style="text-align: left">latitude</td>
     </tr>
     <tr>
-      <td style="text-align: left">location[lon]</td>
-      <td style="text-align: left">Hash</td>
+      <td style="text-align: left">lon</td>
+      <td style="text-align: left">float</td>
       <td style="text-align: left">longitude</td>
     </tr>
     <tr>
-      <td style="text-align: left">location[radius]</td>
-      <td style="text-align: left">Hash</td>
       <td style="text-align: left">radius</td>
+      <td style="text-align: left">float</td>
+      <td style="text-align: left">radius</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">closed</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Filter by closed clubs (closed=true) or open clubs (closed=false)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">orderBy</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Order by: score, reviews, id (default)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">order</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Ordering: asc (default) desc</td>
     </tr>
   </tbody>
 </table>
+
+<p><strong>NOTES:</strong>  The radius options can be combined with lat&amp;lon or with cityId.</p>
