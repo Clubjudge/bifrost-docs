@@ -52,7 +52,11 @@
     
   
     
+  
+    
     <li><a href='#/get-venue-similar'>Get Venue Similar</a></li>
+    
+  
     
   
     
@@ -235,6 +239,8 @@
     
       <li class=''><a href='#/social-links-model'>Social Links</a></li>
     
+      <li class=''><a href='#/search-item-model'>Search Item</a></li>
+    
     </ul>
   </li>
 
@@ -416,6 +422,14 @@
       <li class='DELETE'><a href='#/delete-review-unlike'>DELETE /reviews/:id/unlike</a></li>
     
       <li class='GET'><a href='#/get-review-users'>GET /reviews/:id/user</a></li>
+    
+    </ul>
+  </li>
+
+  <li><h2>search</h2>
+    <ul>
+    
+      <li class='GET'><a href='#/get-search'>GET /search?q=term&models[]=model1&model[]=model2</a></li>
     
     </ul>
   </li>
@@ -611,6 +625,45 @@ https://bifrost.clubjudge.com/v2/artists/1981.json?fields=id,name,address.city
 
   <div>
     <h2>models</h2>
+    
+      <article class=''>
+        <a name='/search-item-model' href='#/search-item-model'>
+          <h2>
+            
+              Search Item
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A search result.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>model</td>
+      <td>String</td>
+      <td>Type of result</td>
+      <td><code>"City"</code></td>
+    </tr>
+    <tr>
+      <td>source</td>
+      <td>Hash</td>
+      <td>Result payload</td>
+      <td><code>{id: 891,name: "Lisbon",aliases: [],geolocation: {lat: 38.71667,lon:-9.13333},country: {id: 49,name: "Portugal",isocode: "PT"},region: {id: 2646,name: "Lisbon",isocode: null}}</code></td>
+    </tr>
+  </tbody>
+</table>
+
+        </section>
+      </article>
     
       <article class=''>
         <a name='/social-links-model' href='#/social-links-model'>
@@ -4389,6 +4442,61 @@ curl -H "Content-Type: application/json" -X GET -d https://bifrost.clubjudge.com
 </code></p>
 
 <p>NOTE: The token parameter is optional and will be used to retrieve user data.</p>
+
+        </section>
+      </article>
+    
+  </div>
+
+  <div>
+    <h2>search</h2>
+    
+      <article class='GET'>
+        <a name='/get-search' href='#/get-search'>
+          <h2>
+            
+              <code><b>GET</b> /search</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Only available for <a href="#/city-model">City</a> and <a href="#/country-model">Country</a>
+A collection of <a href="#/search-item-model">SearchItem</a> models that match the search parameter.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl "https://bifrost.clubjudge.com/v2/search.json?q=lisbon&amp;models[]=city&amp;models[]=country"
+</code></p>
+
+<p><a href="#/partial-responses">Partial responses</a>
+and <a href="#/pagination">Pagination</a> are also supported.</p>
+
+<h3 id="filters">Filters</h3>
+
+<p>To use the location filter you have to enter at least longitude and latitude.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">q</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">the term to perform the search against</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">models</td>
+      <td style="text-align: left">String Array</td>
+      <td style="text-align: left">list of models to search</td>
+    </tr>
+  </tbody>
+</table>
 
         </section>
       </article>
