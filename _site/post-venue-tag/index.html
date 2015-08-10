@@ -1,0 +1,13 @@
+<p>Create the <a href="#/tag-model">Tag</a> on the ClubJudge <a href="#/venue-model">Venue</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p>Creates a link between venue 221 and the reference tag with id 9800.</p>
+
+<p><code>
+curl -H "Content-Type: application/json" -X POST /
+-d '{"id": 9800 }' /
+https://bifrost.clubjudge.com/v2/venues/221/tags.json?token=userToken
+</code></p>
+
+<p><strong>NOTES:</strong> The tag with can be obtain from <a href="#/get-tags">/tags</a> and only administrator users are allowed to perform this operation.</p>
