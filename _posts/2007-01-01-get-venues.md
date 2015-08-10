@@ -20,13 +20,18 @@ and [Pagination](#/pagination) are also supported.
 
 ### Filters
 
-To use the location filter you have to enter at least longitude and latitude and use type=(nearby || trending).
-
 | Parameter  |   Type  |                 Description                  |
 | :--------- | :------ | :------------------------------------------- |
-| city       | Integer | city id                                      |
+| cityId     | Integer | city id                                      |
+| countryId  | Integer | country id                                   |
 | country    | String  | country isocode (pt,nl,be ...)               |
 | type       | String  | (nearby, trending, bestJudged)               |
-| location[lat]   | Hash    | latitude                                |
-| location[lon]   | Hash    | longitude                               |
-| location[radius]   | Hash    | radius                               |
+| lat        | float   | latitude                                     |
+| lon        | float   | longitude                                    |
+| radius     | float   | radius                                       |
+| closed     | boolean | Filter by closed clubs (closed=true) or open clubs (closed=false) |
+| orderBy    | string  | Order by: score, reviews, id (default)       |
+| order      | string  | Ordering: asc (default) desc                 |
+
+
+**NOTES:**  The radius options can be combined with lat&lon or with cityId.
