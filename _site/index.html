@@ -3829,6 +3829,21 @@ and <a href="#/pagination">Pagination</a> are also supported.</p>
       <td style="text-align: left">(nearby, trending, bestJudged)</td>
     </tr>
     <tr>
+      <td style="text-align: left">tagTypes</td>
+      <td style="text-align: left">Array</td>
+      <td style="text-align: left">(recommended, cj)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">tags</td>
+      <td style="text-align: left">Array</td>
+      <td style="text-align: left">(trendy, luxury)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">venueTypes</td>
+      <td style="text-align: left">Array</td>
+      <td style="text-align: left">(club, hotel, restaurant)</td>
+    </tr>
+    <tr>
       <td style="text-align: left">lat</td>
       <td style="text-align: left">float</td>
       <td style="text-align: left">latitude</td>
@@ -4471,6 +4486,21 @@ curl -H "Content-Type: application/json" -X GET https://bifrost.clubjudge.com/v2
       <td style="text-align: left">type</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Filter by review type: VenueReview</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">startsAt</td>
+      <td style="text-align: left">DateTime</td>
+      <td style="text-align: left">get reviews updated after startsAt</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">endsAt</td>
+      <td style="text-align: left">DateTime</td>
+      <td style="text-align: left">get reviews updated before endsAt</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">cityId</td>
+      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">get reviews for given city</td>
     </tr>
     <tr>
       <td style="text-align: left">orderBy</td>

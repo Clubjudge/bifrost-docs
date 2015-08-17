@@ -72,6 +72,9 @@ Reviews can be ordered by date, score, likes and unlikes.
 | :--------- | :------ | :------------------------------------------- |
 | token      | String  | Current user token, will be used to retrieve user data (optional) |
 | type       | String  | Filter by review type: VenueReview           |
+| startsAt   | DateTime| get reviews updated after startsAt           |
+| endsAt     | DateTime| get reviews updated before endsAt            |
+| cityId     | Integer | get reviews for given city                   |
 | orderBy    | String  | Order criteria: date (default), score, likes and unlikes |
 | order      | String  | Order type: desc (default), asc              |
 | targetId   | Integer | Filter reviews by target Id (optional)              |

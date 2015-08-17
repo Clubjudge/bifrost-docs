@@ -79,6 +79,21 @@ curl -H "Content-Type: application/json" -X GET https://bifrost.clubjudge.com/v2
       <td style="text-align: left">Filter by review type: VenueReview</td>
     </tr>
     <tr>
+      <td style="text-align: left">startsAt</td>
+      <td style="text-align: left">DateTime</td>
+      <td style="text-align: left">get reviews updated after startsAt</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">endsAt</td>
+      <td style="text-align: left">DateTime</td>
+      <td style="text-align: left">get reviews updated before endsAt</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">cityId</td>
+      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">get reviews for given city</td>
+    </tr>
+    <tr>
       <td style="text-align: left">orderBy</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Order criteria: date (default), score, likes and unlikes</td>
