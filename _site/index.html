@@ -54,7 +54,13 @@
     
   
     
+  
+    
+  
+    
     <li><a href='#/get-venue-similar'>Get Venue Similar</a></li>
+    
+  
     
   
     
@@ -370,6 +376,10 @@
       <li class='PUT'><a href='#/put-venue-areas'>PUT /venues/:id/areas/:areaId</a></li>
     
       <li class='GET'><a href='#/get-venue-reviews'>GET /venues/:id/reviews</a></li>
+    
+      <li class='DELETE'><a href='#/delete-venue-tag'>DELETE /venues/:id/tags/:id</a></li>
+    
+      <li class='POST'><a href='#/post-venue-tag'>POST /venues/:id/tags</a></li>
     
     </ul>
   </li>
@@ -749,6 +759,12 @@ https://bifrost.clubjudge.com/v2/artists/1981.json?fields=id,name,address.city
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td>id</td>
+      <td>Integer</td>
+      <td>Unique identifier of tag</td>
+      <td><code>9800</code></td>
+    </tr>
     <tr>
       <td>name</td>
       <td>String</td>
@@ -2955,6 +2971,52 @@ curl "https://bifrost.clubjudge.com/v2/stats.json"
 
   <div>
     <h2>venues</h2>
+    
+      <article class='POST'>
+        <a name='/post-venue-tag' href='#/post-venue-tag'>
+          <h2>
+            
+              <code><b>POST</b> /venues/:id/tags</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Create the <a href="#/tag-model">Tag</a> on the ClubJudge <a href="#/venue-model">Venue</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p>Creates a link between venue 221 and the reference tag with id 9800.</p>
+
+<p><code>
+curl -H "Content-Type: application/json" -X POST /
+-d '{"id": 9800 }' /
+https://bifrost.clubjudge.com/v2/venues/221/tags.json?token=userToken
+</code></p>
+
+<p><strong>NOTES:</strong> The tag with can be obtain from <a href="#/get-tags">/tags</a> and only administrator users are allowed to perform this operation.</p>
+
+        </section>
+      </article>
+    
+      <article class='DELETE'>
+        <a name='/delete-venue-tag' href='#/delete-venue-tag'>
+          <h2>
+            
+              <code><b>DELETE</b> /venues/:id/tags/:id</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Delete the <a href="#/tag-model">Tag</a> from the ClubJudge <a href="#/venue-model">Venue</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl -X DELETE "https://bifrost.clubjudge.com/v2/venues/221/tags/9800.json?token=userToken"
+</code></p>
+
+        </section>
+      </article>
     
       <article class='GET'>
         <a name='/get-venue-reviews' href='#/get-venue-reviews'>
