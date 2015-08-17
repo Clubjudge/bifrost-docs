@@ -26,6 +26,9 @@ and [Pagination](#/pagination) are also supported.
 | countryId  | Integer | country id                                   |
 | country    | String  | country isocode (pt,nl,be ...)               |
 | type       | String  | (nearby, trending, bestJudged)               |
+| tagTypes   | Array   | (recommended, cj)                            |
+| tags       | Array   | (trendy, luxury)                             |
+| venueTypes | Array   | (club, hotel, restaurant)                    |
 | lat        | float   | latitude                                     |
 | lon        | float   | longitude                                    |
 | radius     | float   | radius                                       |
