@@ -58,6 +58,8 @@
     
   
     
+  
+    
     <li><a href='#/get-venue-similar'>Get Venue Similar</a></li>
     
   
@@ -380,6 +382,8 @@
       <li class='DELETE'><a href='#/delete-venue-tag'>DELETE /venues/:id/tags/:id</a></li>
     
       <li class='POST'><a href='#/post-venue-tag'>POST /venues/:id/tags</a></li>
+    
+      <li class='GET'><a href='#/get-venue-tags'>GET /venues/:id/tags</a></li>
     
     </ul>
   </li>
@@ -2971,6 +2975,60 @@ curl "https://bifrost.clubjudge.com/v2/stats.json"
 
   <div>
     <h2>venues</h2>
+    
+      <article class='GET'>
+        <a name='/get-venue-tags' href='#/get-venue-tags'>
+          <h2>
+            
+              <code><b>GET</b> /venues/:id/tags</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Get the <a href="#/tag-model">Tag</a> on the ClubJudge <a href="#/venue-model">Venue</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p>Get all tags for venue 221</p>
+
+<p><code>
+curl -H "Content-Type: application/json" -X GET https://bifrost.clubjudge.com/v2/venues/221/tags.json
+</code></p>
+
+<p><strong>PAYLOAD</strong></p>
+
+<p><code>
+{
+  "tags": [
+    {
+      "name": "Suggested",
+      "tagType": "Editorial",
+      "id": 1
+    },
+    {
+      "name": "Fun",
+      "tagType": "Atmosphere",
+      "id": 2
+    }
+  ],
+  "_pagination": {
+    "currentPage": 1,
+    "perPage": 2,
+    "totalPages": 1,
+    "totalItems": 2
+  },
+  "_links": {
+    "first": "http://127.0.0.1:5050/v2/venues/221/tags.json?page=1",
+    "previous": null,
+    "self": "http://127.0.0.1:5050/v2/venues/221/tags.json?page=1",
+    "next": null,
+    "last": "http://127.0.0.1:5050/v2/venues/221/tags.json?page=1"
+  }
+}
+</code></p>
+
+        </section>
+      </article>
     
       <article class='POST'>
         <a name='/post-venue-tag' href='#/post-venue-tag'>

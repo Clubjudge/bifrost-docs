@@ -1,0 +1,41 @@
+<p>Get the <a href="#/tag-model">Tag</a> on the ClubJudge <a href="#/venue-model">Venue</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p>Get all tags for venue 221</p>
+
+<p><code>
+curl -H "Content-Type: application/json" -X GET https://bifrost.clubjudge.com/v2/venues/221/tags.json
+</code></p>
+
+<p><strong>PAYLOAD</strong></p>
+
+<p><code>
+{
+  "tags": [
+    {
+      "name": "Suggested",
+      "tagType": "Editorial",
+      "id": 1
+    },
+    {
+      "name": "Fun",
+      "tagType": "Atmosphere",
+      "id": 2
+    }
+  ],
+  "_pagination": {
+    "currentPage": 1,
+    "perPage": 2,
+    "totalPages": 1,
+    "totalItems": 2
+  },
+  "_links": {
+    "first": "http://127.0.0.1:5050/v2/venues/221/tags.json?page=1",
+    "previous": null,
+    "self": "http://127.0.0.1:5050/v2/venues/221/tags.json?page=1",
+    "next": null,
+    "last": "http://127.0.0.1:5050/v2/venues/221/tags.json?page=1"
+  }
+}
+</code></p>
