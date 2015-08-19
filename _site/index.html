@@ -197,6 +197,14 @@
   
     
   
+    
+  
+    
+  
+    
+  
+    
+  
   
   <li><h2>using the api</h2>
     <ul>
@@ -216,6 +224,8 @@
     <ul>
     
       <li class=''><a href='#/city-model'>City</a></li>
+    
+      <li class=''><a href='#/country-model'>Country</a></li>
     
       <li class=''><a href='#/image-model'>Image</a></li>
     
@@ -277,7 +287,19 @@
     
       <li class='GET'><a href='#/get-cities-search'>GET /cities/search</a></li>
     
+      <li class='GET'><a href='#/get-city'>GET /cities/:id</a></li>
+    
       <li class='GET'><a href='#/get-city-venues'>GET /cities/:id/venues</a></li>
+    
+    </ul>
+  </li>
+
+  <li><h2>countries</h2>
+    <ul>
+    
+      <li class='GET'><a href='#/get-countries'>GET /countries</a></li>
+    
+      <li class='GET'><a href='#/get-country'>GET /countries/:id</a></li>
     
     </ul>
   </li>
@@ -2130,6 +2152,51 @@ https://bifrost.clubjudge.com/v2/artists/1981.json?fields=id,name,address.city
       </article>
     
       <article class=''>
+        <a name='/country-model' href='#/country-model'>
+          <h2>
+            
+              Country
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A Clubjudge Country.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>Integer</td>
+      <td>Id of the country</td>
+      <td><code>36002</code></td>
+    </tr>
+    <tr>
+      <td>isocode</td>
+      <td>String</td>
+      <td>Isocode of the country</td>
+      <td><code>"PT"</code></td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>String</td>
+      <td>Name of the country</td>
+      <td><code>Portugal</code></td>
+    </tr>
+  </tbody>
+</table>
+
+        </section>
+      </article>
+    
+      <article class=''>
         <a name='/city-model' href='#/city-model'>
           <h2>
             
@@ -2139,6 +2206,8 @@ https://bifrost.clubjudge.com/v2/artists/1981.json?fields=id,name,address.city
         </a>
         <section class='body'>
           <p>A Clubjudge City.</p>
+
+<p>v1</p>
 
 <table>
   <thead>
@@ -2173,6 +2242,57 @@ https://bifrost.clubjudge.com/v2/artists/1981.json?fields=id,name,address.city
       <td>String</td>
       <td>Region where the city belongs</td>
       <td><code>"South Denmark"</code></td>
+    </tr>
+    <tr>
+      <td>geolocation</td>
+      <td>Hash</td>
+      <td>Lat &amp; long coordinates</td>
+      <td><code>{ lat: 55.04434, lon: 9.41741}</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>v2</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>Integer</td>
+      <td>Id of the city</td>
+      <td><code>36002</code></td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>String</td>
+      <td>Name of the city</td>
+      <td><code>"Aabenraa"</code></td>
+    </tr>
+    <tr>
+      <td>aliases</td>
+      <td>[Hash]</td>
+      <td>Other names by which the city is known</td>
+      <td><code>[{id: 60119,cityId: 1743,name: "Kargavank",locale: ""}]</code></td>
+    </tr>
+    <tr>
+      <td>region</td>
+      <td>Hash</td>
+      <td>Region where the city belongs</td>
+      <td><code>"{id: 1587,name: "North Jeolla",isocode: null}"</code></td>
+    </tr>
+    <tr>
+      <td>country</td>
+      <td>Hash</td>
+      <td>Country where the city belongs</td>
+      <td><code>{ id: 74, name: "South Korea", isocode: "KR"}</code></td>
     </tr>
     <tr>
       <td>geolocation</td>
@@ -2429,6 +2549,29 @@ and <a href="#/pagination">Pagination</a> are also supported.</p>
       </article>
     
       <article class='GET'>
+        <a name='/get-city' href='#/get-city'>
+          <h2>
+            
+              <code><b>GET</b> /cities/:id</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A ClubJudge <a href="#/city-model">City</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl "https://bifrost.clubjudge.com/v2/cities/3.json"
+</code></p>
+
+<p><a href="#/partial-responses">Partial responses</a>, <a href="#/reference-embedding">Reference embedding</a>
+and <a href="#/pagination">Pagination</a> are also supported.</p>
+
+        </section>
+      </article>
+    
+      <article class='GET'>
         <a name='/get-cities-search' href='#/get-cities-search'>
           <h2>
             
@@ -2497,6 +2640,57 @@ and <a href="#/pagination">Pagination</a> are also supported.</p>
 
 <p><code>
 curl "https://bifrost.clubjudge.com/v2/cities.json"
+</code></p>
+
+<p><a href="#/partial-responses">Partial responses</a>, <a href="#/reference-embedding">Reference embedding</a>
+and <a href="#/pagination">Pagination</a> are also supported.</p>
+
+        </section>
+      </article>
+    
+  </div>
+
+  <div>
+    <h2>countries</h2>
+    
+      <article class='GET'>
+        <a name='/get-country' href='#/get-country'>
+          <h2>
+            
+              <code><b>GET</b> /countries/:id</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A ClubJudge <a href="#/country-model">Country</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl "https://bifrost.clubjudge.com/v2/countries/3.json"
+</code></p>
+
+<p><a href="#/partial-responses">Partial responses</a>, <a href="#/reference-embedding">Reference embedding</a>
+and <a href="#/pagination">Pagination</a> are also supported.</p>
+
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-countries' href='#/get-countries'>
+          <h2>
+            
+              <code><b>GET</b> /countries</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A ClubJudge <a href="#/country-model">Country</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl "https://bifrost.clubjudge.com/v2/countries.json"
 </code></p>
 
 <p><a href="#/partial-responses">Partial responses</a>, <a href="#/reference-embedding">Reference embedding</a>
