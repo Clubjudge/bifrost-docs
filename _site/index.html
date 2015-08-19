@@ -201,6 +201,10 @@
   
     
   
+    
+  
+    
+  
   
   <li><h2>using the api</h2>
     <ul>
@@ -286,6 +290,16 @@
       <li class='GET'><a href='#/get-city'>GET /cities/:id</a></li>
     
       <li class='GET'><a href='#/get-city-venues'>GET /cities/:id/venues</a></li>
+    
+    </ul>
+  </li>
+
+  <li><h2>countries</h2>
+    <ul>
+    
+      <li class='GET'><a href='#/get-countries'>GET /countries</a></li>
+    
+      <li class='GET'><a href='#/get-country'>GET /countries/:id</a></li>
     
     </ul>
   </li>
@@ -2626,6 +2640,57 @@ and <a href="#/pagination">Pagination</a> are also supported.</p>
 
 <p><code>
 curl "https://bifrost.clubjudge.com/v2/cities.json"
+</code></p>
+
+<p><a href="#/partial-responses">Partial responses</a>, <a href="#/reference-embedding">Reference embedding</a>
+and <a href="#/pagination">Pagination</a> are also supported.</p>
+
+        </section>
+      </article>
+    
+  </div>
+
+  <div>
+    <h2>countries</h2>
+    
+      <article class='GET'>
+        <a name='/get-country' href='#/get-country'>
+          <h2>
+            
+              <code><b>GET</b> /countries/:id</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A ClubJudge <a href="#/country-model">Country</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl "https://bifrost.clubjudge.com/v2/countries/3.json"
+</code></p>
+
+<p><a href="#/partial-responses">Partial responses</a>, <a href="#/reference-embedding">Reference embedding</a>
+and <a href="#/pagination">Pagination</a> are also supported.</p>
+
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-countries' href='#/get-countries'>
+          <h2>
+            
+              <code><b>GET</b> /countries</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A ClubJudge <a href="#/country-model">Country</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl "https://bifrost.clubjudge.com/v2/countries.json"
 </code></p>
 
 <p><a href="#/partial-responses">Partial responses</a>, <a href="#/reference-embedding">Reference embedding</a>
