@@ -199,6 +199,8 @@
   
     
   
+    
+  
   
   <li><h2>using the api</h2>
     <ul>
@@ -280,6 +282,8 @@
       <li class='GET'><a href='#/get-cities'>GET /cities</a></li>
     
       <li class='GET'><a href='#/get-cities-search'>GET /cities/search</a></li>
+    
+      <li class='GET'><a href='#/get-city'>GET /cities/:id</a></li>
     
       <li class='GET'><a href='#/get-city-venues'>GET /cities/:id/venues</a></li>
     
@@ -2526,6 +2530,29 @@ and <a href="#/pagination">Pagination</a> are also supported.</p>
     </tr>
   </tbody>
 </table>
+
+        </section>
+      </article>
+    
+      <article class='GET'>
+        <a name='/get-city' href='#/get-city'>
+          <h2>
+            
+              <code><b>GET</b> /cities/:id</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>A ClubJudge <a href="#/city-model">City</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl "https://bifrost.clubjudge.com/v2/cities/3.json"
+</code></p>
+
+<p><a href="#/partial-responses">Partial responses</a>, <a href="#/reference-embedding">Reference embedding</a>
+and <a href="#/pagination">Pagination</a> are also supported.</p>
 
         </section>
       </article>
