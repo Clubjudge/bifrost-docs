@@ -62,6 +62,8 @@
     
   
     
+  
+    
     <li><a href='#/get-venue-similar'>Get Venue Similar</a></li>
     
   
@@ -434,6 +436,8 @@
     <ul>
     
       <li class='POST'><a href='#/post-image-background'>POST /images/backgrounds</a></li>
+    
+      <li class='POST'><a href='#/post-images-avatars'>POST /images/avatars</a></li>
     
       <li class='POST'><a href='#/post-images-flyers'>POST /images/flyers</a></li>
     
@@ -4369,6 +4373,40 @@ https://bifrost.clubjudge.com/v2/images/flyers.json
 curl -H "Content-Type: application/json" -X POST /
 -d '{"url": "http://mycdn.com/image.png" }' /
 https://bifrost.clubjudge.com/v2/images/flyers.json
+</code></p>
+
+        </section>
+      </article>
+    
+      <article class='POST'>
+        <a name='/post-images-avatars' href='#/post-images-avatars'>
+          <h2>
+            
+              <code><b>POST</b> /images/avatars</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Create a temp <a href="#/image-model">Image</a> avatar</p>
+
+<h3 id="example">Example</h3>
+
+<p>Creates a temporary image avatar.</p>
+
+<p>With a blob</p>
+
+<p><code>
+curl -H "Content-Type: application/json" -X POST /
+-d '{"blob": { "data": "asfsadf", "extension": "png"}}' /
+https://bifrost.clubjudge.com/v2/images/avatars.json
+</code></p>
+
+<p>With a url</p>
+
+<p><code>
+curl -H "Content-Type: application/json" -X POST /
+-d '{"url": "http://mycdn.com/image.png" }' /
+https://bifrost.clubjudge.com/v2/images/avatars.json
 </code></p>
 
         </section>

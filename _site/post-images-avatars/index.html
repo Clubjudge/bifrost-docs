@@ -1,0 +1,21 @@
+<p>Create a temp <a href="#/image-model">Image</a> avatar</p>
+
+<h3 id="example">Example</h3>
+
+<p>Creates a temporary image avatar.</p>
+
+<p>With a blob</p>
+
+<p><code>
+curl -H "Content-Type: application/json" -X POST /
+-d '{"blob": { "data": "asfsadf", "extension": "png"}}' /
+https://bifrost.clubjudge.com/v2/images/avatars.json
+</code></p>
+
+<p>With a url</p>
+
+<p><code>
+curl -H "Content-Type: application/json" -X POST /
+-d '{"url": "http://mycdn.com/image.png" }' /
+https://bifrost.clubjudge.com/v2/images/avatars.json
+</code></p>
