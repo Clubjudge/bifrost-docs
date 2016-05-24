@@ -213,6 +213,10 @@
   
     
   
+    
+  
+    
+  
   
   <li><h2>using the api</h2>
     <ul>
@@ -328,6 +332,10 @@
       <li class='GET'><a href='#/get-artists-followers'>GET /artists/:id/followers</a></li>
     
       <li class='GET'><a href='#/get-artists-music-genres'>GET /artists/:id/musicGenres</a></li>
+    
+      <li class='POST'><a href='#/post-artist'>POST /artists</a></li>
+    
+      <li class='PUT'><a href='#/put-artist'>PUT /artists/:id</a></li>
     
     </ul>
   </li>
@@ -1889,7 +1897,7 @@ https://bifrost.clubjudge.com/v2/artists/1981.json?fields=id,name,address.city
           </h2>
         </a>
         <section class='body'>
-          <p>A Clubjudge Event.</p>
+          <p>A Clubjudge Artist.</p>
 
 <h3 id="properties">Properties</h3>
 
@@ -1992,12 +2000,6 @@ https://bifrost.clubjudge.com/v2/artists/1981.json?fields=id,name,address.city
       <td>Hash</td>
       <td>Links to background images for this artist</td>
       <td><code>{ base: 'http://example.com', ext: 1981 }</code></td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -2856,6 +2858,62 @@ and <a href="#/pagination">Pagination</a> are also supported.</p>
 
   <div>
     <h2>artists</h2>
+    
+      <article class='PUT'>
+        <a name='/put-artist' href='#/put-artist'>
+          <h2>
+            
+              <code><b>PUT</b> /artists/:id</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Updates a ClubJudge <a href="#/artist-model">Artist</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl -H "Content-Type: application/json" -X PUT /
+-d '{ \
+  "name": "teste-artist-update", \
+  "musicGenreIds": [8], \
+  "websiteUrl": "http://wearesingular.com", \
+  "email": "something@wearesingular.com", \
+  "avatarGuid": "55dbc4a8-c081-4322-a1d7-6b6ae6648586" \
+}' \
+https://bifrost.clubjudge.com/v2/artists/28345.json
+</code></p>
+
+        </section>
+      </article>
+    
+      <article class='POST'>
+        <a name='/post-artist' href='#/post-artist'>
+          <h2>
+            
+              <code><b>POST</b> /artists</code>
+            
+          </h2>
+        </a>
+        <section class='body'>
+          <p>Create a new ClubJudge <a href="#/artist-model">Artist</a>.</p>
+
+<h3 id="example">Example</h3>
+
+<p><code>
+curl -H "Content-Type: application/json" -X POST /
+-d '{ \
+  "name": "teste-artist-create", \
+  "musicGenreIds": [8], \
+  "websiteUrl": "http://wearesingular.com", \
+  "email": "something@wearesingular.com", \
+  "avatarGuid": "55dbc4a8-c081-4322-a1d7-6b6ae6648586" \
+}' \
+https://bifrost.clubjudge.com/v2/artists.json
+</code></p>
+
+        </section>
+      </article>
     
       <article class='GET'>
         <a name='/get-artists-music-genres' href='#/get-artists-music-genres'>
