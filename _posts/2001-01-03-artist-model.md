@@ -24,8 +24,7 @@ A Clubjudge Artist.
 | upcomingEventsCount   | Integer  | Number of upcoming events for this artist                     | ```24```                                                                        |
 | socialMentionsCount   | Integer  | Number of social mentions for this artist                     | ```238```                                                                       |
 | address               | Hash     | Address for contact with the artist                           | ```{ city: null, country:null, region:null composedName:null}```                |
-| background            | Hash     | Links to background images for this artist                    | ```{ base: 'http://example.com', ext: 1981 }```                                 |
-|                       |          |                                                               |                                                                                 |
+| background            | Hash     | Links to background images for this artist                    | ```{ base: 'http://example.com', ext: 1981 }```                                 
 
 ### Subresources
 
