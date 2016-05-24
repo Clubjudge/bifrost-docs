@@ -4,7 +4,7 @@ title: 'Artist'
 
 layout: nil
 ---
-A Clubjudge Event.
+A Clubjudge Artist.
 
 ### Properties
 
